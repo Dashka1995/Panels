@@ -1,0 +1,36 @@
+@font-face {
+    font-family: 'InterstellarW00';
+    src: url('../fonts/InterstellarW00-Regular.woff2') format('woff2'),
+        url('../fonts/InterstellarW00-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Inter 18pt';
+    src: url('../fonts/Inter18pt-SemiBold.woff2') format('woff2'),
+        url('Inter18pt-SemiBold.woff') format('woff');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Inter 18pt';
+    src: url('../fonts/Inter18pt-Regular.woff2') format('woff2'),
+        url('Inter18pt-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Inter 18pt';
+    src: url('../fonts/Inter18pt-Medium.woff2') format('woff2'),
+        url('Inter18pt-Medium.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
