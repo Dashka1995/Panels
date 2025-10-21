@@ -188,6 +188,7 @@ a {
   .header__nav {
     width: auto;
     flex-direction: row;
+    flex-grow: 1;
   }
 }
 
@@ -195,10 +196,10 @@ a {
 .header__logo {
   display: flex;
   gap: 8px;
-  min-width: 150px;
 }
 
 .header__logo-text {
+  min-width: 104px;
   font-family: var(--font-family-alt);
   font-weight: 400;
   font-size: 16px;
@@ -254,9 +255,7 @@ a {
 @media (min-width: 1366px) {
   .header__nav-list {
     flex-direction: row;
-    justify-content: flex-start;
-    width: auto;
-    flex-grow: 1;
+    justify-content: center;
     column-gap: 60px;
     padding: 0;
   }
@@ -442,13 +441,10 @@ body:has(dialog[open]) {
 }
 
 /*? main*/
-/* .main {
-  padding-block: clamp(25px, 10px + 4.17vw, 30px);
+.hero {
+  background-color: #fdb71a;
+  width: 100%;
+  aspect-ratio: 1090 / 1082;
 }
-@media (min-width: 480px) {
-  .main {
-    padding-block: clamp(30px, 18px + 1.39vw, 40px);
-  }
-} */
 
 /*добавить крестик на мобильное меню*/
