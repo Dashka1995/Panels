@@ -3,6 +3,10 @@
   --color-black: black;
   --color-accent: #fdb71a;
   --color-accent-alt: #fd881a;
+  --color-accent-trans20: #fdb71a33;
+  --color-accent-trans30: #fdb71a4d;
+  --color-accent-trans40: #fdb71a66;
+
   --color-light-grey-trans60: #807c7c99;
   --color-dark-grey: #0000001a;
 
@@ -16,7 +20,7 @@
   --button-height: 72px;
   --button-height-s: 57px;
 
-  @media (min-width: 1025px) {
+  @media (min-width: 1024px) {
     --container-width: clamp(75rem, 83.33vw, 100rem);
   }
 
@@ -203,7 +207,6 @@ a {
   font-family: var(--font-family-alt);
   font-weight: 400;
   font-size: 16px;
-  line-height: 24px;
   letter-spacing: -0.02em;
   color: var(--color-black);
 }
@@ -276,7 +279,6 @@ a {
   font-size: 18px;
   letter-spacing: -0.025em;
   border-radius: 10px;
-  line-height: 28px;
 }
 @media (hover: hover) {
   .header__link:hover {
@@ -468,6 +470,113 @@ body:has(dialog[open]) {
   bottom: 0;
   left: 0;
   right: 0;
+}
+
+.hero__body {
+  position: relative;
+  z-index: 1;
+  flex-direction: column;
+  height: 100%;
+  row-gap: clamp(80px, 70px + 2.54vw, 90px);
+}
+@media (min-width: 1024px) {
+  .hero__body {
+    row-gap: clamp(55px, 11px + 4.27vw, 85px);
+  }
+}
+
+.hero__title {
+  font-family: var(--font-family-alt);
+  font-weight: 400;
+  font-size: clamp(52px, 6px + 12.21vw, 100px);
+  background: linear-gradient(
+    270.01deg,
+    #ffffff -55.45%,
+    #fdb71a 91.76%,
+    #ffffff 165.38%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+@media (min-width: 1024px) {
+  .hero__title {
+    font-size: clamp(130px, 32px + 9.62vw, 170px);
+  }
+}
+
+.hero__flickering-button {
+  padding: 12px 24px;
+  column-gap: 13px;
+  color: var(--color-accent);
+  background-color: var(--color-accent-trans20);
+  border-radius: 200px;
+  border: 1px solid var(--color-accent-trans40);
+  box-shadow: 0px 25px 50px -12px var(--color-accent-trans40);
+  animation: infiniteFlicker 2s ease-in-out infinite;
+  transition: all 0.3s ease;
+}
+@keyframes infiniteFlicker {
+  0%, 100% {
+    opacity: 1;
+    box-shadow: 
+      0px 25px 50px -12px var(--color-accent-trans40),
+      0px 0px 20px 0px var(--color-accent-trans30);
+  }
+  50% {
+    opacity: 0.8;
+    box-shadow: 
+      0px 25px 50px -12px var(--color-accent-trans20),
+      0px 0px 30px 8px var(--color-accent-trans40);
+  }
+  75% {
+    opacity: 0.9;
+    box-shadow: 
+      0px 25px 50px -12px var(--color-accent-trans30),
+      0px 0px 40px 12px var(--color-accent-trans50);
+  }
+}
+
+@media (hover: hover) {
+  .hero__flickering-button:hover {
+    border: 1px solid var(--color-accent);
+    box-shadow: 0px 0px 32.2px -12px var(--color-accent-trans30);
+    animation: none;
+  }
+}
+@media (hover: none) {
+  .hero__flickering-button:active {
+    border: 1px solid var(--color-accent);
+    box-shadow: 0px 0px 32.2px -12px var(--color-accent-trans30);
+    animation: none;
+  }
+}
+
+.hero__description {
+  color: #FFFFFFE5;
+  flex-direction: column;
+  row-gap: 30px;  
+  font-weight: 400;
+  text-align: center;
+}
+
+.hero__subtitle {
+  font-weight: inherit;
+  font-size: 25px;
+  letter-spacing: 0.0322em;
+  line-height: 1.5;
+}
+@media (min-width: 1024px) {
+  .hero__subtitle {
+    font-size: clamp(35px, 5px + 2.92vw, 45px);
+  }
+}
+
+.hero__text {
+  font-size: clamp(20px, 14px + 0.58vw, 22px);
+  letter-spacing: 0.0035em;
+  line-height: 1.95;
 }
 
 /*добавить крестик на мобильное меню
