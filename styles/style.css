@@ -142,6 +142,54 @@ a {
     drop-shadow(0px 4px 6px var(--color-dark-grey));
 }
 
+.button-rect {
+  height: var(--button-height);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
+  border-radius: 8px;
+  box-shadow: 0px 4px 4px 0px #00000040;
+  font-weight: 500;
+  letter-spacing: -0.0245em;
+}
+
+.button-rect--accent {
+  border: 2px solid transparent;
+  background-color: var(--color-accent);
+  color: var(--color-black);
+}
+@media (hover: hover) {
+  .button-rect--accent:hover {
+    background-color: var(--color-accent-alt);
+    color: var(--color-white);
+  }
+}
+@media (hover: none) {
+  .button-rect--accent:active {
+    background-color: var(--color-accent-alt);
+    color: var(--color-white);
+  }
+}
+
+.button-rect--trans {
+  border: 2px solid #ffffff;
+  background-color: #ffffff1a;
+  color: var(--color-white);
+}
+@media (hover: hover) {
+  .button-rect--trans:hover {
+    border-color: var(--color-accent);
+    color: var(--color-accent);
+  }
+}
+@media (hover: none) {
+  .button-rect--trans:active {
+    border-color: var(--color-accent);
+    color: var(--color-accent);
+  }
+}
+
 /*? header хедер */
 
 .header {
@@ -592,7 +640,6 @@ body:has(dialog[open]) {
 
 .hero__link {
   width: 100%;
-  background-color: #fd881a;
 }
 
 @media (min-width: 768px) {
@@ -601,53 +648,20 @@ body:has(dialog[open]) {
   }
 }
 
-.button-rect {
-  height: var(--button-height);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 18px;
-  border-radius: 8px;
-  box-shadow: 0px 4px 4px 0px #00000040;
-  font-weight: 500;
-  letter-spacing: -0.0245em;
+.section {
+  padding-block: clamp(60px, 50px + 2.54vw, 700px);
 }
-
-.button-rect--accent {
-  border: 2px solid transparent;
-  background-color: var(--color-accent);
-  color: var(--color-black);
-}
-@media (hover: hover) {
-  .button-rect--accent:hover {
-    background-color: var(--color-accent-alt);
-    color: var(--color-white);
-  }
-}
-@media (hover: none) {
-  .button-rect--accent:active {
-    background-color: var(--color-accent-alt);
-    color: var(--color-white);
+@media (min-width: 1366px) {
+  .section {
+    padding-block: 97px;
   }
 }
 
-.button-rect--trans {
-  border: 2px solid #FFFFFF;
-  background-color: #FFFFFF1A;
-  color: var(--color-white);
+.section__title {
+  height: 72px;
+  font-size: 20px;
 }
-@media (hover: hover) {
-  .button-rect--trans:hover {
-    border-color: var(--color-accent);
-    color: var(--color-accent);
-  }
-}
-@media (hover: none) {
-  .button-rect--trans:active {
-    border-color: var(--color-accent);
-    color: var(--color-accent);
-  }
-}
+
 
 /*добавить крестик на мобильное меню
 сделать заполнение */
