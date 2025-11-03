@@ -1,8 +1,12 @@
 :root {
   --color-white: #ffffff;
+  --color-white-trans10: #ffffff1a;
   --color-black: black;
   --color-accent: #fdb71a;
   --color-accent-alt: #fd881a;
+  --color-red: #fb2c36;
+  --color-red-trans20: #fb2c3633;
+  --color-gray: #6b6b6b;
   --color-accent-trans20: #fdb71a33;
   --color-accent-trans30: #fdb71a4d;
   --color-accent-trans40: #fdb71a66;
@@ -73,6 +77,7 @@ a {
 }
 
 .container {
+  width: 100%;
   max-width: calc(var(--container-width) + var(--container-padding-x) * 2);
   margin-inline: auto;
   padding-inline: var(--container-padding-x);
@@ -136,6 +141,9 @@ a {
   justify-content: center;
   align-items: center;
 }
+.flex-center--column {
+  flex-direction: column;
+}
 
 .box-shadow {
   filter: drop-shadow(0px 2px 4px var(--color-dark-grey))
@@ -174,7 +182,7 @@ a {
 
 .button-rect--trans {
   border: 2px solid #ffffff;
-  background-color: #ffffff1a;
+  background-color: var(--color-white-trans10);
   color: var(--color-white);
 }
 @media (hover: hover) {
@@ -483,8 +491,8 @@ body:has(dialog[open]) {
 .hero {
   position: relative;
   width: 100%;
-  height: 100vh;
-  height: 100dvh;
+  min-height: 100vh;
+  min-height: 100dvh;
   overflow: hidden;
   justify-content: center;
 }
@@ -513,29 +521,31 @@ body:has(dialog[open]) {
   position: relative;
   z-index: 1;
   flex-direction: column;
-  height: 88%;
-  justify-content: space-between;
+  justify-content: center;
+  gap: clamp(80px, 4.404rem + 2.54vw, 90px);
+  padding-block: 47px;
 }
 @media (min-width: 768px) {
   .hero__body {
-    height: 58%;
     width: 92%;
   }
 }
 @media (min-width: 1024px) {
   .hero__body {
-    height: 76%;
+    gap: 50px;
+    padding-block: 75px;
   }
 }
 @media (min-width: 1366px) {
   .hero__body {
-    height: 66%;
-    width: 84%;
+    width: 85%;
     max-width: 1180px;
+    gap: clamp(50px, -25.718rem + 33.78vw, 75px);
   }
 }
 
 .hero__title {
+  line-height: 1;
   font-family: var(--font-family-alt);
   font-weight: 400;
   font-size: clamp(52px, 6px + 12.2vw, 100px);
@@ -557,6 +567,7 @@ body:has(dialog[open]) {
 }
 
 .hero__flickering-button {
+  margin-top: 20px;
   padding: 12px 24px;
   column-gap: 13px;
   color: var(--color-accent);
@@ -649,7 +660,11 @@ body:has(dialog[open]) {
 }
 
 .section {
-  padding-block: clamp(60px, 50px + 2.54vw, 700px);
+  padding-block: clamp(60px, 50px + 2.54vw, 70px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 @media (min-width: 1366px) {
   .section {
@@ -659,10 +674,201 @@ body:has(dialog[open]) {
 
 .section__title {
   height: 72px;
-  font-size: 20px;
-  font-weight: 600;
+  width: fit-content;
+  margin-inline: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  padding-inline: 42px;
+  border-radius: 200px;
+  box-shadow: 0px 4px 6px -4px var(--color-dark-grey);
+  border: 2px solid var(--color-accent-trans20);
+  color: var(--color-accent);
+  background: linear-gradient(
+    90deg,
+    rgba(253, 183, 26, 0.1) 0%,
+    rgba(240, 177, 0, 0.1) 100%
+  );
+}
+.section__title--rose {
+  border: 2px solid var(--color-red-trans20);
+  background-color: var(--color-red-trans20);
+  color: var(--color-red);
 }
 
+.section__title--red {
+  height: 62px;
+  border: 2px solid transparent;
+  background: linear-gradient(90deg, #fb2c36 0%, #f6339a 100%);
+  color: var(--color-white);
+  box-shadow: 0px 4px 6px -4px var(--color-dark-grey),
+    0px 10px 15px -3px var(--color-dark-grey);
+}
 
-/*добавить крестик на мобильное меню
-сделать заполнение */
+.section__title-text {
+  font-size: clamp(1.25rem, 1.131rem + 0.51vw, 1.375rem); /* 20-22 */
+  font-weight: 600;
+  letter-spacing: 0.042em;
+  line-height: 1;
+}
+
+.section__text {
+  text-align: center;
+  font-size: 18px;
+  line-height: 1.5;
+  letter-spacing: -0.02em;
+}
+
+.section__text--margin-block {
+  margin-block: clamp(1.875rem, 0.682rem + 5.09vw, 3.125rem); /* 30-50 */
+}
+
+.section__text--s {
+  font-size: 16px;
+}
+
+.section__text--white {
+  color: var(--color-white);
+}
+
+.section__text--gray {
+  color: var(--color-gray);
+}
+
+.video-player {
+  align-self: center;
+  width: 100%;
+  max-width: 704px;
+  position: relative;
+}
+
+.video-player__bg-icon-wrapper,
+.video-player__bg-icon-wrapper svg {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.video-player__iframe-cont {
+  overflow: hidden;
+  border-radius: 30px;
+  position: absolute;
+  top: 11%;
+  width: 40%;
+  min-width: 300px;
+  aspect-ratio: 300 / 646;
+  background-color: var(--color-black);
+  overflow: hidden;
+}
+/* Стили для блока TikTok */
+.video-player__iframe-cont .tiktok-embed {
+  display: block;
+  min-height: 100% !important;
+  min-width: 100% !important;
+  margin: 0 !important;
+  transform: scale(1.02);
+  transform-origin: center;
+}
+
+.advantages {
+  background: linear-gradient(
+    135deg,
+    #1a1a1a 0%,
+    rgba(26, 26, 26, 0.95) 50%,
+    rgba(26, 26, 26, 0.9) 100%
+  );
+}
+
+.advantages__grid-container {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(min(100%, max(340px, 50% - 10px)), 1fr)
+  );
+}
+
+/* Ограничиваем максимальное количество колонок */
+@media (min-width: 1440px) {
+  .advantages__grid-container {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.advantages__grid-item {
+  height: clamp(14.75rem, 7.813rem + 14.45vw, 17.063rem); /*236-273*/
+  background-color: var(--color-white-trans10);
+  border-radius: 14px;
+  position: relative;
+  overflow: hidden;
+}
+@media (min-width: 1440px) {
+  .advantages__grid-item {
+    height: 224px;
+  }
+}
+/* Псевдоэлемент для анимированного градиента */
+.advantages__grid-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.2) 0%,
+    rgba(253, 183, 26, 0.4) 100%
+  );
+  border-radius: 14px;
+  opacity: 0;
+  transition: opacity 600ms ease;
+  z-index: 1;
+}
+
+@media (hover: hover) {
+  .advantages__grid-item:hover::before {
+    opacity: 1;
+  }
+}
+
+@media (hover: none) {
+  .advantages__grid-item:active::before {
+    opacity: 1;
+  }
+}
+
+.advantages__grid-item-body {
+  position: relative;
+  z-index: 2;
+  height: 176px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+    padding-inline: 32px;
+}
+@media (min-width: 1440px) {
+  .advantages__grid-item-body {
+    padding-inline: 0;
+    width: 271px;
+    height: clamp(10rem, 5rem + 5.56vw, 11rem); /*160-176*/
+  }
+}
+
+.advantages__grid-item-icon-wrapper {
+  filter: drop-shadow(0px 2px 4px var(--color-dark-grey))
+    drop-shadow(0px 4px 6px var(--color-dark-grey));
+}
+
+.catalog__grid-container {
+  
+}
+/*заменить svg video-player на svg без теней
+добавить крестик на мобильное меню
+сделать заполнение 
+заменить пиксели на ремы
+поменять filter: drop-shadow на  box-shadow: 0px 4px 6px -4px var(--color-dark-grey),
+    0px 10px 15px -3px var(--color-dark-grey);
+340-588*/
