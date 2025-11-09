@@ -562,7 +562,7 @@ body:has(dialog[open]) {
 }
 @media (min-width: 1024px) {
   .hero__title {
-    font-size: clamp(130px, 32px + 9.62vw, 170px);
+    font-size: clamp(130px, 32px + 9.62vw, 169px);/*clamp(130px, 32px + 9.62vw, 170px)*/
   }
 }
 
@@ -872,6 +872,32 @@ body:has(dialog[open]) {
 .catalog__grid-item {
   min-height: 100%;
 }
+
+.catalog-card {
+  background-color: #f6339a;
+}
+
+.catalog-card__image-link {
+  display: block;
+  width: 100%;
+  height: 467px;
+  overflow: hidden;
+}
+
+.catalog-card__image {
+  display: block;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.catalog-card__title
+
+.catalog-card__description {
+  font-size: 16px;
+  font-weight: 400;
+}
+
 /*заменить svg video-player на svg без теней
 добавить крестик на мобильное меню
 сделать заполнение 
