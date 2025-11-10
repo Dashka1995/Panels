@@ -761,6 +761,9 @@ body:has(dialog[open]) {
 .section__text--gray {
   color: var(--color-gray);
 }
+.section__text--white-trans {
+  color: #ffffffe5;
+}
 
 .video-player {
   align-self: center;
@@ -798,7 +801,7 @@ body:has(dialog[open]) {
 }
 
 .advantages,
-.info {
+.about-station {
   background: linear-gradient(
     135deg,
     #1a1a1a 0%,
@@ -862,8 +865,6 @@ body:has(dialog[open]) {
   );
 }
 
-
-
 @media (hover: hover) {
   .primary-grid__item:hover::before {
     opacity: 1;
@@ -923,16 +924,15 @@ body:has(dialog[open]) {
 }
 @media (hover: hover) {
   .secondary-grid__item:hover {
-      background-color: #FFFFFF4D;
+    background-color: #ffffff4d;
   }
 }
 
 @media (hover: none) {
   .secondary-grid__item:active {
-      background-color: #FFFFFF4D;
+    background-color: #ffffff4d;
   }
 }
-
 
 .secondary-grid__item--on-white {
   padding-block: 24px;
@@ -941,15 +941,15 @@ body:has(dialog[open]) {
 }
 @media (hover: hover) {
   .secondary-grid__item--on-white:hover {
-      background-color: #2B2B2B;
-      border-color: var(--color-accent);
+    background-color: #2b2b2b;
+    border-color: var(--color-accent);
   }
 }
 
 @media (hover: none) {
   .secondary-grid__item--on-white:active {
-      background-color: #2B2B2B;
-      border-color: var(--color-accent);
+    background-color: #2b2b2b;
+    border-color: var(--color-accent);
   }
 }
 
@@ -1017,16 +1017,15 @@ body:has(dialog[open]) {
 }
 @media (hover: hover) {
   .secondary-grid__item--on-white:hover .secondary-grid__item-text {
-      color: var(--color-white);
+    color: var(--color-white);
   }
 }
 
 @media (hover: none) {
   .secondary-grid__item--on-white:active .secondary-grid__item-text {
-      color: var(--color-white);
+    color: var(--color-white);
   }
 }
-
 
 .catalog__grid-container {
   display: grid;
@@ -1055,14 +1054,14 @@ body:has(dialog[open]) {
 }
 @media (hover: hover) {
   .catalog-card:hover {
-    background-color: #2A2A2A;
+    background-color: #2a2a2a;
     color: var(--color-white);
   }
 }
 
 @media (hover: none) {
   .catalog-card:active {
-    background-color: #2A2A2A;
+    background-color: #2a2a2a;
     color: var(--color-white);
   }
 }
@@ -1140,41 +1139,79 @@ body:has(dialog[open]) {
     0px 4px 6px -1px var(--color-dark-grey);
 }
 
-
-
-.info__text-cont {
-background-color: var(--color-white-trans10);
+.about-station__text-cont {
+  background-color: var(--color-white-trans10);
   border-radius: 14px;
   padding: 20px;
   border: 1px solid #ffffff33;
 }
 
-.info__text-cont ul, .info__text-cont ol {
+.about-station__text-cont ul,
+.about-station__text-cont ol {
   list-style-position: outside; /* маркер снаружи */
   padding-left: 15px; /* отступ всего списка */
 }
 
-.info__text-cont li {
+.about-station__text-cont li {
   margin-left: 10px; /* дополнительный отступ элементов */
 }
 
-.info__text {
-font-weight: 700;
-font-size: 16px;
-line-height: 200%;
-letter-spacing: 0.0575em;
-color: var(--color-white);
+.about-station__text {
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 200%;
+  letter-spacing: 0.0575em;
+  color: var(--color-white);
 }
 
-.info__text--accent {
-color: var(--color-accent);
+.about-station__text--accent {
+  color: var(--color-accent);
 }
 
-.info__text--margin-top {
+.about-station__text--margin-top {
   margin-top: 1rem;
 }
 
-/*заменить svg video-player на svg без теней
+.footer {
+  background-color: #1a1a1a;
+}
+
+.footer__up {
+  flex-direction: column;
+  gap: 28px;
+  max-width: 490px;
+  margin-inline: auto;
+}
+
+.footer__title {
+  gap: 12px;
+}
+
+.footer__title-text {
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 32px;
+  letter-spacing: 0.67px;
+  color: var(--color-white);
+}
+
+.footer__title-icon-wrapper {
+  width: 56px;
+  height: 56px;
+}
+
+.footer__title-icon-wrapper svg {
+  width: 100%;
+  height: 100%;
+  filter: drop-shadow(0px 10px 20px rgba(240, 177, 0, 0.4));
+}
+
+.footer__note-link {
+  margin-inline: auto;
+}
+
+/*доделать футер
+заменить svg video-player на svg без теней
 смотрите больше видео-сделать ховер
 поставить тень в хедере
 заменить svg секции описания и контактов
