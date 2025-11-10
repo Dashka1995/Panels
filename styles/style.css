@@ -793,7 +793,7 @@ body:has(dialog[open]) {
   transform-origin: center;
 }
 
-.advantages {
+.advantages, .info {
   background: linear-gradient(
     135deg,
     #1a1a1a 0%,
@@ -802,7 +802,7 @@ body:has(dialog[open]) {
   );
 }
 
-.advantages__grid-container {
+.primary__grid-container {
   display: grid;
   gap: 20px;
   grid-template-columns: repeat(
@@ -813,12 +813,12 @@ body:has(dialog[open]) {
 
 /* Ограничиваем максимальное количество колонок */
 @media (min-width: 1440px) {
-  .advantages__grid-container {
+  .primary__grid-container {
     grid-template-columns: repeat(4, 1fr);
   }
 }
 
-.advantages__grid-item {
+.primary__grid-item {
   height: clamp(14.75rem, 7.813rem + 14.45vw, 17.063rem); /*236-273*/
   background-color: var(--color-white-trans10);
   border-radius: 14px;
@@ -826,12 +826,12 @@ body:has(dialog[open]) {
   overflow: hidden;
 }
 @media (min-width: 1440px) {
-  .advantages__grid-item {
+  .primary__grid-item {
     height: 224px;
   }
 }
 /* Псевдоэлемент для анимированного градиента */
-.advantages__grid-item::before {
+.primary__grid-item::before {
   content: "";
   position: absolute;
   top: 0;
@@ -850,18 +850,18 @@ body:has(dialog[open]) {
 }
 
 @media (hover: hover) {
-  .advantages__grid-item:hover::before {
+  .primary__grid-item:hover::before {
     opacity: 1;
   }
 }
 
 @media (hover: none) {
-  .advantages__grid-item:active::before {
+  .primary__grid-item:active::before {
     opacity: 1;
   }
 }
 
-.advantages__grid-item-body {
+.primary__grid-item-body {
   position: relative;
   z-index: 2;
   height: 176px;
@@ -872,16 +872,44 @@ body:has(dialog[open]) {
   padding-inline: 32px;
 }
 @media (min-width: 1440px) {
-  .advantages__grid-item-body {
+  .primary__grid-item-body {
     padding-inline: 0;
     width: 271px;
     height: clamp(10rem, 5rem + 5.56vw, 11rem); /*160-176*/
   }
 }
 
-.advantages__grid-item-icon-wrapper {
+.primary__grid-item-icon-wrapper, .secondary__grid-item-icon-wrapper {
   filter: drop-shadow(0px 2px 4px var(--color-dark-grey))
     drop-shadow(0px 4px 6px var(--color-dark-grey));
+}
+
+/* .primary__grid-container {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(min(100%, max(340px, 50% - 10px)), 1fr)
+  );
+}
+
+Ограничиваем максимальное количество колонок:
+@media (min-width: 1440px) {
+  .primary__grid-container {
+    grid-template-columns: repeat(4, 1fr);
+  }
+} */
+.secondary__grid-container {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+/* Ограничиваем максимальное количество колонок: */
+@media (min-width: 768px) {
+  .secondary__grid-container {
+    grid-template-columns: repeat(4, 1fr);
+  }
 }
 
 .catalog__grid-container {
@@ -980,10 +1008,32 @@ body:has(dialog[open]) {
     0px 4px 6px -1px var(--color-dark-grey);
 }
 
+.secondary__grid-item-text-on-black:nth-of-type(1) {
+font-weight: 400;
+font-size: 20px;
+letter-spacing: -0.028125em;
+/* text-align: center; */
+color: var(--color-white);
+}
+
+.secondary__grid-item-text-on-black:nth-of-type(2) {
+font-weight: 600;
+font-size: 16px;
+letter-spacing: -0.019375em;
+/* text-align: center; */
+color: #FDB71A;
+}
+
+.secondary__grid-item-text-on-black:nth-of-type(3) {
+font-weight: 400;
+font-size: 14px;
+letter-spacing: -0.009375em;
+/* text-align: center; */
+color: #FFFFFFB2;
+}
+
 /*заменить svg video-player на svg без теней
+заменить svg секции описания и контактов
 добавить крестик на мобильное меню
-сделать заполнение 
 заменить пиксели на ремы
-поменять filter: drop-shadow на  box-shadow: 0px 4px 6px -4px var(--color-dark-grey),
-    0px 10px 15px -3px var(--color-dark-grey);
-340-588*/
+*/
