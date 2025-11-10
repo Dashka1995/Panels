@@ -841,8 +841,7 @@ body:has(dialog[open]) {
   }
 }
 
-.primary-grid__item::before,
-.secondary-grid__item::before {
+.primary-grid__item::before {
   content: "";
   position: absolute;
   top: 0;
@@ -863,20 +862,16 @@ body:has(dialog[open]) {
   );
 }
 
-.secondary-grid__item::before {
-  background-color: #FFFFFF4D;
-}
+
 
 @media (hover: hover) {
-  .primary-grid__item:hover::before,
-  .secondary-grid__item:hover::before {
+  .primary-grid__item:hover::before {
     opacity: 1;
   }
 }
 
 @media (hover: none) {
-  .primary-grid__item:active::before,
-  .secondary-grid__item:active::before {
+  .primary-grid__item:active::before {
     opacity: 1;
   }
 }
@@ -923,12 +918,39 @@ body:has(dialog[open]) {
   padding-block: 24px;
   height: 200px;
   border: 1px solid #ffffff33;
+  background-color: var(--color-white-trans10);
+  transition-duration: var(--transition-duration-quick);
 }
+@media (hover: hover) {
+  .secondary-grid__item:hover {
+      background-color: #FFFFFF4D;
+  }
+}
+
+@media (hover: none) {
+  .secondary-grid__item:active {
+      background-color: #FFFFFF4D;
+  }
+}
+
 
 .secondary-grid__item--on-white {
   padding-block: 24px;
   height: 200px;
   border: 1px solid var(--color-dark-grey);
+}
+@media (hover: hover) {
+  .secondary-grid__item--on-white:hover {
+      background-color: #2B2B2B;
+      border-color: var(--color-accent);
+  }
+}
+
+@media (hover: none) {
+  .secondary-grid__item--on-white:active {
+      background-color: #2B2B2B;
+      border-color: var(--color-accent);
+  }
 }
 
 .secondary-grid__item-body {
@@ -943,11 +965,15 @@ body:has(dialog[open]) {
 }
 
 @media (min-width: 768px) {
-  .secondary-grid__container {
+  .secondary-grid__container--narrow-items {
     grid-template-columns: repeat(4, 1fr);
   }
 }
-
+@media (min-width: 1366px) {
+  .secondary-grid__container--wide-items {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
 .secondary-grid__item-text-on-black:nth-of-type(1) {
   font-weight: 400;
   font-size: 20px;
@@ -989,6 +1015,18 @@ body:has(dialog[open]) {
   letter-spacing: 0;
   color: var(--color-gray);
 }
+@media (hover: hover) {
+  .secondary-grid__item--on-white:hover .secondary-grid__item-text {
+      color: var(--color-white);
+  }
+}
+
+@media (hover: none) {
+  .secondary-grid__item--on-white:active .secondary-grid__item-text {
+      color: var(--color-white);
+  }
+}
+
 
 .catalog__grid-container {
   display: grid;
@@ -1023,7 +1061,7 @@ body:has(dialog[open]) {
 }
 
 @media (hover: none) {
-  .catalog-card:hover {
+  .catalog-card:active {
     background-color: #2A2A2A;
     color: var(--color-white);
   }
@@ -1138,6 +1176,7 @@ color: var(--color-accent);
 
 /*заменить svg video-player на svg без теней
 смотрите больше видео-сделать ховер
+поставить тень в хедере
 заменить svg секции описания и контактов
 добавить крестик на мобильное меню
 заменить пиксели на ремы
