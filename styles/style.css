@@ -275,9 +275,9 @@ a {
   color: var(--color-black);
 }
 
-.header__burger-button {
-  /* transition-duration: var(--transition-duration-quick); */
-}
+/* .header__burger-button {
+transition-duration: var(--transition-duration-quick);
+} */
 @media (hover: hover) {
   .header__burger-button:hover {
     filter: drop-shadow(0px 2px 4px var(--color-dark-grey))
@@ -600,7 +600,7 @@ body:has(dialog[open]) {
   border: 1px solid var(--color-accent-trans40);
   box-shadow: 0px 25px 50px -12px var(--color-accent-trans40);
   animation: infiniteFlicker 2s ease-in-out infinite;
-  transition: all 0.3s ease;
+  transition: all var(--transition-duration-quick) ease;
 }
 @keyframes infiniteFlicker {
   0%,
@@ -832,7 +832,7 @@ body:has(dialog[open]) {
 }
 
 .primary-grid__item {
-  height: clamp(14.75rem, 7.813rem + 14.45vw, 17.063rem); /*236-273*/
+  height: clamp(14.75rem, 7.813rem + 14.45vw, 17.063rem);
 }
 
 @media (min-width: 1440px) {
@@ -840,7 +840,7 @@ body:has(dialog[open]) {
     height: 224px;
   }
 }
-/* Псевдоэлемент для анимированного градиента */
+
 .primary-grid__item::before,
 .secondary-grid__item::before {
   content: "";
@@ -851,7 +851,7 @@ body:has(dialog[open]) {
   bottom: 0;
   border-radius: 14px;
   opacity: 0;
-  transition: opacity 600ms ease;
+  transition: opacity var(--transition-duration-long) ease;
   z-index: 1;
 }
 
@@ -915,10 +915,20 @@ body:has(dialog[open]) {
   grid-template-columns: repeat(2, 1fr);
 }
 
+.secondary-grid__container--margin-top {
+  margin-top: 30px;
+}
+
 .secondary-grid__item {
   padding-block: 24px;
   height: 200px;
   border: 1px solid #ffffff33;
+}
+
+.secondary-grid__item--on-white {
+  padding-block: 24px;
+  height: 200px;
+  border: 1px solid var(--color-dark-grey);
 }
 
 .secondary-grid__item-body {
@@ -932,11 +942,52 @@ body:has(dialog[open]) {
   align-items: center;
 }
 
-/* Ограничиваем максимальное количество колонок: */
 @media (min-width: 768px) {
   .secondary-grid__container {
     grid-template-columns: repeat(4, 1fr);
   }
+}
+
+.secondary-grid__item-text-on-black:nth-of-type(1) {
+  font-weight: 400;
+  font-size: 20px;
+  letter-spacing: -0.028125em;
+  color: var(--color-white);
+}
+
+.secondary-grid__item-text-on-black:nth-of-type(2) {
+  font-weight: 600;
+  font-size: 16px;
+  letter-spacing: -0.019375em;
+  color: #fdb71a;
+}
+
+.secondary-grid__item-text-on-black:nth-of-type(3) {
+  font-weight: 400;
+  font-size: 14px;
+  letter-spacing: -0.009375em;
+  color: #ffffffb2;
+}
+
+.secondary-grid__item-text-on-white:nth-of-type(1) {
+  font-weight: 400;
+  font-size: 14px;
+  letter-spacing: -0.009375em;
+  color: var(--color-gray);
+}
+
+.secondary-grid__item-text-on-white:nth-of-type(2) {
+  font-weight: 600;
+  font-size: 16px;
+  letter-spacing: -0.019375em;
+  color: var(--color-black);
+}
+
+.secondary-grid__item-text-on-white:nth-of-type(3) {
+  font-weight: 400;
+  font-size: 12px;
+  letter-spacing: 0;
+  color: var(--color-gray);
 }
 
 .catalog__grid-container {
@@ -1051,28 +1102,38 @@ body:has(dialog[open]) {
     0px 4px 6px -1px var(--color-dark-grey);
 }
 
-.secondary-grid__item-text-on-black:nth-of-type(1) {
-  font-weight: 400;
-  font-size: 20px;
-  letter-spacing: -0.028125em;
-  /* text-align: center; */
-  color: var(--color-white);
+
+
+.info__text-cont {
+background-color: var(--color-white-trans10);
+  border-radius: 14px;
+  padding: 20px;
+  border: 1px solid #ffffff33;
 }
 
-.secondary-grid__item-text-on-black:nth-of-type(2) {
-  font-weight: 600;
-  font-size: 16px;
-  letter-spacing: -0.019375em;
-  /* text-align: center; */
-  color: #fdb71a;
+.info__text-cont ul, .info__text-cont ol {
+  list-style-position: outside; /* маркер снаружи */
+  padding-left: 15px; /* отступ всего списка */
 }
 
-.secondary-grid__item-text-on-black:nth-of-type(3) {
-  font-weight: 400;
-  font-size: 14px;
-  letter-spacing: -0.009375em;
-  /* text-align: center; */
-  color: #ffffffb2;
+.info__text-cont li {
+  margin-left: 10px; /* дополнительный отступ элементов */
+}
+
+.info__text {
+font-weight: 700;
+font-size: 16px;
+line-height: 200%;
+letter-spacing: 0.0575em;
+color: var(--color-white);
+}
+
+.info__text--accent {
+color: var(--color-accent);
+}
+
+.info__text--margin-top {
+  margin-top: 1rem;
 }
 
 /*заменить svg video-player на svg без теней
@@ -1081,4 +1142,5 @@ body:has(dialog[open]) {
 добавить крестик на мобильное меню
 заменить пиксели на ремы
 поработать над --transition-duration - 600 или 300
+поменять в контактах дивы на тег адресс
 */
