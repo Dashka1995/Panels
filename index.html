@@ -2571,7 +2571,7 @@
                   <li
                     class="header__lang-links-item header__lang-links-item--active"
                   >
-                    <a href="" class="header__lang-link">
+                  <button type="button" class="header__lang-link" data-lang="ru">
                       <span
                         class="header__lang-link-icon-wrapper box-shadow content-size"
                       >
@@ -2609,10 +2609,10 @@
                       <span class="header__lang-cont-text-wrapper">
                         Русский
                       </span>
-                    </a>
+                    </button>
                   </li>
                   <li class="header__lang-links-item">
-                    <a href="" class="header__lang-link">
+                    <button type="button" class="header__lang-link" data-lang="ua">
                       <span
                         class="header__lang-link-icon-wrapper box-shadow content-size"
                       >
@@ -2650,7 +2650,7 @@
                       <span class="header__lang-cont-text-wrapper">
                         Український
                       </span>
-                    </a>
+                    </button>
                   </li>
                 </ul>
               </details>
@@ -2853,7 +2853,7 @@
 
 // ===============================================
 
-// --- 4. НОВЫЙ КОД: Логика переключения языков (ЧИСТАЯ ВЕРСИЯ) ---
+// --- 4. НОВЫЙ КОД: Логика переключения языков ---
 
 // ===============================================
 
@@ -2870,12 +2870,7 @@ async function loadTranslations() {
   try {
 
     console.log("🔄 Начинаем загрузку переводов...");
-
-    // Убедись, что путь 'translations.json' верный
-
     const response = await fetch('translations.json');
-
-   
 
     if (!response.ok) {
 
@@ -2883,13 +2878,9 @@ async function loadTranslations() {
 
     }
 
-   
-
     translations = await response.json();
 
     console.log("✅ Переводы загружены", translations);
-
-   
 
     // После УСПЕШНОЙ загрузки - запускаем основную логику языка
 
@@ -2905,8 +2896,6 @@ async function loadTranslations() {
 
 }
 
-
-
 // 4.2. Функция, которая запускает всю логику (она вызовется ПОСЛЕ загрузки)
 
 function initializeLanguageLogic() {
@@ -2918,10 +2907,8 @@ function initializeLanguageLogic() {
   // Находим кнопки ОДИН РАЗ
 
   const langButtons = document.querySelectorAll(".header__lang-link[data-lang]");
-
+  // проверить правильно ли указан класс, если что вот оно, изменить
   console.log(`🔍 Найдено кнопок перевода: ${langButtons.length}`);
-
-
 
   // 4.3. Главная функция, которая ПРИМЕНЯET перевод
 
@@ -2929,8 +2916,7 @@ function initializeLanguageLogic() {
 
     console.log(`🌐 Устанавливаем язык: ${lang}`);
 
-   
-
+  
     const elementsToTranslate = document.querySelectorAll("[data-lang-key]");
 
    
