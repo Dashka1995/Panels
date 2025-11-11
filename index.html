@@ -198,7 +198,7 @@
                   <li
                     class="header__lang-links-item header__lang-links-item--active"
                   >
-                    <a href="" class="header__lang-link">
+                    <button type="button" class="header__lang-link" data-lang="ru">
                       <span
                         class="header__lang-link-icon-wrapper box-shadow content-size"
                       >
@@ -236,10 +236,10 @@
                       <span class="header__lang-cont-text-wrapper">
                         Русский
                       </span>
-                    </a>
+                    </button>
                   </li>
                   <li class="header__lang-links-item">
-                    <a href="" class="header__lang-link">
+                    <button type="button" class="header__lang-link" data-lang="ua">
                       <span
                         class="header__lang-link-icon-wrapper box-shadow content-size"
                       >
@@ -277,7 +277,7 @@
                       <span class="header__lang-cont-text-wrapper">
                         Український
                       </span>
-                    </a>
+                    </button>
                   </li>
                 </ul>
               </details>
@@ -445,7 +445,7 @@
                 </g>
               </svg>
             </span>
-            <span class="hero__flickering-button-text">ЭНЕРГИЯ БУДУЩЕГО</span>
+            <span class="hero__flickering-button-text" data-lang-key="future_energy">ЭНЕРГИЯ БУДУЩЕГО</span>
           </a>
           <div class="hero__description flex-center">
             <h2 class="hero__subtitle">
@@ -2714,64 +2714,337 @@
       </div>
     </dialog>
     <script>
-      //Скрытие хедера при скролле вниз:
 
-      let lastScrollY = window.scrollY;
-      let ticking = false;
-      const header = document.querySelector(".header");
-      const SCROLL_THRESHOLD = 10; // Минимальное расстояние скролла для срабатывания
+      // Ждем, пока вся HTML-страница загрузится
 
-      function updateHeader() {
-        const currentScrollY = window.scrollY;
+      document.addEventListener("DOMContentLoaded", () => {
 
-        // Игнорируем маленькие скроллы
-        if (Math.abs(currentScrollY - lastScrollY) < SCROLL_THRESHOLD) {
-          ticking = false;
-          return;
-        }
+        // ===============================================
 
-        if (currentScrollY > lastScrollY && currentScrollY > 100) {
-          // Скролл вниз и не в самом верху - скрываем
-          header.classList.add("header--hidden");
-        } else {
-          // Скролл вверх - показываем
-          header.classList.remove("header--hidden");
-        }
+        // --- 1. ВАШ КОД: Скрытие хедера при скролле ---
 
-        lastScrollY = currentScrollY;
-        ticking = false;
+        // ===============================================
+
+        const header = document.querySelector(".header");
+
+   
+
+        // Добавляем проверку, что 'header' вообще существует
+
+        if (header) {
+
+          let lastScrollY = window.scrollY;
+
+          let ticking = false;
+
+          const SCROLL_THRESHOLD = 10;
+
+   
+
+          function updateHeader() {
+
+            const currentScrollY = window.scrollY;
+
+   
+
+            if (Math.abs(currentScrollY - lastScrollY) < SCROLL_THRESHOLD) {
+
+              ticking = false;
+
+              return;
+
+            }
+
+   
+
+            if (currentScrollY > lastScrollY && currentScrollY > 100) {
+
+              header.classList.add("header--hidden");
+
+            } else {
+
+              header.classList.remove("header--hidden");
+
+            }
+
+   
+
+            lastScrollY = currentScrollY;
+
+            ticking = false;
+
+          }
+
+   
+
+          window.addEventListener("scroll", () => {
+
+            if (!ticking) {
+
+              requestAnimationFrame(updateHeader);
+
+              ticking = true;
+
+            }
+
+          });
+
+        } // Конец if (header)
+
+   
+
+        // ===============================================
+
+        // --- 2. ВАШ КОД: Скрытие аккордеонов ---
+
+        // ===============================================
+
+        document.addEventListener("click", function (event) {
+
+          const isInsideAccordion = event.target.closest(".closing-accordion");
+
+   
+
+          if (!isInsideAccordion) {
+
+            const accordions = document.querySelectorAll(
+
+              ".closing-accordion[open]"
+
+            );
+
+            accordions.forEach((accordion) => accordion.removeAttribute("open"));
+
+          }
+
+        });
+
+   
+
+        // ===============================================
+
+        // --- 3. ВАШ КОД: Закрытие оверлея ---
+
+        // ===============================================
+
+        const mobileOverlay = document.getElementById("mobileOverlay");
+
+   
+
+        // Добавляем проверку, что 'mobileOverlay' существует
+
+        if (mobileOverlay) {
+
+          mobileOverlay.addEventListener("click", function (event) {
+
+            if (event.target === this) {
+
+              this.close();
+
+            }
+
+          });
+
+        } // Конец if (mobileOverlay)
+
+   
+
+       
+
+// ===============================================
+
+// --- 4. НОВЫЙ КОД: Логика переключения языков (ЧИСТАЯ ВЕРСИЯ) ---
+
+// ===============================================
+
+
+
+let translations = {}; // Глобальный объект для хранения загруженных переводов
+
+
+
+// 4.1. Асинхронная функция для ЗАГРУЗКИ файла переводов
+
+async function loadTranslations() {
+
+  try {
+
+    console.log("🔄 Начинаем загрузку переводов...");
+
+    // Убедись, что путь 'translations.json' верный
+
+    const response = await fetch('translations.json');
+
+   
+
+    if (!response.ok) {
+
+      throw new Error(`Ошибка загрузки: ${response.status}`);
+
+    }
+
+   
+
+    translations = await response.json();
+
+    console.log("✅ Переводы загружены", translations);
+
+   
+
+    // После УСПЕШНОЙ загрузки - запускаем основную логику языка
+
+    initializeLanguageLogic();
+
+
+
+  } catch (error) {
+
+    console.error("❌ Не удалось загрузить файл переводов:", error);
+
+  }
+
+}
+
+
+
+// 4.2. Функция, которая запускает всю логику (она вызовется ПОСЛЕ загрузки)
+
+function initializeLanguageLogic() {
+
+  console.log("🔧 Инициализация логики перевода...");
+
+ 
+
+  // Находим кнопки ОДИН РАЗ
+
+  const langButtons = document.querySelectorAll(".header__lang-link[data-lang]");
+
+  console.log(`🔍 Найдено кнопок перевода: ${langButtons.length}`);
+
+
+
+  // 4.3. Главная функция, которая ПРИМЕНЯET перевод
+
+  function setLanguage(lang) {
+
+    console.log(`🌐 Устанавливаем язык: ${lang}`);
+
+   
+
+    const elementsToTranslate = document.querySelectorAll("[data-lang-key]");
+
+   
+
+    elementsToTranslate.forEach(element => {
+
+      const key = element.getAttribute("data-lang-key");
+
+      // Проверяем, что словарь для языка есть, и ключ в нем есть
+
+      if (translations[lang] && translations[lang].hasOwnProperty(key)) {
+
+        element.textContent = translations[lang][key];
+
+      } else if (translations[lang]) {
+
+        // (Отладка) Если ключ не найден в этом языке
+
+        console.warn(`⚠️ Ключ "${key}" не найден в переводе для "${lang}"`);
+
+      } else {
+
+        // (Отладка) Если язык не найден
+
+        console.error(`❌ Словарь для языка "${lang}" не найден!`);
+
       }
 
-      window.addEventListener("scroll", () => {
-        if (!ticking) {
-          requestAnimationFrame(updateHeader);
-          ticking = true;
-        }
+    });
+
+   
+
+    localStorage.setItem('language', lang);
+
+    updateActiveButton(lang);
+
+  }
+
+
+
+  // 4.4. Вспомогательная функция для обновления активного класса
+
+  function updateActiveButton(lang) {
+
+      const allItems = document.querySelectorAll('.header__lang-links-item');
+
+      allItems.forEach(item => {
+
+          item.classList.remove('header__lang-links-item--active');
+
       });
 
-      // скрытие аккордеонов по нажатию вне области:
 
-      document.addEventListener("click", function (event) {
-        // Проверяем, был ли клик внутри аккордеона
-        const isInsideAccordion = event.target.closest(".closing-accordion");
 
-        // Если клик был вне аккордеона - закрываем все
-        if (!isInsideAccordion) {
-          const accordions = document.querySelectorAll(
-            ".closing-accordion[open]"
-          );
-          accordions.forEach((accordion) => accordion.removeAttribute("open"));
-        }
-      });
+      const activeLink = document.querySelector(`.header__lang-link[data-lang="${lang}"]`);
 
-      // Закрытие по клику на оверлей (оставляем для функциональности)
-      document
-        .getElementById("mobileOverlay")
-        .addEventListener("click", function (event) {
-          if (event.target === this) {
-            this.close(); // Используем this.close() вместо closeMobileMenu()
-          }
-        });
+      if (activeLink) {
+
+          // .closest() находит родительский 'li' и делает его активным
+
+          activeLink.closest('.header__lang-links-item').classList.add('header__lang-links-item--active');
+
+          console.log(`✅ Активирована кнопка языка: ${lang}`);
+
+      }
+
+  }
+
+
+
+  // 4.5. Навешиваем обработчики на кнопки (ПРОСТОЙ СПОСОБ)
+
+  langButtons.forEach(button => {
+
+    button.addEventListener("click", (event) => {
+
+      event.preventDefault(); // <-- Вот это отменит перезагрузку
+
+     
+
+      const lang = button.getAttribute("data-lang");
+
+      console.log(`🖱️ Клик по кнопке языка: ${lang}`); // <-- Ты должен увидеть это!
+
+     
+
+      setLanguage(lang);
+
+    });
+
+  });
+
+
+
+  // 4.6. При первой загрузке страницы...
+
+  const savedLang = localStorage.getItem('language') || 'ru';
+
+  console.log(`📖 Сохраненный язык: ${savedLang}`);
+
+  setLanguage(savedLang); // Применяем язык
+
+}
+
+
+
+// 4.7. Запускаем весь процесс
+
+loadTranslations();
+
+   
+
+      }); // --- Конец обработчика DOMContentLoaded ---
+
     </script>
   </body>
 </html>
