@@ -800,22 +800,32 @@ body:has(dialog[open]) {
   height: 100px;
 }
 
+.section2__title-icon-wrapper svg {
+  width: 40px;
+  height: 40px;
+}
+@media (min-width: 768px) {
+  .section2__title-icon-wrapper svg {
+    width: 60px;
+    height: 60px;
+  }
+}
+
 .section2__title-text {
-font-weight: 400;
-font-size: 24px;
-line-height: 32px;
-letter-spacing: 0.004375em;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 32px;
+  letter-spacing: 0.004375em;
   color: var(--color-black);
 }
 
 .section2__many-text {
   padding-top: 50px;
-font-weight: 400;
-font-size: 14px;
-line-height: 150%;
-letter-spacing: -0.009375em;
-color: var(--color-black);
-
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 150%;
+  letter-spacing: -0.009375em;
+  color: var(--color-black);
 }
 
 .video-player {
