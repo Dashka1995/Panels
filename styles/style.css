@@ -709,10 +709,9 @@ body:has(dialog[open]) {
 }
 @media (min-width: 1366px) {
   .section2 {
-  padding-bottom: 100px;
+    padding-bottom: 100px;
   }
 }
-
 
 .section__title {
   height: 72px;
@@ -782,9 +781,41 @@ body:has(dialog[open]) {
 }
 
 .section__bread-crumb {
-gap: 10px;
-justify-content: flex-start;
-font-size: 18px;
+  gap: 10px;
+  justify-content: flex-start;
+  font-size: 18px;
+  padding-bottom: 20px;
+}
+
+.section2__title {
+  width: 100%;
+  height: 100px;
+  background-color: var(--color-accent-trans20);
+  justify-content: flex-start;
+}
+
+.section2__title-body {
+  justify-content: flex-start;
+  gap: 15px;
+  height: 100px;
+}
+
+.section2__title-text {
+font-weight: 400;
+font-size: 24px;
+line-height: 32px;
+letter-spacing: 0.004375em;
+  color: var(--color-black);
+}
+
+.section2__many-text {
+  padding-top: 50px;
+font-weight: 400;
+font-size: 14px;
+line-height: 150%;
+letter-spacing: -0.009375em;
+color: var(--color-black);
+
 }
 
 .video-player {
@@ -845,7 +876,6 @@ font-size: 18px;
   width: 91.07%;
   height: 95.67%;
 }
-
 
 .advantages,
 .about-station {
