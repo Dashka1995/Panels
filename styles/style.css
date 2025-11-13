@@ -1177,10 +1177,31 @@ body:has(dialog[open]) {
 }
 
 .footer__up {
+  padding-inline: 8%;
+  position: relative;
+  padding: 20px 0 50px;
+}
+
+.footer__up-inner {
   flex-direction: column;
   gap: 28px;
   max-width: 490px;
   margin-inline: auto;
+}
+
+.footer__up::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    rgba(26, 26, 26, 0.6) 25%,
+    rgba(255, 255, 255, 0.6) 50.96%,
+    rgba(26, 26, 26, 0.6) 77.88%
+  );
 }
 
 .footer__title {
@@ -1208,6 +1229,32 @@ body:has(dialog[open]) {
 
 .footer__note-link {
   margin-inline: auto;
+}
+
+.footer__under {
+  padding-top: 42px;
+  color: #ffffffb2;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 40px;
+}
+
+@media (min-width: 768px) {
+  .footer__under {
+    justify-content: space-between;
+  }
+}
+
+.footer__copyrights {
+  font-weight: 400;
+  font-size: 14px;
+  letter-spacing: -0.009375em;
+}
+
+.footer__privacy-policy {
+  font-weight: 500;
+  font-size: 16px;
+  letter-spacing: -0.019375em;
 }
 
 /*доделать футер
