@@ -227,6 +227,7 @@ a {
   transition: transform var(--transition-duration-quick) ease;
   z-index: 1000;
   background-color: var(--color-white);
+  box-shadow: 0px 4px 6px -4px #0000001a;
 }
 
 .header--hidden {
@@ -767,38 +768,63 @@ body:has(dialog[open]) {
 
 .video-player {
   align-self: center;
-  width: 100%;
-  max-width: 704px;
   position: relative;
+  width: 448px;
+  height: 924px;
 }
 
-.video-player__bg-icon-wrapper,
-.video-player__bg-icon-wrapper svg {
+.video-player__iframe-cont {
+  border-radius: 40px;
+  overflow: hidden;
+  position: absolute;
+  top: 2%;
+  left: 20px;
+  width: 408px;
+  height: 884px;
+  z-index: 2;
+}
+
+.video-player__bg {
   position: relative;
   width: 100%;
   height: 100%;
 }
 
-.video-player__iframe-cont {
-  overflow: hidden;
-  border-radius: 30px;
-  position: absolute;
-  top: 11%;
-  width: 40%;
-  min-width: 300px;
-  aspect-ratio: 300 / 646;
-  background-color: var(--color-black);
-  overflow: hidden;
-}
-/* Стили для блока TikTok */
-.video-player__iframe-cont .tiktok-embed {
+.video-player__bg-icon-wrapper {
   display: block;
-  min-height: 100% !important;
-  min-width: 100% !important;
-  margin: 0 !important;
-  transform: scale(1.02);
-  transform-origin: center;
+  width: 100%;
+  height: 100%;
 }
+
+.video-player__bg-icon-wrapper svg {
+  width: 100%;
+  height: 100%;
+}
+
+.video-player__iframe-cont iframe,
+.video-player__iframe-cont blockquote {
+  min-width: 100% !important;
+  height: 100% !important;
+  border: none;
+  transform: scale(1.13);
+  transform-origin: center center;
+}
+
+.video-player {
+  max-width: 448px;
+  max-height: 924px;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 448 / 924;
+}
+
+.video-player__iframe-cont {
+  top: 2%;
+  left: 4.46%;
+  width: 91.07%;
+  height: 95.67%;
+}
+
 
 .advantages,
 .about-station {
