@@ -218,6 +218,32 @@ a {
   }
 }
 
+@media (hover: hover) {
+  .button-red:hover {
+    border-color: var(--color-red);
+    transition-duration: var(--transition-duration-quick);
+    background: none;
+    background-color: var(--color-white);
+    color: var(--color-red);
+  }
+  .button-red:hover svg path {
+    stroke: var(--color-red);
+  }
+}
+@media (hover: none) {
+  .button-red:active {
+    border-color: var(--color-red);
+    transition-duration: var(--transition-duration-quick);
+    background: none;
+    background-color: var(--color-white);
+    color: var(--color-red);
+  }
+  .button-red:active svg path {
+    stroke: var(--color-red);
+  }
+}
+
+
 /*? header хедер */
 
 .header {
@@ -276,9 +302,6 @@ a {
   color: var(--color-black);
 }
 
-/* .header__burger-button {
-transition-duration: var(--transition-duration-quick);
-} */
 @media (hover: hover) {
   .header__burger-button:hover {
     filter: drop-shadow(0px 2px 4px var(--color-dark-grey))
@@ -1066,42 +1089,42 @@ body:has(dialog[open]) {
     grid-template-columns: repeat(4, 1fr);
   }
 }
-.secondary-grid__item-text-on-black:nth-of-type(1) {
+.secondary-grid__item-text-on-black:nth-child(1) {
   font-weight: 400;
   font-size: 20px;
   letter-spacing: -0.028125em;
   color: var(--color-white);
 }
 
-.secondary-grid__item-text-on-black:nth-of-type(2) {
+.secondary-grid__item-text-on-black:nth-child(2) {
   font-weight: 600;
   font-size: 16px;
   letter-spacing: -0.019375em;
   color: #fdb71a;
 }
 
-.secondary-grid__item-text-on-black:nth-of-type(3) {
+.secondary-grid__item-text-on-black:nth-child(3) {
   font-weight: 400;
   font-size: 14px;
   letter-spacing: -0.009375em;
   color: #ffffffb2;
 }
 
-.secondary-grid__item-text-on-white:nth-of-type(1) {
+.secondary-grid__item-text-on-white:nth-child(1) {
   font-weight: 400;
   font-size: 14px;
   letter-spacing: -0.009375em;
   color: var(--color-gray);
 }
 
-.secondary-grid__item-text-on-white:nth-of-type(2) {
+.secondary-grid__item-text-on-white:nth-child(2) {
   font-weight: 600;
   font-size: 16px;
   letter-spacing: -0.019375em;
   color: var(--color-black);
 }
 
-.secondary-grid__item-text-on-white:nth-of-type(3) {
+.secondary-grid__item-text-on-white:nth-child(3) {
   font-weight: 400;
   font-size: 12px;
   letter-spacing: 0;
@@ -1296,11 +1319,11 @@ body:has(dialog[open]) {
   );
 }
 
-.footer__title {
+.footer__logo {
   gap: 12px;
 }
 
-.footer__title-text {
+.footer__logo-text {
   font-weight: 400;
   font-size: 24px;
   line-height: 32px;
@@ -1308,12 +1331,12 @@ body:has(dialog[open]) {
   color: var(--color-white);
 }
 
-.footer__title-icon-wrapper {
+.footer__logo-icon-wrapper {
   width: 56px;
   height: 56px;
 }
 
-.footer__title-icon-wrapper svg {
+.footer__logo-icon-wrapper svg {
   width: 100%;
   height: 100%;
   filter: drop-shadow(0px 10px 20px rgba(240, 177, 0, 0.4));
@@ -1349,13 +1372,83 @@ body:has(dialog[open]) {
   letter-spacing: -0.019375em;
 }
 
-/*доделать футер
-заменить svg video-player на svg без теней
-смотрите больше видео-сделать ховер
-поставить тень в хедере
-заменить svg секции описания и контактов
+.swiper {
+  width: 100%;
+  aspect-ratio: 2048/1367;
+  max-width: 1920px;
+}
+.swiper-container {
+  position: relative;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+}
+.swiper-container::part(button-prev) {
+  left: 25%;
+}
+.swiper-container::part(button-next) {
+  right: 25%;
+  left: auto;
+}
+.swiper-container::part(pagination) {
+  color: var(--color-white);
+  font-family: "Oswald", sans-serif;
+  font-weight: 500;
+  font-size: 20px;
+  bottom: 13%;
+  transform: translateY(50%);
+  gap: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  pointer-events: none;
+}
+@media (min-width: 481px) {
+  .swiper-container::part(pagination) {
+    font-size: clamp(32px, -7968px + 800vw, 40px);
+  }
+}
+.swiper-container::part(button-prev), .swiper-container::part(button-next) {
+  display: none;
+  background-color: var(--color-accent-trans40);
+  color: var(--color-white);
+  height: 40px;
+  width: 40px;
+  border-radius: 40px;
+  padding: 20px;
+  transition-duration: var(--transition-duration-quick);
+  position: absolute;
+  bottom: 13%;
+  transform: translateY(50%);
+  z-index: 20;
+  top: auto;
+}
+@media (hover: hover) {
+  .swiper-container::part(button-prev):hover, .swiper-container::part(button-next):hover {
+    background-color: var(--color-accent);
+  }
+}
+@media (hover: none) {
+  .swiper-container::part(button-prev):active, .swiper-container::part(button-next):active {
+    background-color: var(--color-accent);
+  }
+}
+@media (min-width: 1001px) {
+  .swiper-container::part(button-prev), .swiper-container::part(button-next) {
+    display: flex;
+  }
+}
+.swiper-slide img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+/*
+смотрите больше видео-добавить ссылку
+добавить фото для каждой станции
 добавить крестик на мобильное меню
 заменить пиксели на ремы
 поработать над --transition-duration - 600 или 300
-поменять в контактах дивы на тег адресс
 */
