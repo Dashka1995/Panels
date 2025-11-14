@@ -335,6 +335,13 @@ a {
   border-radius: 8px;
   background-color: var(--color-white);
 }
+
+.mobile-overlay__button-exit {
+  position: absolute;
+  top: 25px;
+  right: 29px;
+}
+
 .header__nav-list {
   width: 100%;
   padding-top: 44px;
@@ -1637,28 +1644,79 @@ body:has(dialog[open]) {
 }
 
 .product-card__grid-item-property {
-color: var(--color-gray);
-font-weight: 400;
-font-size: 14px;
-letter-spacing: -0.009375em;
-
+  color: var(--color-gray);
+  font-weight: 400;
+  font-size: 14px;
+  letter-spacing: -0.009375em;
 }
 
 .product-card__grid-item-value {
-font-weight: 600;
-font-size: 18px;
-letter-spacing: -0.0275em;
+  font-weight: 600;
+  font-size: 18px;
+  letter-spacing: -0.0275em;
 }
-/*
-что за солнечная мигабщая кнопка в секции херо на главной странице
-смотрите больше видео-добавить ссылку
-добавить ссылку в футер
-добавить фото для каждой станции
-добавить крестик на мобильное меню
 
-добавить бэкграунд-колор всем бэкграунлам?
+.product-card__advantages {
+  width: 100%;
+  padding-block: 21px;
+  background: linear-gradient(
+    90deg,
+    rgba(26, 26, 26, 0.05) 0%,
+    rgba(26, 26, 26, 0.1) 100%
+  );
+  border: 1px solid #1a1a1a1a;
+  border-radius: 16px;
+}
+
+.product-card__advantages-grid-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 22px;
+}
+@media (min-width: 768px) {
+  .product-card__advantages-grid-container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.product-card__advantages-grid-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
+
+.product-card__advantages-grid-item-text {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 16px;
+  color: var(--color-gray);
+}
+
+.button-rect {
+  width: 100%;
+  height: var(--button-height);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
+  border-radius: 8px;
+  font-weight: 500;
+  letter-spacing: -0.0245em;
+  transition-duration: var(--transition-duration-quick);
+}
+
+.product-card__button {
+  font-weight: 600;
+  font-size: 20px;
+  letter-spacing: -0.028125em;
+  gap: 16px;
+}
+
+/*
 js поработать над кнопками языка
-поработать над кружком меню и корзины
+поработать над кружком меню и корзины?
 заменить пиксели на ремы
 поработать над --transition-duration - 600 или 300
 */
