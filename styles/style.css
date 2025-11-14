@@ -252,7 +252,7 @@ a {
   transition: transform var(--transition-duration-quick) ease;
   z-index: 1000;
   background-color: var(--color-white);
-  box-shadow: 0px 4px 6px -4px #0000001a;
+  box-shadow: 0px 4px 6px -4px var(--color-dark-grey);
 }
 
 .header--hidden {
@@ -644,7 +644,7 @@ body:has(dialog[open]) {
   }
 }
 
-@media (hover: hover) {
+/* @media (hover: hover) {
   .hero__flickering-button:hover {
     border: 1px solid var(--color-accent);
     box-shadow: 0px 0px 32.2px -12px var(--color-accent-trans30);
@@ -657,7 +657,7 @@ body:has(dialog[open]) {
     box-shadow: 0px 0px 32.2px -12px var(--color-accent-trans30);
     animation: none;
   }
-}
+} */
 
 .hero__description {
   color: #ffffffe5;
@@ -1010,7 +1010,8 @@ body:has(dialog[open]) {
 }
 
 .primary-grid__item-icon-wrapper,
-.secondary-grid__item-icon-wrapper {
+.secondary-grid__item-icon-wrapper,
+.product-card__grid-item-icon-wrapper {
   filter: drop-shadow(0px 2px 4px var(--color-dark-grey))
     drop-shadow(0px 4px 6px var(--color-dark-grey));
 }
@@ -1100,7 +1101,7 @@ body:has(dialog[open]) {
   font-weight: 600;
   font-size: 16px;
   letter-spacing: -0.019375em;
-  color: #fdb71a;
+  color: var(--color-accent);
 }
 
 .secondary-grid__item-text-on-black:nth-child(3) {
@@ -1450,18 +1451,176 @@ body:has(dialog[open]) {
   object-fit: cover;
 } */
 
-.card {
-  display: flex;
-  flex-direction: column;
+.product-card {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 30px;
 }
-@media (min-width: 768px) {
-  .card {
-    flex-direction: row;
+
+@media (min-width: 1366px) {
+  .product-card {
+    grid-template-columns: 1fr 1fr;
   }
 }
 
-.cardleft, .cardright {
-  width: 50%;
+.product-card__info {
+  gap: 26px;
+  align-items: flex-start;
+}
+
+.product-card__title {
+  align-self: flex-start;
+  font-weight: 400;
+  font-size: clamp(1.75rem, 1.273rem + 2.04vw, 2.25rem);
+  letter-spacing: 0.023125em;
+}
+
+.product-card__price {
+  border-radius: 16px;
+  padding: 17px;
+  background: linear-gradient(
+    90deg,
+    rgba(253, 183, 26, 0.1) 0%,
+    rgba(240, 177, 0, 0.1) 100%
+  );
+  gap: 20px;
+  border: 1px solid var(--color-accent-trans20);
+}
+
+.product-card__price-text {
+  font-size: 18px;
+  letter-spacing: -0.0275em;
+}
+
+.product-card__price-number {
+  font-weight: 700;
+  font-size: clamp(2.5rem, 2.023rem + 2.04vw, 3rem);
+  line-height: 48px;
+  letter-spacing: 0.021875em;
+  color: var(--color-accent);
+}
+
+.product-card__description {
+  width: 100%;
+  padding: 25px;
+  background: linear-gradient(
+    135deg,
+    rgba(245, 245, 245, 0.5) 0%,
+    rgba(245, 245, 245, 0.3) 100%
+  );
+  border: 1px solid var(--color-dark-grey);
+  border-radius: 16px;
+}
+
+.product-card__description-title {
+  justify-content: flex-start;
+  gap: 12px;
+  font-weight: 600;
+  font-size: 18px;
+  letter-spacing: -0.0275em;
+}
+
+.product-card__description-title-icon-wrapper svg {
+  width: 20px;
+  height: 20px;
+}
+
+.product-card__description-text {
+  padding-top: 10px;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 29.25px;
+  letter-spacing: -0.0275em;
+  color: var(--color-gray);
+}
+
+.product-card__specifications {
+  width: 100%;
+}
+
+.product-card__specifications-title {
+  position: relative;
+  left: 8px;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 28px;
+  letter-spacing: -0.028125em;
+}
+
+.product-card__specifications-title::before {
+  position: relative;
+  display: block;
+  content: "";
+  top: 2px;
+  left: -8px;
+  width: 4px;
+  height: 24px;
+  border-radius: 10px;
+  background-color: var(--color-accent);
+}
+
+.product-card__grid-container {
+  padding-top: 16px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+@media (min-width: 768px) {
+  .product-card__grid-container {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.product-card__grid-item {
+  padding-inline: 20px;
+  width: 100%;
+  height: 94px;
+  border-radius: 16px;
+  display: flex;
+  gap: 16px;
+  justify-content: flex-start;
+  align-items: center;
+  border: 1px solid;
+}
+
+.product-card__grid-item--yellow {
+  border-color: #fdb71a1a;
+  background: linear-gradient(
+    135deg,
+    rgba(253, 183, 26, 0.05) 0%,
+    rgba(253, 183, 26, 0.1) 100%
+  );
+}
+.product-card__grid-item--green {
+  border-color: #00c9501a;
+  background: linear-gradient(
+    135deg,
+    rgba(0, 201, 80, 0.05) 0%,
+    rgba(0, 201, 80, 0.1) 100%
+  );
+}
+.product-card__grid-item--blue {
+  border-color: #2B7FFF1A;
+  background: linear-gradient(
+    135deg,
+    rgba(43, 127, 255, 0.05) 0%,
+    rgba(43, 127, 255, 0.1) 100%
+  );
+}
+.product-card__grid-item--purple {
+  border-color: #AD46FF1A;
+  background: linear-gradient(135deg, rgba(173, 70, 255, 0.05) 0%, rgba(173, 70, 255, 0.1) 100%);
+
+}
+.product-card__grid-item--light-green {
+  border-color: #00BC7D1A;
+  background: linear-gradient(135deg, rgba(0, 188, 125, 0.05) 0%, rgba(0, 188, 125, 0.1) 100%);
+
+}
+
+.product-card__grid-item-icon-wrapper svg {
+  width: 48px;
+  height: 48px;
 }
 /*
 что за солнечная мигабщая кнопка в секции херо на главной странице
@@ -1470,6 +1629,7 @@ body:has(dialog[open]) {
 добавить фото для каждой станции
 добавить крестик на мобильное меню
 
+добавить бэкграунд-колор всем бэкграунлам?
 js поработать над кнопками языка
 поработать над кружком меню и корзины
 заменить пиксели на ремы
