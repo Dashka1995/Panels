@@ -146,6 +146,10 @@ a {
   flex-direction: column;
 }
 
+.gap16 {
+  gap: 16px;
+}
+
 .box-shadow {
   filter: drop-shadow(0px 2px 4px var(--color-dark-grey))
     drop-shadow(0px 4px 6px var(--color-dark-grey));
@@ -1714,7 +1718,292 @@ body:has(dialog[open]) {
   gap: 16px;
 }
 
+.basket__body {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 15px;
+  padding-block: clamp(0.938rem, 0.341rem + 2.54vw, 1.563rem);
+}
+@media (min-width: 1024px) {
+  .basket__body {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.basket__top-cont {
+  width: 100%;
+  justify-content: space-between;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.basket__top-title {
+  font-weight: 400;
+  font-size: 20px;
+  letter-spacing: -0.028125em;
+}
+
+.basket__top-buttons {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-grow: 1;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+@media (min-width: 480px) {
+  .basket__top-buttons {
+    justify-content: flex-end;
+  }
+}
+
+.basket__top-button {
+  height: 32px;
+  padding-inline: 11px;
+  gap: 14px;
+  border-radius: 8px;
+  font-weight: 500;
+  font-size: 14px;
+  letter-spacing: -0.009375em;
+  border: 1px solid var(--color-accent);
+  transition-duration: var(--transition-duration-quick);
+  cursor: pointer;
+}
+
+@media (hover: hover) {
+  .basket__top-button--with-border:hover {
+    background-color: var(--color-accent-alt);
+    border-color: var(--color-accent-alt);
+    color: var(--color-white);
+  }
+  .basket__top-button--with-border:hover svg path {
+    transition-duration: var(--transition-duration-quick);
+    stroke: var(--color-white);
+  }
+}
+@media (hover: none) {
+  .basket__top-button--with-border:active {
+    background-color: var(--color-accent-alt);
+    border-color: var(--color-accent-alt);
+    color: var(--color-white);
+  }
+  .basket__top-button--with-border:hover svg path {
+    transition-duration: var(--transition-duration-quick);
+    stroke: var(--color-white);
+  }
+}
+
+.basket__top-button--without-border {
+  border-color: transparent;
+  color: #d4183d;
+}
+@media (hover: hover) {
+  .basket__top-button--without-border:hover {
+    border-color: #d4183d;
+  }
+}
+@media (hover: none) {
+  .basket__top-button--without-border:active {
+    border-color: #d4183d;
+  }
+}
+
+.basket__select-cont {
+  width: 100%;
+  border: 2px solid var(--color-accent);
+  border-radius: 14px;
+  padding: 22px;
+  background: linear-gradient(
+    135deg,
+    rgba(253, 183, 26, 0.1) 0%,
+    rgba(240, 177, 0, 0.1) 100%
+  );
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: start;
+  gap: 12px;
+}
+
+.basket__select-description {
+  gap: 3px;
+}
+
+.basket__select-description-text {
+  font-weight: 600;
+  font-size: 16px;
+  letter-spacing: -0.019375em;
+}
+
+.basket__select-horizontal-cont {
+  width: 100%;
+  flex-direction: column;
+  gap: 12px;
+}
+@media (min-width: 480px) {
+  .basket__select-horizontal-cont {
+    flex-direction: row;
+  }
+}
+
+.basket__select-details {
+  width: 100%;
+  position: relative;
+}
+
+.basket__select-choice {
+  width: 100%;
+  height: 36px;
+  border-radius: 8px;
+  padding-inline: 9px 7px;
+  background-color: var(--color-white);
+  border: 1px solid var(--color-accent);
+  cursor: pointer;
+  justify-content: space-between;
+}
+.basket__select-placeholder {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: -0.009375em;
+  color: var(--color-gray);
+}
+
+.basket__select-list {
+  width: 100%;
+  max-width: 460px;
+  position: absolute;
+  z-index: 1;
+  background-color: var(--color-white);
+  border: 1px solid var(--color-dark-grey);
+  top: 35px;
+  right: 0;
+  color: var(--color-white);
+  border-radius: 8px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+/* @media (min-width: 480px) {
+  .basket__select-list {
+    top: 0;
+    right: 0;
+  }
+} */
+
+.basket__selected-product,
+.basket__select-product-name {
+  color: var(--color-black);
+  font-weight: 400;
+  font-size: 14px;
+  letter-spacing: -0.009375em;
+}
+
+.basket__select-item {
+  width: 100%;
+  background-color: var(--color-white);
+  border-radius: 8px;
+  padding: 10px;
+  transition-duration: var(--transition-duration-quick);
+  cursor: pointer;
+  color: var(--color-black);
+}
+.basket__select-item--active {
+  background-color: var(--color-accent);
+}
+@media (hover: hover) {
+  .basket__select-item:hover {
+    background-color: var(--color-accent);
+    box-shadow: 0px 4px 6px -4px var(--color-dark-grey);
+  }
+}
+@media (hover: none) {
+  .basket__select-item:active {
+    box-shadow: 0px 4px 6px -4px var(--color-dark-grey);
+  }
+}
+
+.basket__select-button-submit {
+  height: 36px;
+  padding-inline: 15px;
+  background-color: var(--color-accent);
+  border-radius: 8px;
+  font-weight: 500;
+  font-size: 14px;
+  letter-spacing: -0.009375em;
+}
+
+.basket__form-cont {
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 20px;
+}
+
+.basket__form,
+.basket-card {
+  width: 100%;
+  padding: 20px;
+  border-radius: 14px;
+  border: 1px solid var(--color-dark-grey);
+}
+
+.basket__form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.basket__form-title-icon-wrapper svg {
+  width: 40px;
+  height: 40px;
+}
+.basket__form-title-text {
+  font-weight: 600;
+  font-size: 20px;
+  letter-spacing: -0.028125em;
+}
+
+.basket__form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.basket__form-field-label {
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: -0.009375em;
+}
+
+.basket__form-field-control, .basket__form-textarea {
+  width: 100%;
+  background-color: #f9f9f9;
+  border: 1px solid var(--color-accent-trans30);
+  border-radius: 8px;
+  padding: 8px 12px;
+  display: flex;
+  align-items: center;
+font-weight: 400;
+font-size: 14px;
+line-height: 100%;
+letter-spacing: -0.009375em;
+}
+
+.basket__form-field-control {
+  height: 36px;
+}
+
+.basket__form-field-control::placeholder, .basket__form-textarea::placeholder {
+  font-family: var(--font-family-base);
+}
+
+
+
 /*
+нужна иконка контактной информации без теней
+
 js поработать над кнопками языка
 поработать над кружком меню и корзины?
 заменить пиксели на ремы

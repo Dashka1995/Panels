@@ -1,0 +1,1379 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./styles/normalize.css" />
+    <link rel="stylesheet" href="./styles/fonts.css" />
+    <link rel="stylesheet" href="./styles/style.css" />
+  </head>
+
+  <body>
+    <header class="header">
+      <div class="header__body flex-center container">
+        <a href="index.html" class="header__logo flex-center">
+          <span class="header__logo-icon-wrapper box-shadow content-size">
+            <svg
+              width="40"
+              height="40"
+              viewBox="0 0 40 40"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M0 10C0 4.47715 4.47715 0 10 0H30C35.5228 0 40 4.47715 40 10V30C40 35.5228 35.5228 40 30 40H10C4.47715 40 0 35.5228 0 30V10Z"
+                fill="#FDB71A"
+              />
+              <path
+                d="M20 24C22.2091 24 24 22.2091 24 20C24 17.7909 22.2091 16 20 16C17.7909 16 16 17.7909 16 20C16 22.2091 17.7909 24 20 24Z"
+                stroke="#1A1A1A"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+              <path
+                d="M20 10V12"
+                stroke="#1A1A1A"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+              <path
+                d="M20 28V30"
+                stroke="#1A1A1A"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+              <path
+                d="M12.9301 12.9302L14.3401 14.3402"
+                stroke="#1A1A1A"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+              <path
+                d="M25.66 25.6602L27.07 27.0702"
+                stroke="#1A1A1A"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+              <path
+                d="M10 20H12"
+                stroke="#1A1A1A"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+              <path
+                d="M28 20H30"
+                stroke="#1A1A1A"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+              <path
+                d="M14.3401 25.6602L12.9301 27.0702"
+                stroke="#1A1A1A"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+              <path
+                d="M27.07 12.9302L25.66 14.3402"
+                stroke="#1A1A1A"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </span>
+          <span class="header__logo-text">SUN CASE</span>
+        </a>
+        <nav class="header__nav">
+          <ul class="header__nav-list flex-center hidden-mobile">
+            <li class="header__item">
+              <a
+                href="index.html#catalog"
+                class="header__link"
+                onclick="mobileOverlay.close()"
+                data-lang-key="translate_1"
+              >
+                Каталог
+              </a>
+            </li>
+            <li class="header__item">
+              <a
+                href="index.html#video-review"
+                class="header__link"
+                onclick="mobileOverlay.close()"
+                data-lang-key="translate_2"
+              >
+                Видео-обзор
+              </a>
+            </li>
+            <li class="header__item">
+              <a
+                href="index.html#about-station"
+                class="header__link"
+                onclick="mobileOverlay.close()"
+                data-lang-key="translate_3"
+              >
+                О станции
+              </a>
+            </li>
+            <li class="header__item">
+              <a
+                href="index.html#contacts"
+                class="header__link"
+                onclick="mobileOverlay.close()"
+                data-lang-key="translate_04"
+              >
+                Контакты
+              </a>
+            </li>
+          </ul>
+          <ul class="header__buttons-list hidden-mobile">
+            <li class="header__buttons-item flex-center">
+              <!-- аккордеон смены языка: -->
+              <details class="header__lang closing-accordion">
+                <summary class="hidden-summary-arrow">
+                  <!-- спан RU :  -->
+                  <span class="ru header__lang-cont flex-center">
+                    <span
+                      class="header__lang-cont-icon-wrapper box-shadow content-size"
+                    >
+                      <svg
+                        width="26"
+                        height="26"
+                        viewBox="0 0 26 26"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M0 13C0 5.8203 5.8203 0 13 0C20.1797 0 26 5.8203 26 13C26 20.1797 20.1797 26 13 26C5.8203 26 0 20.1797 0 13Z"
+                          fill="url(#paint0_linear_108_1698)"
+                        />
+                        <path
+                          d="M4.9929 17V8.27273H8.43608C9.09517 8.27273 9.65767 8.39062 10.1236 8.62642C10.5923 8.85937 10.9489 9.19034 11.1932 9.61932C11.4403 10.0455 11.5639 10.5469 11.5639 11.1236C11.5639 11.7031 11.4389 12.2017 11.1889 12.6193C10.9389 13.0341 10.5767 13.3523 10.1023 13.5739C9.63068 13.7955 9.05966 13.9062 8.3892 13.9062H6.08381V12.4233H8.09091C8.44318 12.4233 8.7358 12.375 8.96875 12.2784C9.2017 12.1818 9.375 12.0369 9.48864 11.8438C9.60511 11.6506 9.66335 11.4105 9.66335 11.1236C9.66335 10.8338 9.60511 10.5895 9.48864 10.3906C9.375 10.1918 9.20028 10.0412 8.96449 9.93892C8.73153 9.83381 8.4375 9.78125 8.08239 9.78125H6.83807V17H4.9929ZM9.70597 13.0284L11.875 17H9.83807L7.71591 13.0284H9.70597ZM18.2585 8.27273H20.1037V13.9403C20.1037 14.5767 19.9517 15.1335 19.6477 15.6108C19.3466 16.0881 18.9247 16.4602 18.3821 16.7273C17.8395 16.9915 17.2074 17.1236 16.4858 17.1236C15.7614 17.1236 15.1278 16.9915 14.5852 16.7273C14.0426 16.4602 13.6207 16.0881 13.3196 15.6108C13.0185 15.1335 12.8679 14.5767 12.8679 13.9403V8.27273H14.7131V13.7827C14.7131 14.1151 14.7855 14.4105 14.9304 14.669C15.0781 14.9276 15.2855 15.1307 15.5526 15.2784C15.8196 15.4261 16.1307 15.5 16.4858 15.5C16.8438 15.5 17.1548 15.4261 17.419 15.2784C17.6861 15.1307 17.892 14.9276 18.0369 14.669C18.1847 14.4105 18.2585 14.1151 18.2585 13.7827V8.27273Z"
+                          fill="#1A1A1A"
+                        />
+                        <defs>
+                          <linearGradient
+                            id="paint0_linear_108_1698"
+                            x1="0"
+                            y1="0"
+                            x2="26"
+                            y2="26"
+                            gradientUnits="userSpaceOnUse"
+                          >
+                            <stop stop-color="#FDB71A" />
+                            <stop offset="0.5" stop-color="#FDC700" />
+                            <stop offset="1" stop-color="#FF8904" />
+                          </linearGradient>
+                        </defs>
+                      </svg>
+                    </span>
+                    <span class="header__lang-cont-text-wrapper">RU</span>
+                  </span>
+                  <!-- спан UK :  -->
+                  <!-- <span class="uk header__lang-cont flex-center">
+                        <span
+                          class="header__lang-cont-icon-wrapper box-shadow content-size"
+                        >
+                          <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 13C0 5.8203 5.8203 0 13 0C20.1797 0 26 5.8203 26 13C26 20.1797 20.1797 26 13 26C5.8203 26 0 20.1797 0 13Z" fill="url(#paint0_linear_108_1705)"/>
+    <path d="M9.88352 8.27273H11.7287V13.9403C11.7287 14.5767 11.5767 15.1335 11.2727 15.6108C10.9716 16.0881 10.5497 16.4602 10.0071 16.7273C9.46449 16.9915 8.83239 17.1236 8.1108 17.1236C7.38636 17.1236 6.75284 16.9915 6.21023 16.7273C5.66761 16.4602 5.24574 16.0881 4.9446 15.6108C4.64347 15.1335 4.4929 14.5767 4.4929 13.9403V8.27273H6.33807V13.7827C6.33807 14.1151 6.41051 14.4105 6.5554 14.669C6.70313 14.9276 6.91051 15.1307 7.17756 15.2784C7.4446 15.4261 7.75568 15.5 8.1108 15.5C8.46875 15.5 8.77983 15.4261 9.04403 15.2784C9.31108 15.1307 9.51705 14.9276 9.66193 14.669C9.80966 14.4105 9.88352 14.1151 9.88352 13.7827V8.27273ZM14.7511 17H12.7738L15.7866 8.27273H18.1644L21.1729 17H19.1957L17.0096 10.267H16.9414L14.7511 17ZM14.6275 13.5696H19.2979V15.0099H14.6275V13.5696Z" fill="#1A1A1A"/>
+    <defs>
+    <linearGradient id="paint0_linear_108_1705" x1="0" y1="0" x2="26" y2="26" gradientUnits="userSpaceOnUse">
+    <stop stop-color="#FDB71A"/>
+    <stop offset="0.5" stop-color="#FDC700"/>
+    <stop offset="1" stop-color="#FF8904"/>
+    </linearGradient>
+    </defs>
+    </svg>
+                        </span>
+                        <span class="header__lang-cont-text-wrapper">UK</span>
+                      </span> -->
+                </summary>
+                <!-- <div class="header__lang-links-overlay"></div> -->
+                <ul class="header__lang-links-list">
+                  <li
+                    class="header__lang-links-item header__lang-links-item--active"
+                  >
+                    <button
+                      type="button"
+                      class="header__lang-link"
+                      data-lang="ru"
+                    >
+                      <span
+                        class="header__lang-link-icon-wrapper box-shadow content-size"
+                      >
+                        <svg
+                          width="26"
+                          height="26"
+                          viewBox="0 0 26 26"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M0 13C0 5.8203 5.8203 0 13 0C20.1797 0 26 5.8203 26 13C26 20.1797 20.1797 26 13 26C5.8203 26 0 20.1797 0 13Z"
+                            fill="url(#paint0_linear_108_1698)"
+                          />
+                          <path
+                            d="M4.9929 17V8.27273H8.43608C9.09517 8.27273 9.65767 8.39062 10.1236 8.62642C10.5923 8.85937 10.9489 9.19034 11.1932 9.61932C11.4403 10.0455 11.5639 10.5469 11.5639 11.1236C11.5639 11.7031 11.4389 12.2017 11.1889 12.6193C10.9389 13.0341 10.5767 13.3523 10.1023 13.5739C9.63068 13.7955 9.05966 13.9062 8.3892 13.9062H6.08381V12.4233H8.09091C8.44318 12.4233 8.7358 12.375 8.96875 12.2784C9.2017 12.1818 9.375 12.0369 9.48864 11.8438C9.60511 11.6506 9.66335 11.4105 9.66335 11.1236C9.66335 10.8338 9.60511 10.5895 9.48864 10.3906C9.375 10.1918 9.20028 10.0412 8.96449 9.93892C8.73153 9.83381 8.4375 9.78125 8.08239 9.78125H6.83807V17H4.9929ZM9.70597 13.0284L11.875 17H9.83807L7.71591 13.0284H9.70597ZM18.2585 8.27273H20.1037V13.9403C20.1037 14.5767 19.9517 15.1335 19.6477 15.6108C19.3466 16.0881 18.9247 16.4602 18.3821 16.7273C17.8395 16.9915 17.2074 17.1236 16.4858 17.1236C15.7614 17.1236 15.1278 16.9915 14.5852 16.7273C14.0426 16.4602 13.6207 16.0881 13.3196 15.6108C13.0185 15.1335 12.8679 14.5767 12.8679 13.9403V8.27273H14.7131V13.7827C14.7131 14.1151 14.7855 14.4105 14.9304 14.669C15.0781 14.9276 15.2855 15.1307 15.5526 15.2784C15.8196 15.4261 16.1307 15.5 16.4858 15.5C16.8438 15.5 17.1548 15.4261 17.419 15.2784C17.6861 15.1307 17.892 14.9276 18.0369 14.669C18.1847 14.4105 18.2585 14.1151 18.2585 13.7827V8.27273Z"
+                            fill="#1A1A1A"
+                          />
+                          <defs>
+                            <linearGradient
+                              id="paint0_linear_108_1698"
+                              x1="0"
+                              y1="0"
+                              x2="26"
+                              y2="26"
+                              gradientUnits="userSpaceOnUse"
+                            >
+                              <stop stop-color="#FDB71A" />
+                              <stop offset="0.5" stop-color="#FDC700" />
+                              <stop offset="1" stop-color="#FF8904" />
+                            </linearGradient>
+                          </defs>
+                        </svg>
+                      </span>
+                      <span class="header__lang-cont-text-wrapper">
+                        Русский
+                      </span>
+                    </button>
+                  </li>
+                  <li class="header__lang-links-item">
+                    <button
+                      type="button"
+                      class="header__lang-link"
+                      data-lang="ua"
+                    >
+                      <span
+                        class="header__lang-link-icon-wrapper box-shadow content-size"
+                      >
+                        <svg
+                          width="26"
+                          height="26"
+                          viewBox="0 0 26 26"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M0 13C0 5.8203 5.8203 0 13 0C20.1797 0 26 5.8203 26 13C26 20.1797 20.1797 26 13 26C5.8203 26 0 20.1797 0 13Z"
+                            fill="url(#paint0_linear_108_1705)"
+                          />
+                          <path
+                            d="M9.88352 8.27273H11.7287V13.9403C11.7287 14.5767 11.5767 15.1335 11.2727 15.6108C10.9716 16.0881 10.5497 16.4602 10.0071 16.7273C9.46449 16.9915 8.83239 17.1236 8.1108 17.1236C7.38636 17.1236 6.75284 16.9915 6.21023 16.7273C5.66761 16.4602 5.24574 16.0881 4.9446 15.6108C4.64347 15.1335 4.4929 14.5767 4.4929 13.9403V8.27273H6.33807V13.7827C6.33807 14.1151 6.41051 14.4105 6.5554 14.669C6.70313 14.9276 6.91051 15.1307 7.17756 15.2784C7.4446 15.4261 7.75568 15.5 8.1108 15.5C8.46875 15.5 8.77983 15.4261 9.04403 15.2784C9.31108 15.1307 9.51705 14.9276 9.66193 14.669C9.80966 14.4105 9.88352 14.1151 9.88352 13.7827V8.27273ZM14.7511 17H12.7738L15.7866 8.27273H18.1644L21.1729 17H19.1957L17.0096 10.267H16.9414L14.7511 17ZM14.6275 13.5696H19.2979V15.0099H14.6275V13.5696Z"
+                            fill="#1A1A1A"
+                          />
+                          <defs>
+                            <linearGradient
+                              id="paint0_linear_108_1705"
+                              x1="0"
+                              y1="0"
+                              x2="26"
+                              y2="26"
+                              gradientUnits="userSpaceOnUse"
+                            >
+                              <stop stop-color="#FDB71A" />
+                              <stop offset="0.5" stop-color="#FDC700" />
+                              <stop offset="1" stop-color="#FF8904" />
+                            </linearGradient>
+                          </defs>
+                        </svg>
+                      </span>
+                      <span class="header__lang-cont-text-wrapper">
+                        Український
+                      </span>
+                    </button>
+                  </li>
+                </ul>
+              </details>
+            </li>
+            <li class="header__buttons-item flex-center">
+              <!-- ссылка(пока что) на корзину: -->
+              <a href="#" class="header__basket">
+                <span class="header__basket-icon-wrapper content-size">
+                  <svg
+                    width="41"
+                    height="40"
+                    viewBox="0 0 41 40"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <g clip-path="url(#clip0_17_72)">
+                      <path
+                        d="M15.4688 30C16.021 30 16.4688 29.5523 16.4688 29C16.4688 28.4477 16.021 28 15.4688 28C14.9165 28 14.4688 28.4477 14.4688 29C14.4688 29.5523 14.9165 30 15.4688 30Z"
+                        stroke="#1A1A1A"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                      <path
+                        d="M26.4688 30C27.021 30 27.4688 29.5523 27.4688 29C27.4688 28.4477 27.021 28 26.4688 28C25.9165 28 25.4688 28.4477 25.4688 29C25.4688 29.5523 25.9165 30 26.4688 30Z"
+                        stroke="#1A1A1A"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                      <path
+                        d="M9.51855 10.0498H11.5186L14.1786 22.4698C14.2761 22.9247 14.5292 23.3313 14.8943 23.6197C15.2593 23.908 15.7135 24.0602 16.1786 24.0498H25.9586C26.4137 24.0491 26.855 23.8931 27.2096 23.6076C27.5641 23.3222 27.8107 22.9243 27.9086 22.4798L29.5586 15.0498H12.5886"
+                        stroke="#1A1A1A"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                      <circle cx="28.9688" cy="14.5" r="3.5" fill="#FDB71A" />
+                    </g>
+                    <defs>
+                      <clipPath id="clip0_17_72">
+                        <rect
+                          width="24"
+                          height="24"
+                          fill="white"
+                          transform="translate(8.46875 8)"
+                        />
+                      </clipPath>
+                    </defs>
+                  </svg>
+                </span>
+                <span class="visually-hidden">Корзина</span>
+              </a>
+            </li>
+            <li class="header__buttons-item flex-center">
+              <!-- повторная ссылка(пока что) на корзину в виде кнопки №заказать": -->
+              <a href="#" class="header__order">Заказать</a>
+            </li>
+          </ul>
+        </nav>
+        <button
+          class="header__burger-button burger-button visible-mobile"
+          type="button"
+          onclick="mobileOverlay.showModal()"
+        >
+          <span class="visually-hidden">Открыть меню навигации</span>
+          <span class="header__burger-button-icon-wrapper content-size">
+            <svg
+              width="40"
+              height="40"
+              viewBox="0 0 40 40"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <rect width="40" height="40" rx="8" fill="#FDB71A" />
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M10 13.25C10 12.5596 10.6716 12 11.5 12H29.5C30.3284 12 31 12.5596 31 13.25C31 13.9404 30.3284 14.5 29.5 14.5H11.5C10.6716 14.5 10 13.9404 10 13.25ZM10 19.5C10 18.8097 10.6716 18.25 11.5 18.25H29.5C30.3284 18.25 31 18.8097 31 19.5C31 20.1904 30.3284 20.75 29.5 20.75H11.5C10.6716 20.75 10 20.1904 10 19.5ZM10 25.75C10 25.0597 10.6716 24.5 11.5 24.5H29.5C30.3284 24.5 31 25.0597 31 25.75C31 26.4404 30.3284 27 29.5 27H11.5C10.6716 27 10 26.4404 10 25.75Z"
+                fill="black"
+              />
+            </svg>
+          </span>
+        </button>
+      </div>
+    </header>
+    <main class="main">
+      <a class="section__bread-crumb flex-center container" href="index.html">
+        <span class="content-size">
+          <svg
+            width="31"
+            height="32"
+            viewBox="0 0 31 32"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M6.6962 10.9999L1 17.1557L7 22.9999"
+              stroke="black"
+              stroke-width="2"
+              stroke-miterlimit="10"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+            <path
+              d="M2 16.9999L30 16.9999"
+              stroke="black"
+              stroke-width="2"
+              stroke-miterlimit="10"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+        </span>
+        <span>Назад</span>
+      </a>
+      <section class="section2 basket">
+        <div class="section2__title flex-center">
+          <div class="section2__title-body flex-center container">
+            <span class="section2__title-icon-wrapper box-shadow content-size">
+              <svg
+                width="61"
+                height="61"
+                viewBox="0 0 61 61"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M0 16C0 7.16345 7.16344 0 16 0H44.4948C53.3313 0 60.4948 7.16344 60.4948 16V44.4948C60.4948 53.3313 53.3313 60.4948 44.4948 60.4948H16C7.16345 60.4948 0 53.3313 0 44.4948V16Z"
+                  fill="url(#paint0_linear_297_3305)"
+                />
+                <path
+                  d="M25.2066 42.8504C25.9026 42.8504 26.4669 42.2862 26.4669 41.5901C26.4669 40.8941 25.9026 40.3298 25.2066 40.3298C24.5105 40.3298 23.9463 40.8941 23.9463 41.5901C23.9463 42.2862 24.5105 42.8504 25.2066 42.8504Z"
+                  stroke="#1A1A1A"
+                  stroke-width="2.52061"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M39.0699 42.8504C39.7659 42.8504 40.3302 42.2862 40.3302 41.5901C40.3302 40.8941 39.7659 40.3298 39.0699 40.3298C38.3738 40.3298 37.8096 40.8941 37.8096 41.5901C37.8096 42.2862 38.3738 42.8504 39.0699 42.8504Z"
+                  stroke="#1A1A1A"
+                  stroke-width="2.52061"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M17.708 17.7074H20.2286L23.581 33.3604C23.704 33.9337 24.023 34.4461 24.4831 34.8096C24.9431 35.173 25.5155 35.3647 26.1017 35.3517H38.4275C39.0011 35.3508 39.5573 35.1542 40.0041 34.7944C40.451 34.4347 40.7617 33.9333 40.8851 33.373L42.9646 24.0089H21.5772"
+                  stroke="#1A1A1A"
+                  stroke-width="2.52061"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <defs>
+                  <linearGradient
+                    id="paint0_linear_297_3305"
+                    x1="0"
+                    y1="0"
+                    x2="60.4948"
+                    y2="60.4948"
+                    gradientUnits="userSpaceOnUse"
+                  >
+                    <stop stop-color="#FDB71A" />
+                    <stop offset="1" stop-color="#F0B100" />
+                  </linearGradient>
+                </defs>
+              </svg>
+            </span>
+            <h1 class="section2__title-text">Оформление заказа</h1>
+          </div>
+        </div>
+        <div class="basket__body container">
+          <div class="basket__info-cont">
+            <div class="basket__top-cont flex-center">
+              <h2 class="basket__top-title">Товары в корзине</h2>
+              <span class="basket__top-buttons">
+                <button
+                  class="basket__top-button basket__add basket__top-button--with-border flex-center"
+                  type="button"
+                >
+                  <span class="basket__top-button-icon-wrapper content-size">
+                    <svg
+                      width="16"
+                      height="16"
+                      viewBox="0 0 16 16"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M10.667 10.6667H14.667"
+                        stroke="#1A1A1A"
+                        stroke-width="1.33333"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                      <path
+                        d="M12.667 8.66675V12.6667"
+                        stroke="#1A1A1A"
+                        stroke-width="1.33333"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                      <path
+                        d="M14 6.66668V5.33335C13.9998 5.09953 13.938 4.86989 13.821 4.66746C13.704 4.46503 13.5358 4.29692 13.3333 4.18002L8.66667 1.51335C8.46397 1.39633 8.23405 1.33472 8 1.33472C7.76595 1.33472 7.53603 1.39633 7.33333 1.51335L2.66667 4.18002C2.46418 4.29692 2.29599 4.46503 2.17897 4.66746C2.06196 4.86989 2.00024 5.09953 2 5.33335V10.6667C2.00024 10.9005 2.06196 11.1301 2.17897 11.3326C2.29599 11.535 2.46418 11.7031 2.66667 11.82L7.33333 14.4867C7.53603 14.6037 7.76595 14.6653 8 14.6653C8.23405 14.6653 8.46397 14.6037 8.66667 14.4867L10 13.7267"
+                        stroke="#1A1A1A"
+                        stroke-width="1.33333"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                      <path
+                        d="M5 2.84668L11 6.28001"
+                        stroke="#1A1A1A"
+                        stroke-width="1.33333"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                      <path
+                        d="M2.19336 4.66675L8.00003 8.00008L13.8067 4.66675"
+                        stroke="#1A1A1A"
+                        stroke-width="1.33333"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                      <path
+                        d="M8 14.6667V8"
+                        stroke="#1A1A1A"
+                        stroke-width="1.33333"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+                  </span>
+                  Добавить
+                </button>
+                <button
+                  class="basket__top-button basket__top-button--without-border flex-center"
+                  type="button"
+                >
+                  <span class="basket__top-button-icon-wrapper content-size">
+                    <svg
+                      width="16"
+                      height="16"
+                      viewBox="0 0 16 16"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M6.66699 7.3335V11.3335"
+                        stroke="#D4183D"
+                        stroke-width="1.33333"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                      <path
+                        d="M9.33301 7.3335V11.3335"
+                        stroke="#D4183D"
+                        stroke-width="1.33333"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                      <path
+                        d="M12.6663 4V13.3333C12.6663 13.687 12.5259 14.0261 12.2758 14.2761C12.0258 14.5262 11.6866 14.6667 11.333 14.6667H4.66634C4.31272 14.6667 3.97358 14.5262 3.72353 14.2761C3.47348 14.0261 3.33301 13.687 3.33301 13.3333V4"
+                        stroke="#D4183D"
+                        stroke-width="1.33333"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                      <path
+                        d="M2 4H14"
+                        stroke="#D4183D"
+                        stroke-width="1.33333"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                      <path
+                        d="M5.33301 4.00016V2.66683C5.33301 2.31321 5.47348 1.97407 5.72353 1.72402C5.97358 1.47397 6.31272 1.3335 6.66634 1.3335H9.33301C9.68663 1.3335 10.0258 1.47397 10.2758 1.72402C10.5259 1.97407 10.6663 2.31321 10.6663 2.66683V4.00016"
+                        stroke="#D4183D"
+                        stroke-width="1.33333"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+                  </span>
+                  Очистить
+                </button>
+              </span>
+              <div class="basket__select-cont visually-hidden">
+                <div class="basket__select-description flex-center">
+                  <span
+                    class="basket__select-description-icon-wrapper content-size"
+                  >
+                    <svg
+                      width="20"
+                      height="20"
+                      viewBox="0 0 20 20"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M13.3335 13.3334H18.3335"
+                        stroke="#FDB71A"
+                        stroke-width="1.66667"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                      <path
+                        d="M15.8335 10.8334V15.8334"
+                        stroke="#FDB71A"
+                        stroke-width="1.66667"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                      <path
+                        d="M17.5 8.33329V6.66663C17.4997 6.37435 17.4225 6.0873 17.2763 5.83426C17.13 5.58122 16.9198 5.37109 16.6667 5.22496L10.8333 1.89163C10.58 1.74535 10.2926 1.66833 10 1.66833C9.70744 1.66833 9.42003 1.74535 9.16667 1.89163L3.33333 5.22496C3.08022 5.37109 2.86998 5.58122 2.72372 5.83426C2.57745 6.0873 2.5003 6.37435 2.5 6.66663V13.3333C2.5003 13.6256 2.57745 13.9126 2.72372 14.1657C2.86998 14.4187 3.08022 14.6288 3.33333 14.775L9.16667 18.1083C9.42003 18.2546 9.70744 18.3316 10 18.3316C10.2926 18.3316 10.58 18.2546 10.8333 18.1083L12.5 17.1583"
+                        stroke="#FDB71A"
+                        stroke-width="1.66667"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                      <path
+                        d="M6.25 3.55835L13.75 7.85002"
+                        stroke="#FDB71A"
+                        stroke-width="1.66667"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                      <path
+                        d="M2.7417 5.83337L10 10L17.2584 5.83337"
+                        stroke="#FDB71A"
+                        stroke-width="1.66667"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                      <path
+                        d="M10 18.3333V10"
+                        stroke="#FDB71A"
+                        stroke-width="1.66667"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+                  </span>
+                  <span class="basket__select-description-text">
+                    Выберите товар для добавления:
+                  </span>
+                </div>
+                <div class="basket__select-horizontal-cont content-size">
+                  <details class="basket__select-details">
+                    <summary
+                      class="hidden-summary-arrow basket__select-choice flex-center"
+                    >
+                      <span class="basket__select-placeholder">
+                        Выберите солнечную станцию
+                      </span>
+                      <!-- <span class="basket__selected-product">
+                              SUN CASE 500W 50Ач - 12 199 ₴
+                            </span>        -->
+                      <span
+                        class="basket__select-choice-icon-wrapper content-size"
+                      >
+                        <svg
+                          width="16"
+                          height="16"
+                          viewBox="0 0 16 16"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <g opacity="0.5">
+                            <path
+                              d="M4 6L8 10L12 6"
+                              stroke="#6B6B6B"
+                              stroke-width="1.33333"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                            />
+                          </g>
+                        </svg>
+                      </span>
+                    </summary>
+                    <ul class="basket__select-list">
+                      <li class="basket__select-item">
+                        <div
+                          class="basket__select-product-button"
+                          data-id="1"
+                          data-name="SUNCASE-500W-50ah"
+                          data-price="12199"
+                        >
+                          <span class="basket__select-product-name">
+                            SUN CASE 500W 50Ач - 12 199 ₴
+                          </span>
+                        </div>
+                      </li>
+                      <li class="basket__select-item">
+                        <div
+                          class="basket__select-product-button"
+                          data-id="2"
+                          data-name="SUNCASE-1000W-50ah"
+                          data-price="14599"
+                        >
+                          <span class="basket__select-product-name">
+                            SUN CASE 1000W 50Ач - 14 599 ₴
+                          </span>
+                        </div>
+                      </li>
+                      <li class="basket__select-item">
+                        <div
+                          class="basket__select-product-button"
+                          data-id="3"
+                          data-name="SUNCASE-1000W-100ah"
+                          data-price="17499"
+                        >
+                          <span class="basket__select-product-name">
+                            SUN CASE 1000W 100Ач - 17 499 ₴
+                          </span>
+                        </div>
+                      </li>
+                      <li class="basket__select-item">
+                        <div
+                          class="basket__select-product-button"
+                          data-id="4"
+                          data-name="SUNCASE-1500W-100ah"
+                          data-price="18499"
+                        >
+                          <span class="basket__select-product-name">
+                            SUN CASE 1500W 100Ач - 18 499 ₴
+                          </span>
+                        </div>
+                      </li>
+                      <li class="basket__select-item">
+                        <div
+                          class="basket__select-product-button"
+                          data-id="5"
+                          data-name="SUNCASE-2000W-100ah"
+                          data-price="19999"
+                        >
+                          <span class="basket__select-product-name">
+                            SUN CASE 2000W 100Ач - 19 999 ₴
+                          </span>
+                        </div>
+                      </li>
+                    </ul>
+                  </details>
+                  <button
+                    class="basket__select-button-submit button-rect--accent flex-center"
+                    type="submit"
+                  >
+                    Добавить
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="basket__form-cont flex-center">
+            <h2 class="basket__form-title gap16 flex-center">
+              <span class="basket__form-title-icon-wrapper content-size">
+                <svg
+                  width="32"
+                  height="32"
+                  viewBox="0 0 32 32"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M29.0681 13.3333C29.6771 16.3217 29.2431 19.4285 27.8386 22.1357C26.4341 24.8429 24.144 26.9867 21.3502 28.2097C18.5563 29.4328 15.4276 29.661 12.4859 28.8565C9.5441 28.0519 6.96705 26.2632 5.1845 23.7885C3.40195 21.3139 2.52163 18.303 2.69035 15.2578C2.85907 12.2127 4.06664 9.31744 6.11167 7.05488C8.1567 4.79232 10.9156 3.29923 13.9282 2.82459C16.9409 2.34995 20.0252 2.92247 22.6668 4.44665"
+                    stroke="#FDB71A"
+                    stroke-width="2.66667"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                  <path
+                    d="M12 14.6668L16 18.6668L29.3333 5.3335"
+                    stroke="#FDB71A"
+                    stroke-width="2.66667"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </span>
+              <span class="basket__form-title-text">Контактная информация</span>
+            </h2>
+            <form class="basket__form" action="">
+              <div class="basket__form-field">
+                <label class="basket__form-field-label" for="username">
+                  Ваше имя
+                </label>
+                <input
+                  class="basket__form-field-control"
+                  type="text"
+                  id="username"
+                  name="username"
+                  placeholder="Ваше имя"
+                  required
+                />
+              </div>
+              <div class="basket__form-field">
+                <label class="basket__form-field-label" for="phone">
+                  Телефон
+                </label>
+                <input
+                  class="basket__form-field-control"
+                  type="tel"
+                  id="phone"
+                  name="phone"
+                  placeholder="380 XX XXX XX XX"
+                  required
+                />
+              </div>
+              <div class="basket__form-field">
+                <label class="basket__form-field-label" for="comment">
+                  Комментарий к заказу
+                </label>
+                <textarea
+                  class="basket__form-textarea"
+                  id="comment"
+                  name="comment"
+                  rows="3"
+                  placeholder="Дополнительная информация..."
+                ></textarea>
+              </div>
+              <button class="basket__form-button-submit button-rect button-rect--accent gap16" type="submit">
+                <span class="basket__form-button-submit-icon-wrapper content-size"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_512_38)">
+<path d="M7.34496 1.87581C7.37353 1.72287 7.45468 1.58475 7.57436 1.48535C7.69404 1.38595 7.84472 1.33154 8.00029 1.33154C8.15587 1.33154 8.30655 1.38595 8.42623 1.48535C8.54591 1.58475 8.62706 1.72287 8.65563 1.87581L9.35629 5.58114C9.40606 5.84457 9.53408 6.08688 9.72365 6.27645C9.91322 6.46602 10.1555 6.59404 10.419 6.64381L14.1243 7.34447C14.2772 7.37304 14.4154 7.45419 14.5147 7.57387C14.6141 7.69355 14.6686 7.84423 14.6686 7.99981C14.6686 8.15538 14.6141 8.30606 14.5147 8.42574C14.4154 8.54542 14.2772 8.62657 14.1243 8.65514L10.419 9.35581C10.1555 9.40557 9.91322 9.53359 9.72365 9.72316C9.53408 9.91273 9.40606 10.155 9.35629 10.4185L8.65563 14.1238C8.62706 14.2767 8.54591 14.4149 8.42623 14.5143C8.30655 14.6137 8.15587 14.6681 8.00029 14.6681C7.84472 14.6681 7.69404 14.6137 7.57436 14.5143C7.45468 14.4149 7.37353 14.2767 7.34496 14.1238L6.64429 10.4185C6.59453 10.155 6.46651 9.91273 6.27694 9.72316C6.08737 9.53359 5.84506 9.40557 5.58163 9.35581L1.87629 8.65514C1.72336 8.62657 1.58524 8.54542 1.48584 8.42574C1.38644 8.30606 1.33203 8.15538 1.33203 7.99981C1.33203 7.84423 1.38644 7.69355 1.48584 7.57387C1.58524 7.45419 1.72336 7.37304 1.87629 7.34447L5.58163 6.64381C5.84506 6.59404 6.08737 6.46602 6.27694 6.27645C6.46651 6.08688 6.59453 5.84457 6.64429 5.58114L7.34496 1.87581Z" stroke="#1A1A1A" stroke-width="1.33333" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M13.333 1.3335V4.00016" stroke="#1A1A1A" stroke-width="1.33333" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M14.6667 2.6665H12" stroke="#1A1A1A" stroke-width="1.33333" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M2.66634 14.6667C3.40272 14.6667 3.99967 14.0697 3.99967 13.3333C3.99967 12.597 3.40272 12 2.66634 12C1.92996 12 1.33301 12.597 1.33301 13.3333C1.33301 14.0697 1.92996 14.6667 2.66634 14.6667Z" stroke="#1A1A1A" stroke-width="1.33333" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+<defs>
+<clipPath id="clip0_512_38">
+<rect width="16" height="16" fill="white"/>
+</clipPath>
+</defs>
+</svg>
+</span>
+                <span>Отправить заказ</span>
+              </button>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer class="section footer">
+      <div class="container">
+        <div class="footer__up">
+          <div class="footer__up-inner flex-center">
+            <a href="index.html" class="footer__logo flex-center">
+              <span class="footer__logo-icon-wrapper content-size">
+                <svg
+                  width="64"
+                  height="64"
+                  viewBox="0 0 64 64"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M0 16C0 7.16344 7.16344 0 16 0H48C56.8366 0 64 7.16344 64 16V48C64 56.8366 56.8366 64 48 64H16C7.16344 64 0 56.8366 0 48V16Z"
+                    fill="#FDB71A"
+                  />
+                  <path
+                    d="M32 37.3332C34.9455 37.3332 37.3333 34.9454 37.3333 31.9998C37.3333 29.0543 34.9455 26.6665 32 26.6665C29.0544 26.6665 26.6666 29.0543 26.6666 31.9998C26.6666 34.9454 29.0544 37.3332 32 37.3332Z"
+                    stroke="#1A1A1A"
+                    stroke-width="2.66667"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                  <path
+                    d="M32 18.6665V21.3332"
+                    stroke="#1A1A1A"
+                    stroke-width="2.66667"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                  <path
+                    d="M32 42.6665V45.3332"
+                    stroke="#1A1A1A"
+                    stroke-width="2.66667"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                  <path
+                    d="M22.5734 22.5732L24.4534 24.4532"
+                    stroke="#1A1A1A"
+                    stroke-width="2.66667"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                  <path
+                    d="M39.5468 39.5469L41.4268 41.4269"
+                    stroke="#1A1A1A"
+                    stroke-width="2.66667"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                  <path
+                    d="M18.6666 32H21.3333"
+                    stroke="#1A1A1A"
+                    stroke-width="2.66667"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                  <path
+                    d="M42.6666 32H45.3333"
+                    stroke="#1A1A1A"
+                    stroke-width="2.66667"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                  <path
+                    d="M24.4534 39.5469L22.5734 41.4269"
+                    stroke="#1A1A1A"
+                    stroke-width="2.66667"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                  <path
+                    d="M41.4268 22.5732L39.5468 24.4532"
+                    stroke="#1A1A1A"
+                    stroke-width="2.66667"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </span>
+              <span class="footer__logo-text">SUN CASE</span>
+            </a>
+            <p
+              class="section__text section__text--s section__text--white-trans container"
+              data-lang-key="translate_79"
+            >
+              Мобильные гибридные солнечные станции для дома, бизнеса и
+              путешествий. Энергия будущего, доступная каждому!
+            </p>
+            <a
+              class="footer__note-link"
+              href="https://www.tiktok.com/@constancy_live?is_from_webapp=1&sender_device=pc"
+            >
+              <span class="footer__note-link-icon-wrapper content-size">
+                <svg
+                  width="48"
+                  height="48"
+                  viewBox="0 0 48 48"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <mask id="path-1-inside-1_344_1915" fill="white">
+                    <path
+                      d="M0 14C0 6.26801 6.26801 0 14 0H34C41.732 0 48 6.26801 48 14V34C48 41.732 41.732 48 34 48H14C6.26801 48 0 41.732 0 34V14Z"
+                    />
+                  </mask>
+                  <path
+                    d="M0 14C0 6.26801 6.26801 0 14 0H34C41.732 0 48 6.26801 48 14V34C48 41.732 41.732 48 34 48H14C6.26801 48 0 41.732 0 34V14Z"
+                    fill="white"
+                    fill-opacity="0.1"
+                  />
+                  <path
+                    d="M14 0V1H34V0V-1H14V0ZM48 14H47V34H48H49V14H48ZM34 48V47H14V48V49H34V48ZM0 34H1V14H0H-1V34H0ZM14 48V47C6.8203 47 1 41.1797 1 34H0H-1C-1 42.2843 5.71573 49 14 49V48ZM48 34H47C47 41.1797 41.1797 47 34 47V48V49C42.2843 49 49 42.2843 49 34H48ZM34 0V1C41.1797 1 47 6.8203 47 14H48H49C49 5.71573 42.2843 -1 34 -1V0ZM14 0V-1C5.71573 -1 -1 5.71573 -1 14H0H1C1 6.8203 6.8203 1 14 1V0Z"
+                    fill="white"
+                    fill-opacity="0.2"
+                    mask="url(#path-1-inside-1_344_1915)"
+                  />
+                  <path
+                    d="M31.5901 18.69C30.5933 18.4708 29.6915 17.9414 29.0142 17.1779C28.3369 16.4143 27.9189 15.4559 27.8201 14.44V14H24.3701V27.67C24.3708 28.2766 24.1807 28.868 23.8266 29.3604C23.4725 29.8529 22.9724 30.2215 22.3972 30.414C21.822 30.6065 21.2008 30.6131 20.6216 30.4329C20.0424 30.2527 19.5346 29.8948 19.1701 29.41C18.8436 28.9808 18.6436 28.4689 18.5929 27.932C18.5421 27.3951 18.6426 26.8548 18.8829 26.372C19.1233 25.8892 19.4939 25.4834 19.9529 25.2003C20.4118 24.9172 20.9409 24.7681 21.4801 24.77C21.7784 24.7683 22.0751 24.8121 22.3601 24.9V21.4C22.0285 21.3589 21.6943 21.3422 21.3601 21.35C20.1295 21.3829 18.9351 21.7739 17.9232 22.4753C16.9114 23.1766 16.126 24.1578 15.6633 25.2986C15.2006 26.4395 15.0806 27.6905 15.3181 28.8986C15.5555 30.1066 16.1401 31.2191 17.0001 32.1C17.8816 32.9962 19.0096 33.6101 20.2408 33.8638C21.472 34.1175 22.7509 33.9994 23.9148 33.5246C25.0787 33.0498 26.0753 32.2397 26.7778 31.1973C27.4803 30.1548 27.857 28.9271 27.8601 27.67V20.67C29.2516 21.6639 30.9202 22.1956 32.6301 22.19V18.79C32.2942 18.7914 31.9591 18.7579 31.6301 18.69H31.5901Z"
+                    fill="white"
+                  />
+                </svg>
+              </span>
+            </a>
+          </div>
+        </div>
+        <div class="footer__under flex-center">
+          <p class="footer__copyrights">© 2025 SUN CASE — Все права защищены</p>
+          <a class="footer__privacy-policy" href="privacy-policy.html">
+            Политика конфиденциальности
+          </a>
+        </div>
+      </div>
+    </footer>
+    <dialog class="mobile-overlay visible-mobile" id="mobileOverlay">
+      <form class="mobile-overlay__button-exit-wrapper" method="dialog">
+        <button class="mobile-overlay__button-exit" type="submit">
+          <span class="mobile-overlay__button-exit-icon-wrapper content-size">
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M15.182 12.0001L19.4251 7.75733C19.8471 7.33534 20.0841 6.76299 20.0841 6.16621C20.0841 5.56942 19.8471 4.99707 19.4251 4.57508C19.0031 4.15309 18.4307 3.91602 17.834 3.91602C17.2372 3.91602 16.6648 4.15309 16.2428 4.57508L12.0001 8.81821L7.75733 4.57508C7.33534 4.15309 6.76299 3.91602 6.16621 3.91602C5.56942 3.91602 4.99707 4.15309 4.57508 4.57508C4.15309 4.99707 3.91602 5.56942 3.91602 6.16621C3.91602 6.76299 4.15309 7.33534 4.57508 7.75733L8.81821 12.0001L4.57508 16.2428C4.15309 16.6648 3.91602 17.2372 3.91602 17.834C3.91602 18.4307 4.15309 19.0031 4.57508 19.4251C4.99707 19.8471 5.56942 20.0841 6.16621 20.0841C6.76299 20.0841 7.33534 19.8471 7.75733 19.4251L12.0001 15.182L16.2428 19.4251C16.6648 19.8471 17.2372 20.0841 17.834 20.0841C18.4307 20.0841 19.0031 19.8471 19.4251 19.4251C19.8471 19.0031 20.0841 18.4307 20.0841 17.834C20.0841 17.2372 19.8471 16.6648 19.4251 16.2428L15.182 12.0001Z"
+                fill="black"
+              />
+            </svg>
+          </span>
+          <span class="visually-hidden">Закрыть меню</span>
+        </button>
+      </form>
+      <div class="mobile-overlay__body flex-center">
+        <nav class="header__nav">
+          <ul class="header__nav-list flex-center">
+            <li class="header__item">
+              <a
+                href="index.html#catalog"
+                class="header__link"
+                onclick="mobileOverlay.close()"
+              >
+                Каталог
+              </a>
+            </li>
+            <li class="header__item">
+              <a
+                href="index.html#video-review"
+                class="header__link"
+                onclick="mobileOverlay.close()"
+                data-lang-key="translate_80"
+              >
+                Видео-обзор
+              </a>
+            </li>
+            <li class="header__item">
+              <a
+                href="index.html#about-station"
+                class="header__link"
+                onclick="mobileOverlay.close()"
+                data-lang-key="translate_81"
+              >
+                О станции
+              </a>
+            </li>
+            <li class="header__item">
+              <a
+                href="index.html#contacts"
+                class="header__link"
+                onclick="mobileOverlay.close()"
+                data-lang-key="translate_82"
+              >
+                Контакты
+              </a>
+            </li>
+          </ul>
+          <ul class="header__buttons-list">
+            <li class="header__buttons-item flex-center">
+              <!-- аккордеон смены языка: -->
+              <details class="header__lang closing-accordion">
+                <summary class="hidden-summary-arrow">
+                  <!-- спан RU :  -->
+                  <span class="ru header__lang-cont flex-center">
+                    <span
+                      class="header__lang-cont-icon-wrapper box-shadow content-size"
+                    >
+                      <svg
+                        width="26"
+                        height="26"
+                        viewBox="0 0 26 26"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M0 13C0 5.8203 5.8203 0 13 0C20.1797 0 26 5.8203 26 13C26 20.1797 20.1797 26 13 26C5.8203 26 0 20.1797 0 13Z"
+                          fill="url(#paint0_linear_108_1698)"
+                        />
+                        <path
+                          d="M4.9929 17V8.27273H8.43608C9.09517 8.27273 9.65767 8.39062 10.1236 8.62642C10.5923 8.85937 10.9489 9.19034 11.1932 9.61932C11.4403 10.0455 11.5639 10.5469 11.5639 11.1236C11.5639 11.7031 11.4389 12.2017 11.1889 12.6193C10.9389 13.0341 10.5767 13.3523 10.1023 13.5739C9.63068 13.7955 9.05966 13.9062 8.3892 13.9062H6.08381V12.4233H8.09091C8.44318 12.4233 8.7358 12.375 8.96875 12.2784C9.2017 12.1818 9.375 12.0369 9.48864 11.8438C9.60511 11.6506 9.66335 11.4105 9.66335 11.1236C9.66335 10.8338 9.60511 10.5895 9.48864 10.3906C9.375 10.1918 9.20028 10.0412 8.96449 9.93892C8.73153 9.83381 8.4375 9.78125 8.08239 9.78125H6.83807V17H4.9929ZM9.70597 13.0284L11.875 17H9.83807L7.71591 13.0284H9.70597ZM18.2585 8.27273H20.1037V13.9403C20.1037 14.5767 19.9517 15.1335 19.6477 15.6108C19.3466 16.0881 18.9247 16.4602 18.3821 16.7273C17.8395 16.9915 17.2074 17.1236 16.4858 17.1236C15.7614 17.1236 15.1278 16.9915 14.5852 16.7273C14.0426 16.4602 13.6207 16.0881 13.3196 15.6108C13.0185 15.1335 12.8679 14.5767 12.8679 13.9403V8.27273H14.7131V13.7827C14.7131 14.1151 14.7855 14.4105 14.9304 14.669C15.0781 14.9276 15.2855 15.1307 15.5526 15.2784C15.8196 15.4261 16.1307 15.5 16.4858 15.5C16.8438 15.5 17.1548 15.4261 17.419 15.2784C17.6861 15.1307 17.892 14.9276 18.0369 14.669C18.1847 14.4105 18.2585 14.1151 18.2585 13.7827V8.27273Z"
+                          fill="#1A1A1A"
+                        />
+                        <defs>
+                          <linearGradient
+                            id="paint0_linear_108_1698"
+                            x1="0"
+                            y1="0"
+                            x2="26"
+                            y2="26"
+                            gradientUnits="userSpaceOnUse"
+                          >
+                            <stop stop-color="#FDB71A" />
+                            <stop offset="0.5" stop-color="#FDC700" />
+                            <stop offset="1" stop-color="#FF8904" />
+                          </linearGradient>
+                        </defs>
+                      </svg>
+                    </span>
+                    <span class="header__lang-cont-text-wrapper">RU</span>
+                  </span>
+                  <!-- спан UK :  -->
+                  <!-- <span class="uk header__lang-cont flex-center">
+                        <span
+                          class="header__lang-cont-icon-wrapper box-shadow content-size"
+                        >
+                          <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 13C0 5.8203 5.8203 0 13 0C20.1797 0 26 5.8203 26 13C26 20.1797 20.1797 26 13 26C5.8203 26 0 20.1797 0 13Z" fill="url(#paint0_linear_108_1705)"/>
+    <path d="M9.88352 8.27273H11.7287V13.9403C11.7287 14.5767 11.5767 15.1335 11.2727 15.6108C10.9716 16.0881 10.5497 16.4602 10.0071 16.7273C9.46449 16.9915 8.83239 17.1236 8.1108 17.1236C7.38636 17.1236 6.75284 16.9915 6.21023 16.7273C5.66761 16.4602 5.24574 16.0881 4.9446 15.6108C4.64347 15.1335 4.4929 14.5767 4.4929 13.9403V8.27273H6.33807V13.7827C6.33807 14.1151 6.41051 14.4105 6.5554 14.669C6.70313 14.9276 6.91051 15.1307 7.17756 15.2784C7.4446 15.4261 7.75568 15.5 8.1108 15.5C8.46875 15.5 8.77983 15.4261 9.04403 15.2784C9.31108 15.1307 9.51705 14.9276 9.66193 14.669C9.80966 14.4105 9.88352 14.1151 9.88352 13.7827V8.27273ZM14.7511 17H12.7738L15.7866 8.27273H18.1644L21.1729 17H19.1957L17.0096 10.267H16.9414L14.7511 17ZM14.6275 13.5696H19.2979V15.0099H14.6275V13.5696Z" fill="#1A1A1A"/>
+    <defs>
+    <linearGradient id="paint0_linear_108_1705" x1="0" y1="0" x2="26" y2="26" gradientUnits="userSpaceOnUse">
+    <stop stop-color="#FDB71A"/>
+    <stop offset="0.5" stop-color="#FDC700"/>
+    <stop offset="1" stop-color="#FF8904"/>
+    </linearGradient>
+    </defs>
+    </svg>
+                        </span>
+                        <span class="header__lang-cont-text-wrapper">UK</span>
+                      </span> -->
+                </summary>
+                <!-- <div class="header__lang-links-overlay"></div> -->
+                <ul class="header__lang-links-list">
+                  <li
+                    class="header__lang-links-item header__lang-links-item--active"
+                  >
+                    <button
+                      type="button"
+                      class="header__lang-link"
+                      data-lang="ru"
+                    >
+                      <span
+                        class="header__lang-link-icon-wrapper box-shadow content-size"
+                      >
+                        <svg
+                          width="26"
+                          height="26"
+                          viewBox="0 0 26 26"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M0 13C0 5.8203 5.8203 0 13 0C20.1797 0 26 5.8203 26 13C26 20.1797 20.1797 26 13 26C5.8203 26 0 20.1797 0 13Z"
+                            fill="url(#paint0_linear_108_1698)"
+                          />
+                          <path
+                            d="M4.9929 17V8.27273H8.43608C9.09517 8.27273 9.65767 8.39062 10.1236 8.62642C10.5923 8.85937 10.9489 9.19034 11.1932 9.61932C11.4403 10.0455 11.5639 10.5469 11.5639 11.1236C11.5639 11.7031 11.4389 12.2017 11.1889 12.6193C10.9389 13.0341 10.5767 13.3523 10.1023 13.5739C9.63068 13.7955 9.05966 13.9062 8.3892 13.9062H6.08381V12.4233H8.09091C8.44318 12.4233 8.7358 12.375 8.96875 12.2784C9.2017 12.1818 9.375 12.0369 9.48864 11.8438C9.60511 11.6506 9.66335 11.4105 9.66335 11.1236C9.66335 10.8338 9.60511 10.5895 9.48864 10.3906C9.375 10.1918 9.20028 10.0412 8.96449 9.93892C8.73153 9.83381 8.4375 9.78125 8.08239 9.78125H6.83807V17H4.9929ZM9.70597 13.0284L11.875 17H9.83807L7.71591 13.0284H9.70597ZM18.2585 8.27273H20.1037V13.9403C20.1037 14.5767 19.9517 15.1335 19.6477 15.6108C19.3466 16.0881 18.9247 16.4602 18.3821 16.7273C17.8395 16.9915 17.2074 17.1236 16.4858 17.1236C15.7614 17.1236 15.1278 16.9915 14.5852 16.7273C14.0426 16.4602 13.6207 16.0881 13.3196 15.6108C13.0185 15.1335 12.8679 14.5767 12.8679 13.9403V8.27273H14.7131V13.7827C14.7131 14.1151 14.7855 14.4105 14.9304 14.669C15.0781 14.9276 15.2855 15.1307 15.5526 15.2784C15.8196 15.4261 16.1307 15.5 16.4858 15.5C16.8438 15.5 17.1548 15.4261 17.419 15.2784C17.6861 15.1307 17.892 14.9276 18.0369 14.669C18.1847 14.4105 18.2585 14.1151 18.2585 13.7827V8.27273Z"
+                            fill="#1A1A1A"
+                          />
+                          <defs>
+                            <linearGradient
+                              id="paint0_linear_108_1698"
+                              x1="0"
+                              y1="0"
+                              x2="26"
+                              y2="26"
+                              gradientUnits="userSpaceOnUse"
+                            >
+                              <stop stop-color="#FDB71A" />
+                              <stop offset="0.5" stop-color="#FDC700" />
+                              <stop offset="1" stop-color="#FF8904" />
+                            </linearGradient>
+                          </defs>
+                        </svg>
+                      </span>
+                      <span class="header__lang-cont-text-wrapper">
+                        Русский
+                      </span>
+                    </button>
+                  </li>
+                  <li class="header__lang-links-item">
+                    <button
+                      type="button"
+                      class="header__lang-link"
+                      data-lang="ua"
+                    >
+                      <span
+                        class="header__lang-link-icon-wrapper box-shadow content-size"
+                      >
+                        <svg
+                          width="26"
+                          height="26"
+                          viewBox="0 0 26 26"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M0 13C0 5.8203 5.8203 0 13 0C20.1797 0 26 5.8203 26 13C26 20.1797 20.1797 26 13 26C5.8203 26 0 20.1797 0 13Z"
+                            fill="url(#paint0_linear_108_1705)"
+                          />
+                          <path
+                            d="M9.88352 8.27273H11.7287V13.9403C11.7287 14.5767 11.5767 15.1335 11.2727 15.6108C10.9716 16.0881 10.5497 16.4602 10.0071 16.7273C9.46449 16.9915 8.83239 17.1236 8.1108 17.1236C7.38636 17.1236 6.75284 16.9915 6.21023 16.7273C5.66761 16.4602 5.24574 16.0881 4.9446 15.6108C4.64347 15.1335 4.4929 14.5767 4.4929 13.9403V8.27273H6.33807V13.7827C6.33807 14.1151 6.41051 14.4105 6.5554 14.669C6.70313 14.9276 6.91051 15.1307 7.17756 15.2784C7.4446 15.4261 7.75568 15.5 8.1108 15.5C8.46875 15.5 8.77983 15.4261 9.04403 15.2784C9.31108 15.1307 9.51705 14.9276 9.66193 14.669C9.80966 14.4105 9.88352 14.1151 9.88352 13.7827V8.27273ZM14.7511 17H12.7738L15.7866 8.27273H18.1644L21.1729 17H19.1957L17.0096 10.267H16.9414L14.7511 17ZM14.6275 13.5696H19.2979V15.0099H14.6275V13.5696Z"
+                            fill="#1A1A1A"
+                          />
+                          <defs>
+                            <linearGradient
+                              id="paint0_linear_108_1705"
+                              x1="0"
+                              y1="0"
+                              x2="26"
+                              y2="26"
+                              gradientUnits="userSpaceOnUse"
+                            >
+                              <stop stop-color="#FDB71A" />
+                              <stop offset="0.5" stop-color="#FDC700" />
+                              <stop offset="1" stop-color="#FF8904" />
+                            </linearGradient>
+                          </defs>
+                        </svg>
+                      </span>
+                      <span class="header__lang-cont-text-wrapper">
+                        Український
+                      </span>
+                    </button>
+                  </li>
+                </ul>
+              </details>
+            </li>
+            <li class="header__buttons-item flex-center">
+              <!-- ссылка(пока что) на корзину: -->
+              <a href="#" class="header__basket">
+                <span class="header__basket-icon-wrapper content-size">
+                  <svg
+                    width="41"
+                    height="40"
+                    viewBox="0 0 41 40"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <g clip-path="url(#clip0_17_72)">
+                      <path
+                        d="M15.4688 30C16.021 30 16.4688 29.5523 16.4688 29C16.4688 28.4477 16.021 28 15.4688 28C14.9165 28 14.4688 28.4477 14.4688 29C14.4688 29.5523 14.9165 30 15.4688 30Z"
+                        stroke="#1A1A1A"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                      <path
+                        d="M26.4688 30C27.021 30 27.4688 29.5523 27.4688 29C27.4688 28.4477 27.021 28 26.4688 28C25.9165 28 25.4688 28.4477 25.4688 29C25.4688 29.5523 25.9165 30 26.4688 30Z"
+                        stroke="#1A1A1A"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                      <path
+                        d="M9.51855 10.0498H11.5186L14.1786 22.4698C14.2761 22.9247 14.5292 23.3313 14.8943 23.6197C15.2593 23.908 15.7135 24.0602 16.1786 24.0498H25.9586C26.4137 24.0491 26.855 23.8931 27.2096 23.6076C27.5641 23.3222 27.8107 22.9243 27.9086 22.4798L29.5586 15.0498H12.5886"
+                        stroke="#1A1A1A"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                      <circle cx="28.9688" cy="14.5" r="3.5" fill="#FDB71A" />
+                    </g>
+                    <defs>
+                      <clipPath id="clip0_17_72">
+                        <rect
+                          width="24"
+                          height="24"
+                          fill="white"
+                          transform="translate(8.46875 8)"
+                        />
+                      </clipPath>
+                    </defs>
+                  </svg>
+                </span>
+                <span class="visually-hidden" data-lang-key="translate_83">
+                  Корзина
+                </span>
+              </a>
+            </li>
+            <li class="header__buttons-item flex-center">
+              <!-- повторная ссылка(пока что) на корзину в виде кнопки №заказать": -->
+              <a href="#" class="header__order" data-lang-key="translate_84">
+                Заказать
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </dialog>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        // 1. Скрытие хедера при скролле
+        const header = document.querySelector(".header");
+        if (header) {
+          let lastScrollY = window.scrollY;
+          let ticking = false;
+
+          const updateHeader = () => {
+            const currentScrollY = window.scrollY;
+            if (currentScrollY > lastScrollY && currentScrollY > 100) {
+              header.classList.add("header--hidden");
+            } else {
+              header.classList.remove("header--hidden");
+            }
+            lastScrollY = currentScrollY;
+            ticking = false;
+          };
+
+          window.addEventListener("scroll", () => {
+            if (!ticking) {
+              requestAnimationFrame(updateHeader);
+              ticking = true;
+            }
+          });
+        }
+
+        // 2. Скрытие аккордеонов
+        document.addEventListener("click", (event) => {
+          if (!event.target.closest(".closing-accordion")) {
+            document
+              .querySelectorAll(".closing-accordion[open]")
+              .forEach((accordion) => accordion.removeAttribute("open"));
+          }
+        });
+
+        // 3. Закрытие оверлея
+        const mobileOverlay = document.getElementById("mobileOverlay");
+        if (mobileOverlay) {
+          mobileOverlay.addEventListener("click", function (event) {
+            if (event.target === this) this.close();
+          });
+        }
+
+        // 4. Логика переключения языков
+        let translations = {};
+
+        const loadTranslations = async () => {
+          try {
+            const response = await fetch("translations.json");
+            if (!response.ok)
+              throw new Error(`Ошибка загрузки: ${response.status}`);
+            translations = await response.json();
+            initializeLanguageLogic();
+          } catch (error) {
+            console.error("❌ Не удалось загрузить файл переводов:", error);
+          }
+        };
+
+        const initializeLanguageLogic = () => {
+          const setLanguage = (lang) => {
+            document.querySelectorAll("[data-lang-key]").forEach((element) => {
+              const key = element.getAttribute("data-lang-key");
+              if (translations[lang]?.[key]) {
+                element.textContent = translations[lang][key];
+              }
+            });
+
+            localStorage.setItem("language", lang);
+
+            // Обновляем активную кнопку
+            document
+              .querySelectorAll(".header__lang-links-item")
+              .forEach((item) => {
+                item.classList.remove("header__lang-links-item--active");
+              });
+
+            const activeLink = document.querySelector(
+              `.header__lang-link[data-lang="${lang}"]`
+            );
+            if (activeLink) {
+              activeLink
+                .closest(".header__lang-links-item")
+                .classList.add("header__lang-links-item--active");
+            }
+          };
+
+          // Вешаем обработчики на кнопки языков
+          document
+            .querySelectorAll(".header__lang-link[data-lang]")
+            .forEach((button) => {
+              button.addEventListener("click", (event) => {
+                event.preventDefault();
+                setLanguage(button.getAttribute("data-lang"));
+              });
+            });
+
+          // Устанавливаем сохраненный язык
+          setLanguage(localStorage.getItem("language") || "ru");
+        };
+
+        // 5. Логика корзины - ИСПРАВЛЕННЫЙ КОД
+        const basketButton = document.querySelector(".basket__add");
+        const basketSelect = document.querySelector(".basket__select-cont");
+
+        if (basketButton && basketSelect) {
+          basketButton.addEventListener("click", (e) => {
+            e.stopPropagation();
+            basketSelect.classList.toggle("visually-hidden");
+          });
+
+          document.addEventListener("click", (e) => {
+            // Закрываем только если клик был НЕ по basketSelect и НЕ по basketButton
+            if (!basketSelect.contains(e.target)) {
+              basketSelect.classList.add("visually-hidden");
+            }
+          });
+        }
+
+        // Запускаем загрузку переводов
+        loadTranslations();
+      });
+    </script>
+  </body>
+</html>
