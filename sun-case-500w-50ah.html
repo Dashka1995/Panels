@@ -299,12 +299,35 @@
               <!-- ссылка(пока что) на корзину: -->
               <a href="basket.html" class="header__basket">
                 <span class="header__basket-icon-wrapper content-size">
-                  <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M15 30C15.5523 30 16 29.5523 16 29C16 28.4477 15.5523 28 15 28C14.4477 28 14 28.4477 14 29C14 29.5523 14.4477 30 15 30Z" stroke="#1A1A1A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M26 30C26.5523 30 27 29.5523 27 29C27 28.4477 26.5523 28 26 28C25.4477 28 25 28.4477 25 29C25 29.5523 25.4477 30 26 30Z" stroke="#1A1A1A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M9.0498 10.0498H11.0498L13.7098 22.4698C13.8074 22.9247 14.0605 23.3313 14.4255 23.6197C14.7906 23.908 15.2447 24.0602 15.7098 24.0498H25.4898C25.945 24.0491 26.3863 23.8931 26.7408 23.6076C27.0954 23.3222 27.3419 22.9243 27.4398 22.4798L29.0898 15.0498H12.1198" stroke="#1A1A1A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-</svg>
-
+                  <svg
+                    width="40"
+                    height="40"
+                    viewBox="0 0 40 40"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M15 30C15.5523 30 16 29.5523 16 29C16 28.4477 15.5523 28 15 28C14.4477 28 14 28.4477 14 29C14 29.5523 14.4477 30 15 30Z"
+                      stroke="#1A1A1A"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                    <path
+                      d="M26 30C26.5523 30 27 29.5523 27 29C27 28.4477 26.5523 28 26 28C25.4477 28 25 28.4477 25 29C25 29.5523 25.4477 30 26 30Z"
+                      stroke="#1A1A1A"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                    <path
+                      d="M9.0498 10.0498H11.0498L13.7098 22.4698C13.8074 22.9247 14.0605 23.3313 14.4255 23.6197C14.7906 23.908 15.2447 24.0602 15.7098 24.0498H25.4898C25.945 24.0491 26.3863 23.8931 26.7408 23.6076C27.0954 23.3222 27.3419 22.9243 27.4398 22.4798L29.0898 15.0498H12.1198"
+                      stroke="#1A1A1A"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
                 </span>
                 <span class="visually-hidden">Корзина</span>
               </a>
@@ -373,7 +396,7 @@
           <span>Назад</span>
         </a>
         <section class="section2 product-card">
-          <div class="product-card__gallery">
+          <div class="product-card__gallery flex-center">
             <div class="swiper">
               <swiper-container
                 class="swiper-container"
@@ -480,6 +503,83 @@
                 </swiper-slide>
               </swiper-container>
               <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"></script>
+            </div>
+            <div class="swiper-preview">
+              <button class="swiper-preview__button" type="button">
+                <picture>
+                  <source
+                    type="image/avif"
+                    srcset="./images/product-card-preview/slide1-1x.avif"
+                  />
+                  <img
+                    src="./images/product-card-preview/slide1-1x.jpg"
+                    width="90"
+                    height="90"
+                    loading="lazy"
+                    alt=""
+                  />
+                </picture>
+              </button>
+                            <button class="swiper-preview__button" type="button">
+                <picture>
+                  <source
+                    type="image/avif"
+                    srcset="./images/product-card-preview/slide2-1x.avif"
+                  />
+                  <img
+                    src="./images/product-card-preview/slide2-1x.jpg"
+                    width="90"
+                    height="90"
+                    loading="lazy"
+                    alt=""
+                  />
+                </picture>
+              </button>
+                            <button class="swiper-preview__button" type="button">
+                <picture>
+                  <source
+                    type="image/avif"
+                    srcset="./images/product-card-preview/slide3-1x.avif"
+                  />
+                  <img
+                    src="./images/product-card-preview/slide3-1x.jpg"
+                    width="90"
+                    height="90"
+                    loading="lazy"
+                    alt=""
+                  />
+                </picture>
+              </button>
+                            <button class="swiper-preview__button" type="button">
+                <picture>
+                  <source
+                    type="image/avif"
+                    srcset="./images/product-card-preview/slide4-1x.avif"
+                  />
+                  <img
+                    src="./images/product-card-preview/slide4-1x.jpg"
+                    width="90"
+                    height="90"
+                    loading="lazy"
+                    alt=""
+                  />
+                </picture>
+              </button>
+                            <button class="swiper-preview__button" type="button">
+                <picture>
+                  <source
+                    type="image/avif"
+                    srcset="./images/product-card-preview/slide5-1x.avif"
+                  />
+                  <img
+                    src="./images/product-card-preview/slide5-1x.jpg"
+                    width="90"
+                    height="90"
+                    loading="lazy"
+                    alt=""
+                  />
+                </picture>
+              </button>
             </div>
           </div>
           <div class="product-card__info flex-center flex-center--column">
@@ -1245,12 +1345,35 @@
               <!-- ссылка(пока что) на корзину: -->
               <a href="basket.html" class="header__basket">
                 <span class="header__basket-icon-wrapper content-size">
-                  <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M15 30C15.5523 30 16 29.5523 16 29C16 28.4477 15.5523 28 15 28C14.4477 28 14 28.4477 14 29C14 29.5523 14.4477 30 15 30Z" stroke="#1A1A1A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M26 30C26.5523 30 27 29.5523 27 29C27 28.4477 26.5523 28 26 28C25.4477 28 25 28.4477 25 29C25 29.5523 25.4477 30 26 30Z" stroke="#1A1A1A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M9.0498 10.0498H11.0498L13.7098 22.4698C13.8074 22.9247 14.0605 23.3313 14.4255 23.6197C14.7906 23.908 15.2447 24.0602 15.7098 24.0498H25.4898C25.945 24.0491 26.3863 23.8931 26.7408 23.6076C27.0954 23.3222 27.3419 22.9243 27.4398 22.4798L29.0898 15.0498H12.1198" stroke="#1A1A1A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-</svg>
-
+                  <svg
+                    width="40"
+                    height="40"
+                    viewBox="0 0 40 40"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M15 30C15.5523 30 16 29.5523 16 29C16 28.4477 15.5523 28 15 28C14.4477 28 14 28.4477 14 29C14 29.5523 14.4477 30 15 30Z"
+                      stroke="#1A1A1A"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                    <path
+                      d="M26 30C26.5523 30 27 29.5523 27 29C27 28.4477 26.5523 28 26 28C25.4477 28 25 28.4477 25 29C25 29.5523 25.4477 30 26 30Z"
+                      stroke="#1A1A1A"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                    <path
+                      d="M9.0498 10.0498H11.0498L13.7098 22.4698C13.8074 22.9247 14.0605 23.3313 14.4255 23.6197C14.7906 23.908 15.2447 24.0602 15.7098 24.0498H25.4898C25.945 24.0491 26.3863 23.8931 26.7408 23.6076C27.0954 23.3222 27.3419 22.9243 27.4398 22.4798L29.0898 15.0498H12.1198"
+                      stroke="#1A1A1A"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
                 </span>
                 <span class="visually-hidden" data-lang-key="translate_83">
                   Корзина
@@ -1267,227 +1390,267 @@
         </nav>
       </div>
     </dialog>
-    <script>
-      // Ждем, пока вся HTML-страница загрузится
+<script>
+  // Ждем, пока вся HTML-страница загрузится
+  document.addEventListener("DOMContentLoaded", () => {
+    // ===============================================
+    // --- 1. ВАШ КОД: Скрытие хедера при скролле ---
+    // ===============================================
+    const header = document.querySelector(".header");
 
-      document.addEventListener("DOMContentLoaded", () => {
-        // ===============================================
+    // Добавляем проверку, что 'header' вообще существует
+    if (header) {
+      let lastScrollY = window.scrollY;
+      let ticking = false;
+      const SCROLL_THRESHOLD = 10;
 
-        // --- 1. ВАШ КОД: Скрытие хедера при скролле ---
+      function updateHeader() {
+        const currentScrollY = window.scrollY;
 
-        // ===============================================
+        if (Math.abs(currentScrollY - lastScrollY) < SCROLL_THRESHOLD) {
+          ticking = false;
+          return;
+        }
 
-        const header = document.querySelector(".header");
+        if (currentScrollY > lastScrollY && currentScrollY > 100) {
+          header.classList.add("header--hidden");
+        } else {
+          header.classList.remove("header--hidden");
+        }
 
-        // Добавляем проверку, что 'header' вообще существует
+        lastScrollY = currentScrollY;
+        ticking = false;
+      }
 
-        if (header) {
-          let lastScrollY = window.scrollY;
+      window.addEventListener("scroll", () => {
+        if (!ticking) {
+          requestAnimationFrame(updateHeader);
+          ticking = true;
+        }
+      });
+    } // Конец if (header)
 
-          let ticking = false;
+    // ===============================================
+    // --- 2. ВАШ КОД: Скрытие аккордеонов ---
+    // ===============================================
+    document.addEventListener("click", function (event) {
+      const isInsideAccordion = event.target.closest(".closing-accordion");
 
-          const SCROLL_THRESHOLD = 10;
+      if (!isInsideAccordion) {
+        const accordions = document.querySelectorAll(
+          ".closing-accordion[open]"
+        );
 
-          function updateHeader() {
-            const currentScrollY = window.scrollY;
+        accordions.forEach((accordion) =>
+          accordion.removeAttribute("open")
+        );
+      }
+    });
 
-            if (Math.abs(currentScrollY - lastScrollY) < SCROLL_THRESHOLD) {
-              ticking = false;
+    // ===============================================
+    // --- 3. ВАШ КОД: Закрытие оверлея ---
+    // ===============================================
+    const mobileOverlay = document.getElementById("mobileOverlay");
 
-              return;
-            }
+    // Добавляем проверку, что 'mobileOverlay' существует
+    if (mobileOverlay) {
+      mobileOverlay.addEventListener("click", function (event) {
+        if (event.target === this) {
+          this.close();
+        }
+      });
+    } // Конец if (mobileOverlay)
 
-            if (currentScrollY > lastScrollY && currentScrollY > 100) {
-              header.classList.add("header--hidden");
-            } else {
-              header.classList.remove("header--hidden");
-            }
+    // ===============================================
+    // --- 4. НОВЫЙ КОД: Логика переключения языков ---
+    // ===============================================
+    let translations = {}; // Глобальный объект для хранения загруженных переводов
 
-            lastScrollY = currentScrollY;
+    // 4.1. Асинхронная функция для ЗАГРУЗКИ файла переводов
+    async function loadTranslations() {
+      try {
+        console.log("🔄 Начинаем загрузку переводов...");
+        const response = await fetch("translations.json");
 
-            ticking = false;
-          }
+        if (!response.ok) {
+          throw new Error(`Ошибка загрузки: ${response.status}`);
+        }
 
-          window.addEventListener("scroll", () => {
-            if (!ticking) {
-              requestAnimationFrame(updateHeader);
+        translations = await response.json();
+        console.log("✅ Переводы загружены", translations);
 
-              ticking = true;
-            }
-          });
-        } // Конец if (header)
+        // После УСПЕШНОЙ загрузки - запускаем основную логику языка
+        initializeLanguageLogic();
+      } catch (error) {
+        console.error("❌ Не удалось загрузить файл переводов:", error);
+      }
+    }
 
-        // ===============================================
+    // 4.2. Функция, которая запускает всю логику (она вызовется ПОСЛЕ загрузки)
+    function initializeLanguageLogic() {
+      console.log("🔧 Инициализация логики перевода...");
 
-        // --- 2. ВАШ КОД: Скрытие аккордеонов ---
+      // Находим кнопки ОДИН РАЗ
+      const langButtons = document.querySelectorAll(
+        ".header__lang-link[data-lang]"
+      );
+      console.log(`🔍 Найдено кнопок перевода: ${langButtons.length}`);
 
-        // ===============================================
+      // 4.3. Главная функция, которая ПРИМЕНЯЕТ перевод
+      function setLanguage(lang) {
+        console.log(`🌐 Устанавливаем язык: ${lang}`);
 
-        document.addEventListener("click", function (event) {
-          const isInsideAccordion = event.target.closest(".closing-accordion");
+        const elementsToTranslate =
+          document.querySelectorAll("[data-lang-key]");
 
-          if (!isInsideAccordion) {
-            const accordions = document.querySelectorAll(
-              ".closing-accordion[open]"
+        elementsToTranslate.forEach((element) => {
+          const key = element.getAttribute("data-lang-key");
+
+          // Проверяем, что словарь для языка есть, и ключ в нем есть
+          if (
+            translations[lang] &&
+            translations[lang].hasOwnProperty(key)
+          ) {
+            element.textContent = translations[lang][key];
+          } else if (translations[lang]) {
+            // (Отладка) Если ключ не найден в этом языке
+            console.warn(
+              `⚠️ Ключ "${key}" не найден в переводе для "${lang}"`
             );
-
-            accordions.forEach((accordion) =>
-              accordion.removeAttribute("open")
-            );
+          } else {
+            // (Отладка) Если язык не найден
+            console.error(`❌ Словарь для языка "${lang}" не найден!`);
           }
         });
 
-        // ===============================================
+        localStorage.setItem("language", lang);
+        updateActiveButton(lang);
+      }
 
-        // --- 3. ВАШ КОД: Закрытие оверлея ---
+      // 4.4. Вспомогательная функция для обновления активного класса
+      function updateActiveButton(lang) {
+        const allItems = document.querySelectorAll(
+          ".header__lang-links-item"
+        );
 
-        // ===============================================
+        allItems.forEach((item) => {
+          item.classList.remove("header__lang-links-item--active");
+        });
 
-        const mobileOverlay = document.getElementById("mobileOverlay");
+        const activeLink = document.querySelector(
+          `.header__lang-link[data-lang="${lang}"]`
+        );
 
-        // Добавляем проверку, что 'mobileOverlay' существует
+        if (activeLink) {
+          // .closest() находит родительский 'li' и делает его активным
+          activeLink
+            .closest(".header__lang-links-item")
+            .classList.add("header__lang-links-item--active");
 
-        if (mobileOverlay) {
-          mobileOverlay.addEventListener("click", function (event) {
-            if (event.target === this) {
-              this.close();
-            }
-          });
-        } // Конец if (mobileOverlay)
-
-        // ===============================================
-
-        // --- 4. НОВЫЙ КОД: Логика переключения языков ---
-
-        // ===============================================
-
-        let translations = {}; // Глобальный объект для хранения загруженных переводов
-
-        // 4.1. Асинхронная функция для ЗАГРУЗКИ файла переводов
-
-        async function loadTranslations() {
-          try {
-            console.log("🔄 Начинаем загрузку переводов...");
-            const response = await fetch("translations.json");
-
-            if (!response.ok) {
-              throw new Error(`Ошибка загрузки: ${response.status}`);
-            }
-
-            translations = await response.json();
-
-            console.log("✅ Переводы загружены", translations);
-
-            // После УСПЕШНОЙ загрузки - запускаем основную логику языка
-
-            initializeLanguageLogic();
-          } catch (error) {
-            console.error("❌ Не удалось загрузить файл переводов:", error);
-          }
+          console.log(`✅ Активирована кнопка языка: ${lang}`);
         }
+      }
 
-        // 4.2. Функция, которая запускает всю логику (она вызовется ПОСЛЕ загрузки)
+      // 4.5. Навешиваем обработчики на кнопки (ПРОСТОЙ СПОСОБ)
+      langButtons.forEach((button) => {
+        button.addEventListener("click", (event) => {
+          event.preventDefault(); // <-- Вот это отменит перезагрузку
 
-        function initializeLanguageLogic() {
-          console.log("🔧 Инициализация логики перевода...");
+          const lang = button.getAttribute("data-lang");
+          console.log(`🖱️ Клик по кнопке языка: ${lang}`); // <-- Ты должен увидеть это!
+          setLanguage(lang);
+        });
+      });
 
-          // Находим кнопки ОДИН РАЗ
+      // 4.6. При первой загрузке страницы...
+      const savedLang = localStorage.getItem("language") || "ru";
+      console.log(`📖 Сохраненный язык: ${savedLang}`);
+      setLanguage(savedLang); // Применяем язык
+    }
 
-          const langButtons = document.querySelectorAll(
-            ".header__lang-link[data-lang]"
-          );
-          // проверить правильно ли указан класс, если что вот оно, изменить
-          console.log(`🔍 Найдено кнопок перевода: ${langButtons.length}`);
+    // 4.7. Запускаем весь процесс
+    loadTranslations();
 
-          // 4.3. Главная функция, которая ПРИМЕНЯET перевод
+    // ===============================================
+    // --- 5. НОВЫЙ КОД: Логика переключения слайдов ---
+    // ===============================================
+    
+    // Простой и надежный способ инициализации Swiper
+    function initializeSwiperLogic() {
+      const swiperContainer = document.querySelector('swiper-container');
+      const previewButtons = document.querySelectorAll('.swiper-preview__button');
+      
+      if (!swiperContainer || previewButtons.length === 0) {
+        console.warn('❌ Swiper container или кнопки preview не найдены');
+        console.log('Swiper container:', swiperContainer);
+        console.log('Preview buttons:', previewButtons);
+        return;
+      }
 
-          function setLanguage(lang) {
-            console.log(`🌐 Устанавливаем язык: ${lang}`);
+      console.log('✅ Найдены элементы Swiper');
 
-            const elementsToTranslate =
-              document.querySelectorAll("[data-lang-key]");
-
-            elementsToTranslate.forEach((element) => {
-              const key = element.getAttribute("data-lang-key");
-
-              // Проверяем, что словарь для языка есть, и ключ в нем есть
-
-              if (
-                translations[lang] &&
-                translations[lang].hasOwnProperty(key)
-              ) {
-                element.textContent = translations[lang][key];
-              } else if (translations[lang]) {
-                // (Отладка) Если ключ не найден в этом языке
-
-                console.warn(
-                  `⚠️ Ключ "${key}" не найден в переводе для "${lang}"`
-                );
-              } else {
-                // (Отладка) Если язык не найден
-
-                console.error(`❌ Словарь для языка "${lang}" не найден!`);
-              }
-            });
-
-            localStorage.setItem("language", lang);
-
-            updateActiveButton(lang);
-          }
-
-          // 4.4. Вспомогательная функция для обновления активного класса
-
-          function updateActiveButton(lang) {
-            const allItems = document.querySelectorAll(
-              ".header__lang-links-item"
-            );
-
-            allItems.forEach((item) => {
-              item.classList.remove("header__lang-links-item--active");
-            });
-
-            const activeLink = document.querySelector(
-              `.header__lang-link[data-lang="${lang}"]`
-            );
-
-            if (activeLink) {
-              // .closest() находит родительский 'li' и делает его активным
-
-              activeLink
-                .closest(".header__lang-links-item")
-                .classList.add("header__lang-links-item--active");
-
-              console.log(`✅ Активирована кнопка языка: ${lang}`);
-            }
-          }
-
-          // 4.5. Навешиваем обработчики на кнопки (ПРОСТОЙ СПОСОБ)
-
-          langButtons.forEach((button) => {
-            button.addEventListener("click", (event) => {
-              event.preventDefault(); // <-- Вот это отменит перезагрузку
-
-              const lang = button.getAttribute("data-lang");
-
-              console.log(`🖱️ Клик по кнопке языка: ${lang}`); // <-- Ты должен увидеть это!
-
-              setLanguage(lang);
-            });
-          });
-
-          // 4.6. При первой загрузке страницы...
-
-          const savedLang = localStorage.getItem("language") || "ru";
-
-          console.log(`📖 Сохраненный язык: ${savedLang}`);
-
-          setLanguage(savedLang); // Применяем язык
+      // Ждем полной инициализации Swiper
+      const waitForSwiper = setInterval(() => {
+        if (swiperContainer.swiper) {
+          clearInterval(waitForSwiper);
+          setupSwiperControls(swiperContainer.swiper, previewButtons);
         }
+      }, 100);
 
-        // 4.7. Запускаем весь процесс
+      // Таймаут на случай если Swiper так и не загрузится
+      setTimeout(() => {
+        clearInterval(waitForSwiper);
+        if (!swiperContainer.swiper) {
+          console.error('❌ Swiper не инициализирован в течение 3 секунд');
+        }
+      }, 3000);
+    }
 
-        loadTranslations();
-      }); // --- Конец обработчика DOMContentLoaded ---
-    </script>
+    function setupSwiperControls(swiper, previewButtons) {
+      console.log('🎮 Настройка управления Swiper');
+
+      // Функция для обновления активной кнопки
+      function updateActivePreviewButton(activeIndex) {
+        // Убираем активный класс со всех кнопок
+        previewButtons.forEach(button => {
+          button.classList.remove('swiper-preview__button--active');
+        });
+        
+        // Добавляем активный класс к текущей кнопке
+        if (previewButtons[activeIndex]) {
+          previewButtons[activeIndex].classList.add('swiper-preview__button--active');
+        }
+      }
+
+      // Добавляем обработчики для кнопок preview
+      previewButtons.forEach((button, index) => {
+        button.addEventListener('click', () => {
+          console.log(`🖼️ Переключение на слайд: ${index}`);
+          swiper.slideTo(index);
+          updateActivePreviewButton(index);
+        });
+      });
+
+      // Обновляем активную кнопку при смене слайда
+      swiper.on('slideChange', function () {
+        const activeIndex = swiper.realIndex; // Используем realIndex для loop режима
+        console.log(`🔄 Активный слайд: ${activeIndex}`);
+        updateActivePreviewButton(activeIndex);
+      });
+
+      // Инициализируем активную кнопку при загрузке
+      updateActivePreviewButton(swiper.realIndex);
+
+      console.log('✅ Управление Swiper настроено');
+    }
+
+    // Запускаем логику Swiper после загрузки страницы
+    setTimeout(initializeSwiperLogic, 500);
+    
+    // Альтернативный способ: ждем полной загрузки страницы
+    window.addEventListener('load', initializeSwiperLogic);
+
+  }); // --- Конец обработчика DOMContentLoaded ---
+</script>
   </body>
 </html>
