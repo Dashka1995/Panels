@@ -1721,7 +1721,7 @@ body:has(dialog[open]) {
 .basket__body {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 15px;
+  gap: clamp(0.938rem, 0.341rem + 2.54vw, 1.563rem);;
   padding-block: clamp(0.938rem, 0.341rem + 2.54vw, 1.563rem);
 }
 @media (min-width: 1024px) {
@@ -1886,12 +1886,6 @@ body:has(dialog[open]) {
   flex-direction: column;
   gap: 10px;
 }
-/* @media (min-width: 480px) {
-  .basket__select-list {
-    top: 0;
-    right: 0;
-  }
-} */
 
 .basket__selected-product,
 .basket__select-product-name {
@@ -1949,10 +1943,125 @@ body:has(dialog[open]) {
   border: 1px solid var(--color-dark-grey);
 }
 
+.basket-card {
+  margin-top: 15px;
+  display: flex;
+  gap: 20px;
+}
+
+.basket-card__image-link {
+  border-radius: 14px;
+  overflow: hidden;
+  width: 94px;
+  height: 94px;
+  box-shadow: 0px 2px 4px -2px var(--color-dark-grey),
+    0px 4px 6px -1px var(--color-dark-grey);
+}
+.basket-card__image-link image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.basket-card__center {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.basket-card__title {
+  font-weight: 600;
+  font-size: 16px;
+  letter-spacing: -0.019375em;
+}
+
+.basket-card__characteristic-cont {
+  gap: 5px;
+  align-items: flex-start;
+}
+
+.basket-card__characteristic {
+  gap: 10px;
+  color: var(--color-gray);
+  font-weight: 400;
+  font-size: 14px;
+  letter-spacing: -0.009375em;
+}
+
+.basket-card__characteristic-icon-wrapper svg {
+  width: 16px;
+  height: 16px;
+}
+
+.basket-card__end {
+  justify-content: space-evenly;
+}
+
+.basket-card__price {
+  color: var(--color-accent);
+  font-weight: 600;
+  font-size: 16px;
+  letter-spacing: -0.019375em;
+}
+
+.basket-card__delete {
+  width: 32px;
+  height: 32px;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  transition-duration: var(--transition-duration-quick);
+}
+
+@media (hover: hover) {
+  .basket-card__delete:hover {
+    border-color: #d4183d;
+  }
+}
+@media (hover: none) {
+  .basket-card__delete:active {
+    border-color: #d4183d;
+  }
+}
+
+.basket__total-price {
+  margin-top: clamp(0.938rem, 0.341rem + 2.54vw, 1.563rem);
+  background-color: var(--color-accent-trans20);
+  padding-inline: 20px;
+  height: 76px;
+  border-radius: 14px;
+  border: 1px solid var(--color-accent);
+  justify-content: space-between;
+}
+
+.basket__total-price__title {
+  gap: 10px;
+  font-weight: 600;
+  font-size: 18px;
+  letter-spacing: -0.0275em;
+}
+
+.basket__total-price__title-icon-wrapper svg {
+  width: 24px;
+  height: 24px;
+}
+
+.basket__total-price__sum {
+  font-weight: 700;
+  font-size: 30px;
+  letter-spacing: 0.025em;
+  color: var(--color-accent);
+}
+
 .basket__form {
   display: flex;
   flex-direction: column;
   gap: 15px;
+}
+
+.basket__form-title {
+  align-self: flex-start;
 }
 
 .basket__form-title-icon-wrapper svg {
@@ -1977,7 +2086,8 @@ body:has(dialog[open]) {
   letter-spacing: -0.009375em;
 }
 
-.basket__form-field-control, .basket__form-textarea {
+.basket__form-field-control,
+.basket__form-textarea {
   width: 100%;
   background-color: #f9f9f9;
   border: 1px solid var(--color-accent-trans30);
@@ -1985,27 +2095,26 @@ body:has(dialog[open]) {
   padding: 8px 12px;
   display: flex;
   align-items: center;
-font-weight: 400;
-font-size: 14px;
-line-height: 100%;
-letter-spacing: -0.009375em;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 100%;
+  letter-spacing: -0.009375em;
 }
 
 .basket__form-field-control {
   height: 36px;
 }
 
-.basket__form-field-control::placeholder, .basket__form-textarea::placeholder {
+.basket__form-field-control::placeholder,
+.basket__form-textarea::placeholder {
   font-family: var(--font-family-base);
 }
-
-
 
 /*
 нужна иконка контактной информации без теней
 
+добавить ссылки на страницы продукт-карт в каталог-карты и баскет-карты
 js поработать над кнопками языка
-поработать над кружком меню и корзины?
 заменить пиксели на ремы
 поработать над --transition-duration - 600 или 300
 */
