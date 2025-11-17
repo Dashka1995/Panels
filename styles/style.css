@@ -1384,10 +1384,10 @@ body:has(dialog[open]) {
   letter-spacing: -0.019375em;
 }
 
-/* .swiper {
+.swiper {
   width: 100%;
-  aspect-ratio: 2048/1367;
-  max-width: 1920px;
+  aspect-ratio: 1/1;
+  max-width: 794px;
 }
 .swiper-container {
   position: relative;
@@ -1404,51 +1404,63 @@ body:has(dialog[open]) {
 }
 .swiper-container::part(pagination) {
   color: var(--color-white);
-  font-family: "Oswald", sans-serif;
-  font-weight: 500;
-  font-size: 20px;
-  bottom: 13%;
-  transform: translateY(50%);
-  gap: 12px;
+  font-family: var(--font-family-base);
+  background-color: #000000b2;
   display: flex;
   justify-content: center;
   align-items: center;
+  gap: 8px;
+  width: min-content;
+  height: min-content;
+  padding: 6px 15px;
+  left: 50%;
+  bottom: 8%;
+  transform: translateY(50%) translateX(-50%);
+  border-radius: 200px;
+  font-weight: 400;
+  font-size: 14px;
+
   pointer-events: none;
 }
-@media (min-width: 481px) {
-  .swiper-container::part(pagination) {
-    font-size: clamp(32px, -7968px + 800vw, 40px);
-  }
-}
+
 .swiper-container::part(button-prev),
 .swiper-container::part(button-next) {
   display: none;
-  background-color: var(--color-accent-trans40);
+  background-color: #000000b2;
   color: var(--color-white);
-  height: 40px;
-  width: 40px;
-  border-radius: 40px;
-  padding: 20px;
+  height: 13px;
+  width: 13px;
+  border-radius: 200px;
+  padding: 15px;
   transition-duration: var(--transition-duration-quick);
   position: absolute;
-  bottom: 13%;
+  bottom: 8%;
   transform: translateY(50%);
   z-index: 20;
   top: auto;
 }
+
+.swiper-container::part(button-prev) {
+  left: 35%;
+}
+.swiper-container::part(button-next) {
+  right: 35%;
+}
+
+
 @media (hover: hover) {
   .swiper-container::part(button-prev):hover,
   .swiper-container::part(button-next):hover {
-    background-color: var(--color-accent);
+      background-color: #000000ea;
   }
 }
 @media (hover: none) {
   .swiper-container::part(button-prev):active,
   .swiper-container::part(button-next):active {
-    background-color: var(--color-accent);
+    background-color: #000000ea;
   }
 }
-@media (min-width: 1001px) {
+@media (min-width: 1024px) {
   .swiper-container::part(button-prev),
   .swiper-container::part(button-next) {
     display: flex;
@@ -1460,7 +1472,7 @@ body:has(dialog[open]) {
   display: block;
   -o-object-fit: cover;
   object-fit: cover;
-} */
+}
 
 .product-card {
   display: grid;
@@ -1721,7 +1733,7 @@ body:has(dialog[open]) {
 .basket__body {
   display: grid;
   grid-template-columns: 1fr;
-  gap: clamp(0.938rem, 0.341rem + 2.54vw, 1.563rem);;
+  gap: clamp(0.938rem, 0.341rem + 2.54vw, 1.563rem);
   padding-block: clamp(0.938rem, 0.341rem + 2.54vw, 1.563rem);
 }
 @media (min-width: 1024px) {
