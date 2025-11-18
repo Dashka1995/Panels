@@ -141,7 +141,7 @@
               <details class="header__lang closing-accordion">
                 <summary class="hidden-summary-arrow">
                   <!-- спан RU :  -->
-                  <span class="ru header__lang-cont flex-center">
+                  <span class="ru header__lang-cont flex-center header__lang-summary" data-lang="ru">
                     <span
                       class="header__lang-cont-icon-wrapper box-shadow content-size"
                     >
@@ -179,7 +179,7 @@
                     <span class="header__lang-cont-text-wrapper">RU</span>
                   </span>
                   <!-- спан UK :  -->
-                  <!-- <span class="uk header__lang-cont flex-center">
+                  <span class="ua header__lang-cont flex-center header__lang-summary" data-lang="ua" style="display: none;">
                         <span
                           class="header__lang-cont-icon-wrapper box-shadow content-size"
                         >
@@ -195,10 +195,9 @@
     </defs>
     </svg>
                         </span>
-                        <span class="header__lang-cont-text-wrapper">UK</span>
-                      </span> -->
+                        <span class="header__lang-cont-text-wrapper">UA</span>
+                      </span>
                 </summary>
-                <!-- <div class="header__lang-links-overlay"></div> -->
                 <ul class="header__lang-links-list">
                   <li
                     class="header__lang-links-item header__lang-links-item--active"
@@ -2558,7 +2557,7 @@
               <details class="header__lang closing-accordion">
                 <summary class="hidden-summary-arrow">
                   <!-- спан RU :  -->
-                  <span class="ru header__lang-cont flex-center">
+                  <span class="ru header__lang-cont flex-center header__lang-summary" data-lang="ru">
                     <span
                       class="header__lang-cont-icon-wrapper box-shadow content-size"
                     >
@@ -2596,7 +2595,7 @@
                     <span class="header__lang-cont-text-wrapper">RU</span>
                   </span>
                   <!-- спан UK :  -->
-                  <!-- <span class="uk header__lang-cont flex-center">
+                  <span class="ua header__lang-cont flex-center header__lang-summary" data-lang="ua" style="display: none;">
                         <span
                           class="header__lang-cont-icon-wrapper box-shadow content-size"
                         >
@@ -2612,8 +2611,8 @@
     </defs>
     </svg>
                         </span>
-                        <span class="header__lang-cont-text-wrapper">UK</span>
-                      </span> -->
+                        <span class="header__lang-cont-text-wrapper">UA</span>
+                      </span>
                 </summary>
                 <!-- <div class="header__lang-links-overlay"></div> -->
                 <ul class="header__lang-links-list">
@@ -2827,136 +2826,117 @@
         } // Конец if (mobileOverlay)
 
         // ===============================================
-
         // --- 4. НОВЫЙ КОД: Логика переключения языков ---
-
         // ===============================================
 
-        let translations = {}; // Глобальный объект для хранения загруженных переводов
+        let translations = {};
 
-        // 4.1. Асинхронная функция для ЗАГРУЗКИ файла переводов
-
+        // 4.1. Загрузка переводов
         async function loadTranslations() {
           try {
             console.log("🔄 Начинаем загрузку переводов...");
             const response = await fetch("translations.json");
-
-            if (!response.ok) {
-              throw new Error(`Ошибка загрузки: ${response.status}`);
-            }
-
+            if (!response.ok) throw new Error(`Ошибка загрузки: ${response.status}`);
             translations = await response.json();
-
-            console.log("✅ Переводы загружены", translations);
-
-            // После УСПЕШНОЙ загрузки - запускаем основную логику языка
-
+            console.log("✅ Переводы загружены");
             initializeLanguageLogic();
           } catch (error) {
             console.error("❌ Не удалось загрузить файл переводов:", error);
           }
         }
 
-        // 4.2. Функция, которая запускает всю логику (она вызовется ПОСЛЕ загрузки)
+        // 4.2. Функция обновления summary (закрытого состояния) - ДЛЯ ВСЕХ АККОРДЕОНОВ
+        function updateSummaryButton(lang) {
+          // Находим ВСЕ summary-кнопки на странице
+          const allSummaries = document.querySelectorAll('.header__lang-summary');
+          console.log(`🔍 Найдено summary-кнопок: ${allSummaries.length}`);
+          
+          // Скрываем все summary-кнопки
+          allSummaries.forEach(summary => {
+            summary.style.display = 'none';
+          });
+          
+          // Показываем нужные summary-кнопки для ВСЕХ аккордеонов
+          const activeSummaries = document.querySelectorAll(`.header__lang-summary[data-lang="${lang}"]`);
+          activeSummaries.forEach(summary => {
+            summary.style.display = 'flex';
+          });
+          
+          console.log(`✅ Обновлены summary-кнопки на: ${lang} (${activeSummaries.length} шт.)`);
+        }
 
+        // 4.3. Функция закрытия ВСЕХ аккордеонов языка
+        function closeLangAccordion() {
+          const langAccordions = document.querySelectorAll('.header__lang.closing-accordion');
+          console.log(`🔍 Найдено аккордеонов языка: ${langAccordions.length}`);
+          
+          langAccordions.forEach(accordion => {
+            accordion.removeAttribute('open');
+          });
+          
+          console.log("🔽 Все аккордеоны языка закрыты");
+        }
+
+
+        // 4.4. Главная функция установки языка
+        function setLanguage(lang) {
+          console.log(`🌐 Устанавливаем язык: ${lang}`);
+          
+          // Применяем перевод ко всем элементам
+          const elementsToTranslate = document.querySelectorAll("[data-lang-key]");
+          elementsToTranslate.forEach((element) => {
+            const key = element.getAttribute("data-lang-key");
+            if (translations[lang] && translations[lang].hasOwnProperty(key)) {
+              element.textContent = translations[lang][key];
+            }
+          });
+          
+          localStorage.setItem("language", lang);
+          
+          // Обновляем все элементы интерфейса
+          updateActiveButton(lang);    // Активный класс в списке
+          updateSummaryButton(lang);   // Кнопка в закрытом состоянии
+          closeLangAccordion();        // Закрываем аккордеон
+        }
+
+        // 4.5. Функция обновления активного класса в списке
+        function updateActiveButton(lang) {
+          const allItems = document.querySelectorAll(".header__lang-links-item");
+          allItems.forEach((item) => {
+            item.classList.remove("header__lang-links-item--active");
+          });
+
+          const activeLink = document.querySelector(`.header__lang-link[data-lang="${lang}"]`);
+          if (activeLink) {
+            activeLink.closest(".header__lang-links-item").classList.add("header__lang-links-item--active");
+            console.log(`✅ Активирована кнопка языка в списке: ${lang}`);
+          }
+        }
+
+        // 4.6. Инициализация логики
         function initializeLanguageLogic() {
           console.log("🔧 Инициализация логики перевода...");
 
-          // Находим кнопки ОДИН РАЗ
-
-          const langButtons = document.querySelectorAll(
-            ".header__lang-link[data-lang]"
-          );
-          // проверить правильно ли указан класс, если что вот оно, изменить
+          const langButtons = document.querySelectorAll(".header__lang-link[data-lang]");
           console.log(`🔍 Найдено кнопок перевода: ${langButtons.length}`);
 
-          // 4.3. Главная функция, которая ПРИМЕНЯET перевод
-
-          function setLanguage(lang) {
-            console.log(`🌐 Устанавливаем язык: ${lang}`);
-
-            const elementsToTranslate =
-              document.querySelectorAll("[data-lang-key]");
-
-            elementsToTranslate.forEach((element) => {
-              const key = element.getAttribute("data-lang-key");
-
-              // Проверяем, что словарь для языка есть, и ключ в нем есть
-
-              if (
-                translations[lang] &&
-                translations[lang].hasOwnProperty(key)
-              ) {
-                element.textContent = translations[lang][key];
-              } else if (translations[lang]) {
-                // (Отладка) Если ключ не найден в этом языке
-
-                console.warn(
-                  `⚠️ Ключ "${key}" не найден в переводе для "${lang}"`
-                );
-              } else {
-                // (Отладка) Если язык не найден
-
-                console.error(`❌ Словарь для языка "${lang}" не найден!`);
-              }
-            });
-
-            localStorage.setItem("language", lang);
-
-            updateActiveButton(lang);
-          }
-
-          // 4.4. Вспомогательная функция для обновления активного класса
-
-          function updateActiveButton(lang) {
-            const allItems = document.querySelectorAll(
-              ".header__lang-links-item"
-            );
-
-            allItems.forEach((item) => {
-              item.classList.remove("header__lang-links-item--active");
-            });
-
-            const activeLink = document.querySelector(
-              `.header__lang-link[data-lang="${lang}"]`
-            );
-
-            if (activeLink) {
-              // .closest() находит родительский 'li' и делает его активным
-
-              activeLink
-                .closest(".header__lang-links-item")
-                .classList.add("header__lang-links-item--active");
-
-              console.log(`✅ Активирована кнопка языка: ${lang}`);
-            }
-          }
-
-          // 4.5. Навешиваем обработчики на кнопки (ПРОСТОЙ СПОСОБ)
-
+          // Вешаем обработчики на кнопки
           langButtons.forEach((button) => {
             button.addEventListener("click", (event) => {
-              event.preventDefault(); // <-- Вот это отменит перезагрузку
-
+              event.preventDefault();
               const lang = button.getAttribute("data-lang");
-
-              console.log(`🖱️ Клик по кнопке языка: ${lang}`); // <-- Ты должен увидеть это!
-
+              console.log(`🖱️ Клик по кнопке языка: ${lang}`);
               setLanguage(lang);
             });
           });
 
-          // 4.6. При первой загрузке страницы...
-
+          // Устанавливаем начальный язык
           const savedLang = localStorage.getItem("language") || "ru";
-
           console.log(`📖 Сохраненный язык: ${savedLang}`);
-
-          setLanguage(savedLang); // Применяем язык
+          setLanguage(savedLang);
         }
 
         // 4.7. Запускаем весь процесс
-
         loadTranslations();
       }); // --- Конец обработчика DOMContentLoaded ---
     </script>
