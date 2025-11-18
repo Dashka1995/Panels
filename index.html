@@ -1192,7 +1192,7 @@
           </p>
           <ul class="catalog__grid-container">
             <li class="catalog__grid-item">
-              <article class="catalog-card">
+              <article class="catalog-card" data-product-id="sun-case-500w-50ah">
                 <a
                   class="catalog-card__image-link"
                   href="sun-case-500w-50ah.html"
@@ -1290,7 +1290,7 @@
                     </a>
                     <button
                       type="button"
-                      class="catalog-card__button button-rect button-rect--accent"
+                      class="catalog-card__button button-rect button-rect--accent catalog-card__button--add-to-cart"
                       data-lang-key="translate_28"
                     >
                       Заказать
@@ -1300,7 +1300,7 @@
               </article>
             </li>
             <li class="catalog__grid-item">
-              <article class="catalog-card">
+              <article class="catalog-card" data-product-id="sun-case-1000w-50ah">
                 <a class="catalog-card__image-link" href="sun-case-1000w-50ah.html">
                   <picture>
                     <source
@@ -1395,7 +1395,7 @@
                     </a>
                     <button
                       type="button"
-                      class="catalog-card__button button-rect button-rect--accent"
+                      class="catalog-card__button button-rect button-rect--accent catalog-card__button--add-to-cart"
                       data-lang-key="translate_28"
                     >
                       Заказать
@@ -1405,7 +1405,7 @@
               </article>
             </li>
             <li class="catalog__grid-item">
-              <article class="catalog-card">
+              <article class="catalog-card" data-product-id="sun-case-1500w-100ah">
                 <a class="catalog-card__image-link" href="sun-case-1000w-100ah.html">
                   <picture>
                     <source
@@ -1500,8 +1500,8 @@
                     </a>
                     <button
                       type="button"
-                      class="catalog-card__button button-rect button-rect--accent"
-                      data-lang-key="translate_36"
+                      class="catalog-card__button button-rect button-rect--accent catalog-card__button--add-to-cart"
+                      data-lang-key="translate_44"
                     >
                       Заказать
                     </button>
@@ -1510,7 +1510,7 @@
               </article>
             </li>
             <li class="catalog__grid-item">
-              <article class="catalog-card">
+              <article class="catalog-card" data-product-id="sun-case-1500w-100ah">
                 <a class="catalog-card__image-link" href="sun-case-1500w-100ah.html">
                   <picture>
                     <source
@@ -1605,7 +1605,7 @@
                     </a>
                     <button
                       type="button"
-                      class="catalog-card__button button-rect button-rect--accent"
+                      class="catalog-card__button button-rect button-rect--accent catalog-card__button--add-to-cart"
                       data-lang-key="translate_40"
                     >
                       Заказать
@@ -1615,7 +1615,7 @@
               </article>
             </li>
             <li class="catalog__grid-item">
-              <article class="catalog-card">
+              <article class="catalog-card" data-product-id="sun-case-2000w-100ah">
                 <a class="catalog-card__image-link" href="sun-case-2000w-100ah.html">
                   <picture>
                     <source
@@ -1710,7 +1710,7 @@
                     </a>
                     <button
                       type="button"
-                      class="catalog-card__button button-rect button-rect--accent"
+                      class="catalog-card__button button-rect button-rect--accent catalog-card__button--add-to-cart"
                       data-lang-key="translate_44"
                     >
                       Заказать
@@ -2738,6 +2738,62 @@
       </div>
     </dialog>
     <script>
+      // ===============================================
+      // --- БАЗА ДАННЫХ ТОВАРОВ ---
+      // ===============================================
+
+      const PRODUCTS_DATABASE = {
+        "sun-case-500w-50ah": {
+          id: "sun-case-500w-50ah",
+          name: "SUN CASE 500W 50Ач",
+          price: 12199,
+          image: "./images/catalog/500w-50ah.jpg",
+          characteristics: {
+            power: "500W",
+            capacity: "50 Ач"
+          }
+        },
+        "sun-case-1000w-50ah": {
+          id: "sun-case-1000w-50ah", 
+          name: "SUN CASE 1000W 50Ач",
+          price: 14599,
+          image: "./images/catalog/500w-50ah.jpg",
+          characteristics: {
+            power: "1000W",
+            capacity: "50 Ач"
+          }
+        },
+        "sun-case-1000w-100ah": {
+          id: "sun-case-1000w-100ah",
+          name: "SUN CASE 1000W 100Ач", 
+          price: 17499,
+          image: "./images/catalog/500w-50ah.jpg",
+          characteristics: {
+            power: "1000W",
+            capacity: "100 Ач"
+          }
+        },
+        "sun-case-1500w-100ah": {
+          id: "sun-case-1500w-100ah",
+          name: "SUN CASE 1500W 100Ач",
+          price: 18499, 
+          image: "./images/catalog/500w-50ah.jpg",
+          characteristics: {
+            power: "2000W",
+            capacity: "100 Ач"
+          }
+        },
+        "sun-case-2000w-100ah": {
+          id: "sun-case-2000w-100ah",
+          name: "SUN CASE 2000W 100Ач",
+          price: 19999,
+          image: "./images/catalog/500w-50ah.jpg", 
+          characteristics: {
+            power: "2000W",
+            capacity: "100 Ач"
+          }
+        }
+      };
       // Ждем, пока вся HTML-страница загрузится
 
       document.addEventListener("DOMContentLoaded", () => {
@@ -2938,6 +2994,53 @@
 
         // 4.7. Запускаем весь процесс
         loadTranslations();
+
+        // ===============================================
+        // --- 5. Добавление в корзину ---
+        // ===============================================
+        
+        function initAddToCart() {
+          // Находим все кнопки "Заказать"
+          const buyButtons = document.querySelectorAll('.catalog-card__button--add-to-cart');
+
+          buyButtons.forEach(btn => {
+              btn.addEventListener('click', function() {
+                  // 1. Находим родительскую карточку, чтобы узнать ID товара
+                  const card = this.closest('.catalog-card');
+                  const productId = card.getAttribute('data-product-id');
+                  
+                  // 2. Берем данные о товаре из базы
+                  const productData = PRODUCTS_DATABASE[productId];
+                  
+                  if (!productData) {
+                      console.error("Товар не найден в базе:", productId);
+                      return;
+                  }
+
+                  // 3. Получаем текущую корзину или создаем пустую
+                  let cart = JSON.parse(localStorage.getItem('shoppingCart')) || [];
+
+                  // 4. Добавляем товар в корзину
+                  // (Можно добавить уникальный ID для каждого экземпляра, чтобы потом легче удалять)
+                  const cartItem = {
+                      ...productData,
+                      cartId: Date.now() // уникальная метка времени добавления
+                  };
+                  
+                  cart.push(cartItem);
+
+                  // 5. Сохраняем обратно в LocalStorage
+                  localStorage.setItem('shoppingCart', JSON.stringify(cart));
+                  console.log(`🛒 Товар ${productData.name} добавлен. Всего: ${cart.length}`);
+
+                  // 6. Перенаправляем в корзину
+                  window.location.href = 'basket.html'; // Убедись, что имя файла верное
+              });
+          });
+        }
+
+        // Запускаем функцию
+        initAddToCart();
       }); // --- Конец обработчика DOMContentLoaded ---
     </script>
   </body>

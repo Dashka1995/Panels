@@ -141,7 +141,7 @@
               <details class="header__lang closing-accordion">
                 <summary class="hidden-summary-arrow">
                   <!-- спан RU :  -->
-                  <span class="ru header__lang-cont flex-center">
+                  <span class="ru header__lang-cont flex-center header__lang-summary" data-lang="ru">
                     <span
                       class="header__lang-cont-icon-wrapper box-shadow content-size"
                     >
@@ -179,7 +179,7 @@
                     <span class="header__lang-cont-text-wrapper">RU</span>
                   </span>
                   <!-- спан UK :  -->
-                  <!-- <span class="uk header__lang-cont flex-center">
+                  <span class="ua header__lang-cont flex-center header__lang-summary" data-lang="ua" style="display: none;">
                         <span
                           class="header__lang-cont-icon-wrapper box-shadow content-size"
                         >
@@ -195,10 +195,9 @@
     </defs>
     </svg>
                         </span>
-                        <span class="header__lang-cont-text-wrapper">UK</span>
-                      </span> -->
+                        <span class="header__lang-cont-text-wrapper">UA</span>
+                      </span>
                 </summary>
-                <!-- <div class="header__lang-links-overlay"></div> -->
                 <ul class="header__lang-links-list">
                   <li
                     class="header__lang-links-item header__lang-links-item--active"
@@ -334,7 +333,7 @@
             </li>
             <li class="header__buttons-item flex-center">
               <!-- повторная ссылка(пока что) на корзину в виде кнопки №заказать": -->
-              <a href="#" class="header__order">Заказать</a>
+              <a href="#" class="header__order" data-lang-key="translate_87">Заказать</a>
             </li>
           </ul>
         </nav>
@@ -365,35 +364,36 @@
       </div>
     </header>
     <main class="main">
-      <a class="section__bread-crumb flex-center container" href="index.html">
-        <span class="content-size">
-          <svg
-            width="31"
-            height="32"
-            viewBox="0 0 31 32"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M6.6962 10.9999L1 17.1557L7 22.9999"
-              stroke="black"
-              stroke-width="2"
-              stroke-miterlimit="10"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            />
-            <path
-              d="M2 16.9999L30 16.9999"
-              stroke="black"
-              stroke-width="2"
-              stroke-miterlimit="10"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            />
-          </svg>
-        </span>
-        <span>Назад</span>
-      </a>
+      <div class="container">
+        <a class="section__bread-crumb flex-center" href="index.html">
+          <span class="content-size">
+            <svg
+              width="31"
+              height="32"
+              viewBox="0 0 31 32"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M6.6962 10.9999L1 17.1557L7 22.9999"
+                stroke="black"
+                stroke-width="2"
+                stroke-miterlimit="10"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+              <path
+                d="M2 16.9999L30 16.9999"
+                stroke="black"
+                stroke-width="2"
+                stroke-miterlimit="10"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </span>
+          <span>Назад</span>
+        </a>
       <section class="section2 basket">
         <div class="section2__title flex-center">
           <div class="section2__title-body flex-center container">
@@ -445,17 +445,18 @@
                 </defs>
               </svg>
             </span>
-            <h1 class="section2__title-text">Оформление заказа</h1>
+            <h1 class="section2__title-text" data-lang-key="translate_162">Оформление заказа</h1>
           </div>
         </div>
         <div class="basket__body container">
           <div class="basket__info-cont">
             <div class="basket__top-cont flex-center">
-              <h2 class="basket__top-title">Товары в корзине</h2>
+              <h2 class="basket__top-title" data-lang-key="translate_162">Товары в корзине</h2>
               <span class="basket__top-buttons">
                 <button
                   class="basket__top-button basket__add basket__top-button--with-border flex-center"
                   type="button"
+                  data-lang-key="translate_162"
                 >
                   <span class="basket__top-button-icon-wrapper content-size">
                     <svg
@@ -514,6 +515,7 @@
                 <button
                   class="basket__top-button basket__top-button--without-border flex-center"
                   type="button"
+                  data-lang-key="translate_162"
                 >
                   <span class="basket__top-button-icon-wrapper content-size">
                     <svg
@@ -619,7 +621,7 @@
                       />
                     </svg>
                   </span>
-                  <span class="basket__select-description-text">
+                  <span class="basket__select-description-text" data-lang-key="translate_162">
                     Выберите товар для добавления:
                   </span>
                 </div>
@@ -628,7 +630,7 @@
                     <summary
                       class="hidden-summary-arrow basket__select-choice flex-center"
                     >
-                      <span class="basket__select-placeholder">
+                      <span class="basket__select-placeholder" data-lang-key="translate_162">
                         Выберите солнечную станцию
                       </span>
                       <!-- <span class="basket__selected-product">
@@ -734,6 +736,7 @@
                   <button
                     class="basket__select-button-submit button-rect--accent flex-center"
                     type="submit"
+                    data-lang-key="translate_162"
                   >
                     Добавить
                   </button>
@@ -784,7 +787,7 @@
                             />
                           </svg>
                         </span>
-                        <span>Мощность: 500W</span>
+                        <span data-lang-key="translate_162">Мощность: 500W</span>
                       </div>
                       <div class="basket-card__characteristic flex-center">
                         <span
@@ -813,7 +816,7 @@
                             />
                           </svg>
                         </span>
-                        <span>Емкость: 50Ач</span>
+                        <span data-lang-key="translate_162">Емкость: 50Ач</span>
                       </div>
                     </div>
                   </div>
@@ -876,7 +879,7 @@
               </li>
               <li class="basket__card-item">
                 <article class="basket-card">
-                  <a class="basket-card__image-link content-size" href="">
+                  <a class="basket-card__image-link content-size" href="sun-case-1000w-50ah.html">
                     <picture class="basket-card__image">
                       <source
                         type="image/avif"
@@ -893,7 +896,7 @@
                     </picture>
                   </a>
                   <div class="basket-card__center">
-                    <a class="basket-card__title" href="#">SUN CASE 1000W 50Ач</a>
+                    <a class="basket-card__title" href="sun-case-1000w-100ah.html">SUN CASE 1000W 50Ач</a>
                     <div
                       class="basket-card__characteristic-cont flex-center flex-center--column"
                     >
@@ -917,7 +920,7 @@
                             />
                           </svg>
                         </span>
-                        <span>Мощность: 1000W</span>
+                        <span data-lang-key="translate_162">Мощность: 1000W</span>
                       </div>
                       <div class="basket-card__characteristic flex-center">
                         <span
@@ -946,7 +949,7 @@
                             />
                           </svg>
                         </span>
-                        <span>Емкость: 50Ач</span>
+                        <span data-lang-key="translate_162">Емкость: 50Ач</span>
                       </div>
                     </div>
                   </div>
@@ -1009,7 +1012,7 @@
               </li>
               <li class="basket__card-item">
                 <article class="basket-card">
-                  <a class="basket-card__image-link content-size" href="">
+                  <a class="basket-card__image-link content-size" href="sun-case-1000w-100ah.html">
                     <picture class="basket-card__image">
                       <source
                         type="image/avif"
@@ -1026,7 +1029,7 @@
                     </picture>
                   </a>
                   <div class="basket-card__center">
-                    <a class="basket-card__title" href="#">SUN CASE 1000W 100Ач</a>
+                    <a class="basket-card__title" href="sun-case-1000w-100ah.html">SUN CASE 1000W 100Ач</a>
                     <div
                       class="basket-card__characteristic-cont flex-center flex-center--column"
                     >
@@ -1050,7 +1053,7 @@
                             />
                           </svg>
                         </span>
-                        <span>Мощность: 1000W</span>
+                        <span data-lang-key="translate_162">Мощность: 1000W</span>
                       </div>
                       <div class="basket-card__characteristic flex-center">
                         <span
@@ -1079,7 +1082,7 @@
                             />
                           </svg>
                         </span>
-                        <span>Емкость: 100Ач</span>
+                        <span data-lang-key="translate_162">Емкость: 100Ач</span>
                       </div>
                     </div>
                   </div>
@@ -1142,7 +1145,7 @@
               </li>
               <li class="basket__card-item">
                 <article class="basket-card">
-                  <a class="basket-card__image-link content-size" href="">
+                  <a class="basket-card__image-link content-size" href="sun-case-1500w-100ah.html">
                     <picture class="basket-card__image">
                       <source
                         type="image/avif"
@@ -1159,7 +1162,7 @@
                     </picture>
                   </a>
                   <div class="basket-card__center">
-                    <a class="basket-card__title" href="#">SUN CASE 1500W 100Ач</a>
+                    <a class="basket-card__title" href="sun-case-1500w-100ah.html">SUN CASE 1500W 100Ач</a>
                     <div
                       class="basket-card__characteristic-cont flex-center flex-center--column"
                     >
@@ -1183,7 +1186,7 @@
                             />
                           </svg>
                         </span>
-                        <span>Мощность: 1500W</span>
+                        <span data-lang-key="translate_162">Мощность: 1500W</span>
                       </div>
                       <div class="basket-card__characteristic flex-center">
                         <span
@@ -1212,7 +1215,7 @@
                             />
                           </svg>
                         </span>
-                        <span>Емкость: 100Ач</span>
+                        <span data-lang-key="translate_162">Емкость: 100Ач</span>
                       </div>
                     </div>
                   </div>
@@ -1275,7 +1278,7 @@
               </li>
               <li class="basket__card-item">
                 <article class="basket-card">
-                  <a class="basket-card__image-link content-size" href="">
+                  <a class="basket-card__image-link content-size" href="sun-case-2000w-100ah.html">
                     <picture class="basket-card__image">
                       <source
                         type="image/avif"
@@ -1292,7 +1295,7 @@
                     </picture>
                   </a>
                   <div class="basket-card__center">
-                    <a class="basket-card__title" href="#">SUN CASE 2000W 100Ач</a>
+                    <a class="basket-card__title" href="sun-case-2000w-100ah.html">SUN CASE 2000W 100Ач</a>
                     <div
                       class="basket-card__characteristic-cont flex-center flex-center--column"
                     >
@@ -1316,7 +1319,7 @@
                             />
                           </svg>
                         </span>
-                        <span>Мощность: 2000W</span>
+                        <span data-lang-key="translate_162">Мощность: 2000W</span>
                       </div>
                       <div class="basket-card__characteristic flex-center">
                         <span
@@ -1345,7 +1348,7 @@
                             />
                           </svg>
                         </span>
-                        <span>Емкость: 100Ач</span>
+                        <span data-lang-key="translate_162">Емкость: 100Ач</span>
                       </div>
                     </div>
                   </div>
@@ -1433,7 +1436,7 @@
                     stroke-linejoin="round"
                   />
                 </svg></span>
-                <span>Итого:</span>
+                <span data-lang-key="translate_162">Итого:</span>
               </div>
               <div class="basket__total-price__sum">12 199 грн</div>
             </div>
@@ -1464,11 +1467,11 @@
                   />
                 </svg>
               </span>
-              <span class="basket__form-title-text">Контактная информация</span>
+              <span class="basket__form-title-text" data-lang-key="translate_162">Контактная информация</span>
             </h2>
             <form class="basket__form" action="">
               <div class="basket__form-field">
-                <label class="basket__form-field-label" for="username">
+                <label class="basket__form-field-label" for="username" data-lang-key="translate_162">
                   Ваше имя
                 </label>
                 <input
@@ -1494,7 +1497,7 @@
                 />
               </div>
               <div class="basket__form-field">
-                <label class="basket__form-field-label" for="comment">
+                <label class="basket__form-field-label" for="comment" data-lang-key="translate_162">
                   Комментарий к заказу
                 </label>
                 <textarea
@@ -1556,7 +1559,7 @@
                     </defs>
                   </svg>
                 </span>
-                <span>Отправить заказ</span>
+                <span data-lang-key="translate_162">Отправить заказ</span>
               </button>
             </form>
           </div>
@@ -1972,106 +1975,203 @@
       </div>
     </dialog>
     <script>
+      // Ждем, пока вся HTML-страница загрузится
+
       document.addEventListener("DOMContentLoaded", () => {
-        // 1. Скрытие хедера при скролле
+        // ===============================================
+
+        // --- 1. ВАШ КОД: Скрытие хедера при скролле ---
+
+        // ===============================================
+
         const header = document.querySelector(".header");
+
+        // Добавляем проверку, что 'header' вообще существует
+
         if (header) {
           let lastScrollY = window.scrollY;
+
           let ticking = false;
 
-          const updateHeader = () => {
+          const SCROLL_THRESHOLD = 10;
+
+          function updateHeader() {
             const currentScrollY = window.scrollY;
+
+            if (Math.abs(currentScrollY - lastScrollY) < SCROLL_THRESHOLD) {
+              ticking = false;
+
+              return;
+            }
+
             if (currentScrollY > lastScrollY && currentScrollY > 100) {
               header.classList.add("header--hidden");
             } else {
               header.classList.remove("header--hidden");
             }
+
             lastScrollY = currentScrollY;
+
             ticking = false;
-          };
+          }
 
           window.addEventListener("scroll", () => {
             if (!ticking) {
               requestAnimationFrame(updateHeader);
+
               ticking = true;
             }
           });
-        }
+        } // Конец if (header)
 
-        // 2. Скрытие аккордеонов
-        document.addEventListener("click", (event) => {
-          if (!event.target.closest(".closing-accordion")) {
-            document
-              .querySelectorAll(".closing-accordion[open]")
-              .forEach((accordion) => accordion.removeAttribute("open"));
+        // ===============================================
+
+        // --- 2. ВАШ КОД: Скрытие аккордеонов ---
+
+        // ===============================================
+
+        document.addEventListener("click", function (event) {
+          const isInsideAccordion = event.target.closest(".closing-accordion");
+
+          if (!isInsideAccordion) {
+            const accordions = document.querySelectorAll(
+              ".closing-accordion[open]"
+            );
+
+            accordions.forEach((accordion) =>
+              accordion.removeAttribute("open")
+            );
           }
         });
 
-        // 3. Закрытие оверлея
+        // ===============================================
+
+        // --- 3. ВАШ КОД: Закрытие оверлея ---
+
+        // ===============================================
+
         const mobileOverlay = document.getElementById("mobileOverlay");
+
+        // Добавляем проверку, что 'mobileOverlay' существует
+
         if (mobileOverlay) {
           mobileOverlay.addEventListener("click", function (event) {
-            if (event.target === this) this.close();
+            if (event.target === this) {
+              this.close();
+            }
           });
-        }
+        } // Конец if (mobileOverlay)
 
-        // 4. Логика переключения языков
+        // ===============================================
+        // --- 4. НОВЫЙ КОД: Логика переключения языков ---
+        // ===============================================
+
         let translations = {};
 
-        const loadTranslations = async () => {
+        // 4.1. Загрузка переводов
+        async function loadTranslations() {
           try {
+            console.log("🔄 Начинаем загрузку переводов...");
             const response = await fetch("translations.json");
-            if (!response.ok)
-              throw new Error(`Ошибка загрузки: ${response.status}`);
+            if (!response.ok) throw new Error(`Ошибка загрузки: ${response.status}`);
             translations = await response.json();
+            console.log("✅ Переводы загружены");
             initializeLanguageLogic();
           } catch (error) {
             console.error("❌ Не удалось загрузить файл переводов:", error);
           }
-        };
+        }
 
-        const initializeLanguageLogic = () => {
-          const setLanguage = (lang) => {
-            document.querySelectorAll("[data-lang-key]").forEach((element) => {
-              const key = element.getAttribute("data-lang-key");
-              if (translations[lang]?.[key]) {
-                element.textContent = translations[lang][key];
-              }
-            });
+        // 4.2. Функция обновления summary (закрытого состояния) - ДЛЯ ВСЕХ АККОРДЕОНОВ
+        function updateSummaryButton(lang) {
+          // Находим ВСЕ summary-кнопки на странице
+          const allSummaries = document.querySelectorAll('.header__lang-summary');
+          console.log(`🔍 Найдено summary-кнопок: ${allSummaries.length}`);
+          
+          // Скрываем все summary-кнопки
+          allSummaries.forEach(summary => {
+            summary.style.display = 'none';
+          });
+          
+          // Показываем нужные summary-кнопки для ВСЕХ аккордеонов
+          const activeSummaries = document.querySelectorAll(`.header__lang-summary[data-lang="${lang}"]`);
+          activeSummaries.forEach(summary => {
+            summary.style.display = 'flex';
+          });
+          
+          console.log(`✅ Обновлены summary-кнопки на: ${lang} (${activeSummaries.length} шт.)`);
+        }
 
-            localStorage.setItem("language", lang);
+        // 4.3. Функция закрытия ВСЕХ аккордеонов языка
+        function closeLangAccordion() {
+          const langAccordions = document.querySelectorAll('.header__lang.closing-accordion');
+          console.log(`🔍 Найдено аккордеонов языка: ${langAccordions.length}`);
+          
+          langAccordions.forEach(accordion => {
+            accordion.removeAttribute('open');
+          });
+          
+          console.log("🔽 Все аккордеоны языка закрыты");
+        }
 
-            // Обновляем активную кнопку
-            document
-              .querySelectorAll(".header__lang-links-item")
-              .forEach((item) => {
-                item.classList.remove("header__lang-links-item--active");
-              });
 
-            const activeLink = document.querySelector(
-              `.header__lang-link[data-lang="${lang}"]`
-            );
-            if (activeLink) {
-              activeLink
-                .closest(".header__lang-links-item")
-                .classList.add("header__lang-links-item--active");
+        // 4.4. Главная функция установки языка
+        function setLanguage(lang) {
+          console.log(`🌐 Устанавливаем язык: ${lang}`);
+          
+          // Применяем перевод ко всем элементам
+          const elementsToTranslate = document.querySelectorAll("[data-lang-key]");
+          elementsToTranslate.forEach((element) => {
+            const key = element.getAttribute("data-lang-key");
+            if (translations[lang] && translations[lang].hasOwnProperty(key)) {
+              element.textContent = translations[lang][key];
             }
-          };
+          });
+          
+          localStorage.setItem("language", lang);
+          
+          // Обновляем все элементы интерфейса
+          updateActiveButton(lang);    // Активный класс в списке
+          updateSummaryButton(lang);   // Кнопка в закрытом состоянии
+          closeLangAccordion();        // Закрываем аккордеон
+        }
 
-          // Вешаем обработчики на кнопки языков
-          document
-            .querySelectorAll(".header__lang-link[data-lang]")
-            .forEach((button) => {
-              button.addEventListener("click", (event) => {
-                event.preventDefault();
-                setLanguage(button.getAttribute("data-lang"));
-              });
+        // 4.5. Функция обновления активного класса в списке
+        function updateActiveButton(lang) {
+          const allItems = document.querySelectorAll(".header__lang-links-item");
+          allItems.forEach((item) => {
+            item.classList.remove("header__lang-links-item--active");
+          });
+
+          const activeLink = document.querySelector(`.header__lang-link[data-lang="${lang}"]`);
+          if (activeLink) {
+            activeLink.closest(".header__lang-links-item").classList.add("header__lang-links-item--active");
+            console.log(`✅ Активирована кнопка языка в списке: ${lang}`);
+          }
+        }
+
+        // 4.6. Инициализация логики
+        function initializeLanguageLogic() {
+          console.log("🔧 Инициализация логики перевода...");
+
+          const langButtons = document.querySelectorAll(".header__lang-link[data-lang]");
+          console.log(`🔍 Найдено кнопок перевода: ${langButtons.length}`);
+
+          // Вешаем обработчики на кнопки
+          langButtons.forEach((button) => {
+            button.addEventListener("click", (event) => {
+              event.preventDefault();
+              const lang = button.getAttribute("data-lang");
+              console.log(`🖱️ Клик по кнопке языка: ${lang}`);
+              setLanguage(lang);
             });
+          });
 
-          // Устанавливаем сохраненный язык
-          setLanguage(localStorage.getItem("language") || "ru");
-        };
-
+          // Устанавливаем начальный язык
+          const savedLang = localStorage.getItem("language") || "ru";
+          console.log(`📖 Сохраненный язык: ${savedLang}`);
+          setLanguage(savedLang);
+        }
         // 5. Логика корзины - ИСПРАВЛЕННЫЙ КОД
         const basketButton = document.querySelector(".basket__add");
         const basketSelect = document.querySelector(".basket__select-cont");
@@ -2089,10 +2189,131 @@
             }
           });
         }
-
-        // Запускаем загрузку переводов
+        // 4.7. Запускаем весь процесс
         loadTranslations();
-      });
+    
+        // Контейнер для товаров
+        const basketList = document.querySelector('.basket__card-list');
+        // Контейнер для итоговой цены
+        const totalPriceEl = document.querySelector('.basket__total-price__sum');
+        
+        // 1. Загрузка корзины
+        let cart = JSON.parse(localStorage.getItem('shoppingCart')) || [];
+
+        // Функция форматирования цены (делает пробелы: 12 199)
+        const formatPrice = (price) => {
+            return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
+        };
+
+        // 2. Функция отрисовки товаров
+        function renderBasket() {
+            basketList.innerHTML = ''; // Очищаем текущий список
+            let total = 0;
+
+            if (cart.length === 0) {
+                basketList.innerHTML = '<p style="text-align:center; width:100%;">Корзина пуста</p>';
+                totalPriceEl.textContent = '0 грн';
+                return;
+            }
+
+            cart.forEach((item, index) => {
+                // Суммируем цену
+                total += item.price;
+
+                // Создаем HTML товара
+                const li = document.createElement('li');
+                li.classList.add('basket__card-item');
+                
+                // Вставляем твою верстку. Обрати внимание:
+                // - item.name, item.price подставляются из объекта
+                // - data-index="${index}" нужен для кнопки удаления
+                li.innerHTML = `
+                    <article class="basket-card">
+                      <a class="basket-card__image-link content-size" href="${item.id}.html">
+                        <div class="basket-card__image-wrapper">
+                            <img
+                                class="catalog-card__image"
+                                src="${item.image}"
+                                height="94"
+                                width="94"
+                                loading="lazy"
+                                alt="${item.name}"
+                                style="object-fit: contain;" 
+                            />
+                        </div>
+                      </a>
+                      <div class="basket-card__center">
+                        <a class="basket-card__title" href="${item.id}.html">${item.name}</a>
+                        <div class="basket-card__characteristic-cont flex-center flex-center--column">
+                          
+                          <div class="basket-card__characteristic flex-center">
+                            <span class="basket-card__characteristic-icon-wrapper content-size">
+                              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M3.33325 11.6667C3.17555 11.6673 3.02094 11.623 2.88737 11.5392C2.75381 11.4554 2.64677 11.3354 2.5787 11.1931C2.51063 11.0509 2.48432 10.8922 2.50283 10.7356C2.52133 10.579 2.5839 10.4309 2.68325 10.3084L10.9332 1.80839C10.9951 1.73696 11.0795 1.68868 11.1724 1.6715C11.2653 1.65431 11.3613 1.66923 11.4447 1.71381C11.528 1.75838 11.5937 1.82997 11.631 1.91681C11.6683 2.00365 11.675 2.10059 11.6499 2.19172L10.0499 7.20839C10.0027 7.33466 9.98689 7.47049 10.0037 7.60423C10.0206 7.73797 10.0696 7.86562 10.1467 7.97624C10.2237 8.08686 10.3264 8.17715 10.446 8.23935C10.5656 8.30156 10.6984 8.33383 10.8332 8.33339H16.6666C16.8243 8.33285 16.9789 8.37707 17.1124 8.46091C17.246 8.54474 17.3531 8.66476 17.4211 8.80701C17.4892 8.94926 17.5155 9.1079 17.497 9.26451C17.4785 9.42111 17.4159 9.56926 17.3166 9.69172L9.06658 18.1917C9.00469 18.2632 8.92036 18.3114 8.82743 18.3286C8.73449 18.3458 8.63848 18.3309 8.55514 18.2863C8.4718 18.2417 8.40609 18.1701 8.3688 18.0833C8.33151 17.9965 8.32485 17.8995 8.34991 17.8084L9.94991 12.7917C9.99709 12.6655 10.0129 12.5296 9.99609 12.3959C9.97924 12.2621 9.9302 12.1345 9.85317 12.0239C9.77614 11.9132 9.67343 11.823 9.55385 11.7608C9.43426 11.6985 9.30137 11.6663 9.16658 11.6667H3.33325Z" stroke="#FDB71A" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round"/>
+                              </svg>
+                            </span>
+                            <span>Мощность: ${item.characteristics.power}</span>
+                          </div>
+
+                          <div class="basket-card__characteristic flex-center">
+                            <span class="basket-card__characteristic-icon-wrapper content-size">
+                              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M18.333 11.6666V8.33325" stroke="#FDB71A" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M13.3337 5H3.33366C2.41318 5 1.66699 5.74619 1.66699 6.66667V13.3333C1.66699 14.2538 2.41318 15 3.33366 15H13.3337C14.2541 15 15.0003 14.2538 15.0003 13.3333V6.66667C15.0003 5.74619 14.2541 5 13.3337 5Z" stroke="#FDB71A" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round"/>
+                              </svg>
+                            </span>
+                            <span>Емкость: ${item.characteristics.capacity}</span>
+                          </div>
+
+                        </div>
+                      </div>
+                      <div class="basket-card__end flex-center flex-center--column">
+                        <span class="basket-card__price">${formatPrice(item.price)} грн</span>
+                        
+                        <button class="basket-card__delete flex-center" type="button" data-index="${index}">
+                          <span class="basket-card__delete-icon-wrapper content-size">
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                              <path d="M6.66699 7.3335V11.3335" stroke="#D4183D" stroke-width="1.33333" stroke-linecap="round" stroke-linejoin="round"/>
+                              <path d="M9.33301 7.3335V11.3335" stroke="#D4183D" stroke-width="1.33333" stroke-linecap="round" stroke-linejoin="round"/>
+                              <path d="M12.6663 4V13.3333C12.6663 13.687 12.5259 14.0261 12.2758 14.2761C12.0258 14.5262 11.6866 14.6667 11.333 14.6667H4.66634C4.31272 14.6667 3.97358 14.5262 3.72353 14.2761C3.47348 14.0261 3.33301 13.687 3.33301 13.3333V4" stroke="#D4183D" stroke-width="1.33333" stroke-linecap="round" stroke-linejoin="round"/>
+                              <path d="M2 4H14" stroke="#D4183D" stroke-width="1.33333" stroke-linecap="round" stroke-linejoin="round"/>
+                              <path d="M5.33301 4.00016V2.66683C5.33301 2.31321 5.47348 1.97407 5.72353 1.72402C5.97358 1.47397 6.31272 1.3335 6.66634 1.3335H9.33301C9.68663 1.3335 10.0258 1.47397 10.2758 1.72402C10.5259 1.97407 10.6663 2.31321 10.6663 2.66683V4.00016" stroke="#D4183D" stroke-width="1.33333" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                          </span>
+                        </button>
+                      </div>
+                    </article>
+                `;
+                basketList.appendChild(li);
+            });
+
+            // Обновляем итоговую цену
+            totalPriceEl.textContent = `${formatPrice(total)} грн`;
+        }
+
+        // 3. Обработка удаления (Делегирование)
+        basketList.addEventListener('click', (event) => {
+            // Ищем кнопку удаления (или её внутренности)
+            const deleteBtn = event.target.closest('.basket-card__delete');
+            
+            if (deleteBtn) {
+                const index = deleteBtn.getAttribute('data-index');
+                
+                // Удаляем элемент из массива
+                cart.splice(index, 1);
+                
+                // Сохраняем новый массив в память
+                localStorage.setItem('shoppingCart', JSON.stringify(cart));
+                
+                // Перерисовываем корзину
+                renderBasket();
+            }
+        });
+
+        // Запускаем отрисовку при загрузке
+        renderBasket();
+
+      }); // --- Конец обработчика DOMContentLoaded ---
     </script>
   </body>
 </html>
