@@ -902,7 +902,8 @@
               </ul>
             </div>
             <button
-              class="product-card__button button-rect button-rect--accent"
+              class="product-card__button button-rect button-rect--accent catalog-card__button--add-to-cart"
+              data-product-id="sun-case-500w-50ah"
             >
               <span class="product-card__button-icon-wrapper content-size">
                 <svg
@@ -1341,6 +1342,62 @@
       </div>
     </dialog>
     <script>
+      // ===============================================
+      // --- БАЗА ДАННЫХ ТОВАРОВ ---
+      // ===============================================
+
+      const PRODUCTS_DATABASE = {
+        "sun-case-500w-50ah": {
+          id: "sun-case-500w-50ah",
+          name: "SUN CASE 500W 50Ач",
+          price: 12199,
+          image: "./images/catalog/500w-50ah.jpg",
+          characteristics: {
+            power: "500W",
+            capacity: "50 Ач"
+          }
+        },
+        "sun-case-1000w-50ah": {
+          id: "sun-case-1000w-50ah", 
+          name: "SUN CASE 1000W 50Ач",
+          price: 14599,
+          image: "./images/catalog/500w-50ah.jpg",
+          characteristics: {
+            power: "1000W",
+            capacity: "50 Ач"
+          }
+        },
+        "sun-case-1000w-100ah": {
+          id: "sun-case-1000w-100ah",
+          name: "SUN CASE 1000W 100Ач", 
+          price: 17499,
+          image: "./images/catalog/500w-50ah.jpg",
+          characteristics: {
+            power: "1000W",
+            capacity: "100 Ач"
+          }
+        },
+        "sun-case-1500w-100ah": {
+          id: "sun-case-1500w-100ah",
+          name: "SUN CASE 1500W 100Ач",
+          price: 18499, 
+          image: "./images/catalog/500w-50ah.jpg",
+          characteristics: {
+            power: "2000W",
+            capacity: "100 Ач"
+          }
+        },
+        "sun-case-2000w-100ah": {
+          id: "sun-case-2000w-100ah",
+          name: "SUN CASE 2000W 100Ач",
+          price: 19999,
+          image: "./images/catalog/500w-50ah.jpg", 
+          characteristics: {
+            power: "2000W",
+            capacity: "100 Ач"
+          }
+        }
+      };
       // Ждем, пока вся HTML-страница загрузится
 
       document.addEventListener("DOMContentLoaded", () => {
@@ -1541,6 +1598,67 @@
 
         // 4.7. Запускаем весь процесс
         loadTranslations();
+
+        // ===============================================
+        // --- 5. Добавление в корзину (УНИВЕРСАЛЬНАЯ ВЕРСИЯ) ---
+        // ===============================================
+ 
+           function initAddToCart() {
+           // Находим все кнопки "Заказать" (класс должен быть и там, и там)
+           const buyButtons = document.querySelectorAll('.catalog-card__button--add-to-cart');
+
+               buyButtons.forEach(btn => {
+               btn.addEventListener('click', function(e) {
+                  e.preventDefault(); // На всякий случай, чтобы не прыгало вверх
+                  
+                   // 1. ПЫТАЕМСЯ НАЙТИ ID ТОВАРА
+                  // Сценарий А: ID написан прямо на кнопке (Страница товара)
+                  let productId = this.getAttribute('data-product-id');
+
+                  // Сценарий Б: Если на кнопке ID нет, ищем у родителя (Главная страница/Каталог)
+                  if (!productId) {
+                      const card = this.closest('.catalog-card');
+                      if (card) {
+                          productId = card.getAttribute('data-product-id');
+                      }
+                  }
+ 
+                  // Если ID так и не нашли - ошибка
+                  if (!productId) {
+                      console.error("❌ Не удалось найти ID товара!");
+                      return;
+                  }
+
+                   // 2. Берем данные о товаре из базы
+                   const productData = PRODUCTS_DATABASE[productId];
+
+                   if (!productData) {
+                   console.error("❌ Товар с ID " + productId + " не найден в базе данных!");
+                   return;
+                 }
+
+                   // 3. Получаем текущую корзину
+                   let cart = JSON.parse(localStorage.getItem('shoppingCart')) || [];
+
+                   // 4. Формируем объект товара
+                   const cartItem = {
+                   ...productData,
+                   cartId: Date.now() 
+                 };
+
+                 cart.push(cartItem);
+
+                   // 5. Сохраняем
+                   localStorage.setItem('shoppingCart', JSON.stringify(cart));
+                   console.log(`🛒 Товар ${productData.name} добавлен.`);
+
+                   // 6. Редирект
+                   window.location.href = 'basket.html';
+              });
+          });
+        }
+        // Запускаем функцию
+        initAddToCart();
       }); // --- Конец обработчика DOMContentLoaded ---
     </script>
   </body>
