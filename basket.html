@@ -1496,6 +1496,7 @@
                   required
                 />
               </div>
+              <input type="text" name="honeypot" style="display:none !important" tabindex="-1" autocomplete="off">
               <div class="basket__form-field">
                 <label class="basket__form-field-label" for="comment" data-lang-key="translate_162">
                   Комментарий к заказу
@@ -2189,7 +2190,7 @@
             }
           });
         }
-        // 4.7. Запускаем весь процесс
+        // Запускаем весь процесс
         loadTranslations();
     
         // Контейнер для товаров
@@ -2197,7 +2198,7 @@
         // Контейнер для итоговой цены
         const totalPriceEl = document.querySelector('.basket__total-price__sum');
         
-        // 1. Загрузка корзины
+        // 5.1. Загрузка корзины
         let cart = JSON.parse(localStorage.getItem('shoppingCart')) || [];
 
         // Функция форматирования цены (делает пробелы: 12 199)
@@ -2205,7 +2206,7 @@
             return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
         };
 
-        // 2. Функция отрисовки товаров
+        // 5.2. Функция отрисовки товаров
         function renderBasket() {
             basketList.innerHTML = ''; // Очищаем текущий список
             let total = 0;
@@ -2290,7 +2291,7 @@
             totalPriceEl.textContent = `${formatPrice(total)} грн`;
         }
 
-        // 3. Обработка удаления (Делегирование)
+        // 5.3. Обработка удаления (Делегирование)
         basketList.addEventListener('click', (event) => {
             // Ищем кнопку удаления (или её внутренности)
             const deleteBtn = event.target.closest('.basket-card__delete');
@@ -2308,6 +2309,81 @@
                 renderBasket();
             }
         });
+
+        // ===============================================
+        // --- 6. ОТПРАВКА ФОРМЫ ЗАКАЗА ---
+        // ===============================================
+        
+        const orderForm = document.querySelector('.basket__form');
+        const submitButton = orderForm.querySelector('button[type="submit"]');
+
+        if (orderForm) {
+            orderForm.addEventListener('submit', async function(e) {
+                e.preventDefault(); // Останавливаем стандартную отправку формы
+
+                // 1. Собираем данные из полей
+                const formData = new FormData(orderForm);
+                const userData = {
+                    username: formData.get('username'),
+                    phone: formData.get('phone'),
+                    comment: formData.get('comment')
+                };
+                const honeypot = formData.get('honeypot'); // Для защиты от ботов
+
+                // 2. Проверяем, не пуста ли корзина
+                const currentCart = JSON.parse(localStorage.getItem('shoppingCart')) || [];
+                if (currentCart.length === 0) {
+                    alert("Ваша корзина пуста!");
+                    return;
+                }
+
+                // Визуализация загрузки (блокируем кнопку)
+                const originalBtnText = submitButton.innerHTML;
+                submitButton.disabled = true;
+                submitButton.innerHTML = "Отправка...";
+
+                try {
+                    // 3. Отправляем данные на НАШ Vercel Backend (а не в KeyCRM напрямую)
+                    const response = await fetch('/api/submit-order', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            userData: userData,
+                            cart: currentCart,
+                            honeypot: honeypot
+                        })
+                    });
+
+                    const result = await response.json();
+
+                    if (response.ok && result.success) {
+                        // 4. УСПЕХ!
+                        alert(`Спасибо, ${userData.username}! Ваш заказ успешно оформлен.`);
+                        
+                        // Очищаем корзину
+                        localStorage.removeItem('shoppingCart');
+                        
+                        // Перезагружаем страницу или редиректим на "Спасибо"
+                        // window.location.href = 'thank-you.html'; // Если есть такая страница
+                        window.location.reload(); 
+                    } else {
+                        // Ошибка от сервера
+                        alert('Произошла ошибка при отправке заказа. Пожалуйста, свяжитесь с нами по телефону.');
+                        console.error('Server Error:', result);
+                    }
+
+                } catch (error) {
+                    console.error('Network Error:', error);
+                    alert('Ошибка сети. Проверьте интернет соединение.');
+                } finally {
+                    // Возвращаем кнопку в исходное состояние
+                    submitButton.disabled = false;
+                    submitButton.innerHTML = originalBtnText;
+                }
+            });
+        }
 
         // Запускаем отрисовку при загрузке
         renderBasket();
