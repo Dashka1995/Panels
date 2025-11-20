@@ -863,21 +863,11 @@ body:has(dialog[open]) {
 }
 
 .video-player {
-  align-self: center;
   position: relative;
-  width: 448px;
-  height: 924px;
-}
-
-.video-player__iframe-cont {
-  border-radius: 40px;
-  overflow: hidden;
-  position: absolute;
-  top: 2%;
-  left: 20px;
-  width: 408px;
-  height: 884px;
-  z-index: 2;
+  max-width: 448px;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 448 / 924;
 }
 
 .video-player__bg {
@@ -887,38 +877,35 @@ body:has(dialog[open]) {
 }
 
 .video-player__bg-icon-wrapper {
-  display: block;
   width: 100%;
   height: 100%;
 }
 
 .video-player__bg-icon-wrapper svg {
+  display: block;
   width: 100%;
   height: 100%;
 }
 
-.video-player__iframe-cont iframe,
-.video-player__iframe-cont blockquote {
-  min-width: 100% !important;
-  height: 100% !important;
-  border: none;
-  transform: scale(1.13);
-  transform-origin: center center;
-}
-
-.video-player {
-  max-width: 448px;
-  max-height: 924px;
-  width: 100%;
-  height: auto;
-  aspect-ratio: 448 / 924;
-}
-
-.video-player__iframe-cont {
-  top: 2%;
+.video-player__video-cont {
+  position: absolute;
+  overflow: hidden;
+  position: absolute;
+  top: 6%;
   left: 4.46%;
   width: 91.07%;
-  height: 95.67%;
+  height: 88%;
+  z-index: 1000;
+  background-color: red; /* Временный фон для отладки */
+  border: 2px solid blue; /* Чтобы видеть границы */
+}
+
+.video-player__video {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  background-color: green; /* Если видео не загрузится */
 }
 
 .advantages,
