@@ -3,7 +3,19 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <meta
+      name="description"
+      content="Продажа мобильных гибридных солнечных электростанций для дома и бизнеса. Выгодные цены, гарантия."
+    />
+    <meta
+      name="keywords"
+      content="солнечные электростанции Украина, купить солнечную станцию для дома, готовые решения солнечных станций, гибридные электростанции, мобильные солнечные электростанции, Sun Case"
+    />
+    <meta name="geo.region" content="UA" />
+    <title>
+      Sun Case ⚡️ Мобильные гибридные солнечные станции в Украине | Цена от 12 199
+      грн
+    </title>
     <link rel="stylesheet" href="./styles/normalize.css" />
     <link rel="stylesheet" href="./styles/fonts.css" />
     <link rel="stylesheet" href="./styles/style.css" />
@@ -720,16 +732,20 @@
               </span>
               <div class="video-player__video-cont">
                 <video
-                  id="myVideo"                             class="video-player__video"
+                  id="myVideo"
+                  class="video-player__video"
                   playsinline=""
                   loading="lazy"
                   width="100%"
                   controls
-                  preload="metadata">
-                  <source type="video/mp4" src="./video/video-review.MP4"/>
+                  preload="metadata"
+                >
+                  <source type="video/mp4" src="./video/video-review.MP4" />
                   Ваш браузер не поддерживает формат видео
                 </video>
-                <div class="video-overlay"></div> <button class="play-button">▶️</button> </div>
+                <div class="video-overlay"></div>
+                <button class="play-button">▶️</button>
+              </div>
             </div>
           </div>
           <p
@@ -2860,59 +2876,60 @@
       };
       // Ждем, пока вся HTML-страница загрузится
 
-    document.addEventListener('DOMContentLoaded', () => {
-    const video = document.getElementById('myVideo');
-    const overlay = document.querySelector('.video-overlay');
-    const playButton = document.querySelector('.play-button');
-    
-    // Функция для создания постера
-    function generatePoster() {
-        const canvas = document.createElement('canvas');
-        canvas.width = video.videoWidth;
-        canvas.height = video.videoHeight;
-        
-        const ctx = canvas.getContext('2d');
-        ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
-        
-        const dataURL = canvas.toDataURL('image/jpeg', 0.8);
-        
-        // Устанавливаем кадр в качестве фонового изображения
-        overlay.style.backgroundImage = `url(${dataURL})`;
-        overlay.style.display = 'block'; 
-    }
+      document.addEventListener("DOMContentLoaded", () => {
+        const video = document.getElementById("myVideo");
+        const overlay = document.querySelector(".video-overlay");
+        const playButton = document.querySelector(".play-button");
 
-    // ⭐ НОВАЯ ФУНКЦИЯ: Запускает воспроизведение и скрывает превью
-    function startPlayback() {
-        overlay.style.display = 'none';      // 1. Скрываем оверлей (постер)
-        playButton.style.display = 'none';   // 2. Скрываем кнопку Play
-        video.controls = true;               // 3. ⭐ ДОБАВЛЯЕМ КОНТРОЛЫ HTML
-        video.play();                        // 4. Запускаем воспроизведение
-    }
+        // Функция для создания постера
+        function generatePoster() {
+          const canvas = document.createElement("canvas");
+          canvas.width = video.videoWidth;
+          canvas.height = video.videoHeight;
 
-    // --- Обработчики событий ---
+          const ctx = canvas.getContext("2d");
+          ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
 
-    // 1. Создание постера при загрузке метаданных
-    video.addEventListener('loadeddata', () => {
-        // Устанавливаем время на начало (0.001) для генерации постера
-        video.currentTime = 0.001; 
-        setTimeout(generatePoster, 100); 
-    });
-    
-    // 2. Клик по кнопке Play (самый очевидный способ)
-    playButton.addEventListener('click', startPlayback);
-    
-    // 3. Клик по самому оверлею (для удобства пользователя)
-    overlay.addEventListener('click', startPlayback);
+          const dataURL = canvas.toDataURL("image/jpeg", 0.8);
 
-    // 4. Логика принудительной загрузки
-    if (video.readyState < 1) { // readyState < 1 означает, что метаданные еще не загружены
-        video.load();
-    }
-    // Если метаданные уже загружены, генерируем постер сразу
-    else if (video.readyState >= 1) {
-        video.currentTime = 0.001;
-        setTimeout(generatePoster, 100);
-    }
+          // Устанавливаем кадр в качестве фонового изображения
+          overlay.style.backgroundImage = `url(${dataURL})`;
+          overlay.style.display = "block";
+        }
+
+        // ⭐ НОВАЯ ФУНКЦИЯ: Запускает воспроизведение и скрывает превью
+        function startPlayback() {
+          overlay.style.display = "none"; // 1. Скрываем оверлей (постер)
+          playButton.style.display = "none"; // 2. Скрываем кнопку Play
+          video.controls = true; // 3. ⭐ ДОБАВЛЯЕМ КОНТРОЛЫ HTML
+          video.play(); // 4. Запускаем воспроизведение
+        }
+
+        // --- Обработчики событий ---
+
+        // 1. Создание постера при загрузке метаданных
+        video.addEventListener("loadeddata", () => {
+          // Устанавливаем время на начало (0.001) для генерации постера
+          video.currentTime = 0.001;
+          setTimeout(generatePoster, 100);
+        });
+
+        // 2. Клик по кнопке Play (самый очевидный способ)
+        playButton.addEventListener("click", startPlayback);
+
+        // 3. Клик по самому оверлею (для удобства пользователя)
+        overlay.addEventListener("click", startPlayback);
+
+        // 4. Логика принудительной загрузки
+        if (video.readyState < 1) {
+          // readyState < 1 означает, что метаданные еще не загружены
+          video.load();
+        }
+        // Если метаданные уже загружены, генерируем постер сразу
+        else if (video.readyState >= 1) {
+          video.currentTime = 0.001;
+          setTimeout(generatePoster, 100);
+        }
         // ===============================================
 
         // --- 1. ВАШ КОД: Скрытие хедера при скролле ---
