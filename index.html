@@ -720,26 +720,16 @@
               </span>
               <div class="video-player__video-cont">
                 <video
-                  class="video-player__video"
-                  autoplay muted playsinline
-                >
-                  <source type="video/mp4" src="./video/video-review.MP4" />
+                  id="myVideo"                             class="video-player__video"
+                  playsinline=""
+                  loading="lazy"
+                  width="100%"
+                  controls
+                  preload="metadata">
+                  <source type="video/mp4" src="./video/video-review.MP4"/>
                   Ваш браузер не поддерживает формат видео
                 </video>
-              </div>
-              <!-- <div class="video-player__video-cont">
-                <video
-                  class="video-player__video"
-                  playsinline=""
-                  preload="auto"
-                  autoplay=""
-                  muted=""
-                  loop=""
-                >
-                  <source type="video/mp4" src="./video/video-review.MP4" />
-                </video>
-                <script async src="https://www.tiktok.com/embed.js"></script>
-              </div> -->
+                <div class="video-overlay"></div> <button class="play-button">▶️</button> </div>
             </div>
           </div>
           <p
@@ -773,6 +763,7 @@
             <span
               class="section__title-text section__text--s section__text--margin-block"
               data-lang-key="translate_11"
+              title="blank"
             >
               Смотрите больше видео
             </span>
@@ -2869,7 +2860,59 @@
       };
       // Ждем, пока вся HTML-страница загрузится
 
-      document.addEventListener("DOMContentLoaded", () => {
+    document.addEventListener('DOMContentLoaded', () => {
+    const video = document.getElementById('myVideo');
+    const overlay = document.querySelector('.video-overlay');
+    const playButton = document.querySelector('.play-button');
+    
+    // Функция для создания постера
+    function generatePoster() {
+        const canvas = document.createElement('canvas');
+        canvas.width = video.videoWidth;
+        canvas.height = video.videoHeight;
+        
+        const ctx = canvas.getContext('2d');
+        ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+        
+        const dataURL = canvas.toDataURL('image/jpeg', 0.8);
+        
+        // Устанавливаем кадр в качестве фонового изображения
+        overlay.style.backgroundImage = `url(${dataURL})`;
+        overlay.style.display = 'block'; 
+    }
+
+    // ⭐ НОВАЯ ФУНКЦИЯ: Запускает воспроизведение и скрывает превью
+    function startPlayback() {
+        overlay.style.display = 'none';      // 1. Скрываем оверлей (постер)
+        playButton.style.display = 'none';   // 2. Скрываем кнопку Play
+        video.controls = true;               // 3. ⭐ ДОБАВЛЯЕМ КОНТРОЛЫ HTML
+        video.play();                        // 4. Запускаем воспроизведение
+    }
+
+    // --- Обработчики событий ---
+
+    // 1. Создание постера при загрузке метаданных
+    video.addEventListener('loadeddata', () => {
+        // Устанавливаем время на начало (0.001) для генерации постера
+        video.currentTime = 0.001; 
+        setTimeout(generatePoster, 100); 
+    });
+    
+    // 2. Клик по кнопке Play (самый очевидный способ)
+    playButton.addEventListener('click', startPlayback);
+    
+    // 3. Клик по самому оверлею (для удобства пользователя)
+    overlay.addEventListener('click', startPlayback);
+
+    // 4. Логика принудительной загрузки
+    if (video.readyState < 1) { // readyState < 1 означает, что метаданные еще не загружены
+        video.load();
+    }
+    // Если метаданные уже загружены, генерируем постер сразу
+    else if (video.readyState >= 1) {
+        video.currentTime = 0.001;
+        setTimeout(generatePoster, 100);
+    }
         // ===============================================
 
         // --- 1. ВАШ КОД: Скрытие хедера при скролле ---

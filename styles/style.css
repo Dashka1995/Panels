@@ -895,9 +895,8 @@ body:has(dialog[open]) {
   left: 4.46%;
   width: 91.07%;
   height: 88%;
-  z-index: 1000;
-  background-color: red; /* Временный фон для отладки */
-  border: 2px solid blue; /* Чтобы видеть границы */
+  z-index: 2;
+  background-color: var(--color-black);
 }
 
 .video-player__video {
@@ -905,7 +904,6 @@ body:has(dialog[open]) {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  background-color: green; /* Если видео не загрузится */
 }
 
 .advantages,
