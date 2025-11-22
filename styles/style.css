@@ -2062,6 +2062,31 @@ body:has(dialog[open]) {
   letter-spacing: -0.009375em;
 }
 
+.basket__select-item {
+  padding: 0; 
+  margin: 0;
+  width: 100%;
+}
+
+/* Растягиваем кнопку */
+.basket__select-product-button {
+  width: 100%;          /* Занять всю ширину */
+  display: flex;        /* Используем flex для выравнивания */
+  align-items: center;  /* Центрируем текст по вертикали */
+  justify-content: flex-start; /* Текст слева */
+  text-align: left;     /* На случай если текст переносится */
+  padding: 10px 15px;   /* Переносим внутренние отступы СЮДА из li */
+  border: none;         /* Убираем стандартные рамки */
+  background: transparent; /* Прозрачный фон */
+  cursor: pointer;      /* Курсор-рука */
+  box-sizing: border-box; /* Чтобы padding не увеличивал ширину больше 100% */
+}
+
+/* Опционально: подсветка при наведении на всю строку */
+.basket__select-product-button:hover {
+  background-color: #f5f5f5; /* Светло-серый фон при наведении */
+}
+
 .basket__form-cont {
   flex-direction: column;
   justify-content: flex-start;

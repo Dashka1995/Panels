@@ -560,7 +560,7 @@
                     Добавить
                   </button>
                   <button
-                    class="basket__top-button basket__top-button--without-border flex-center"
+                  class="basket__top-button basket__top-button--without-border flex-center basket__top-button--clear-all"
                     type="button"
                     data-lang-key="translate_176"
                   >
@@ -611,6 +611,7 @@
                     </span>
                     Очистить
                   </button>
+
                 </span>
                 <div class="basket__select-cont visually-hidden">
                   <div class="basket__select-description flex-center">
@@ -675,31 +676,14 @@
                       Выберите товар для добавления:
                     </span>
                   </div>
+
                   <div class="basket__select-horizontal-cont content-size">
                     <details class="basket__select-details">
                       <summary
                         class="hidden-summary-arrow basket__select-choice flex-center"
                       >
-                        <!-- <span
-                          class="basket__select-placeholder"
-                          data-lang-key="translate_168"
-                        >
-                          Выберите солнечную станцию
-                        </span> -->
-                        <!-- <div class="basket__selected-product">
-                              SUN CASE 500W 50Ач - 12 199 ₴
-                            </div>        -->
-                        <!-- <div class="basket__selected-product">
-                              SUN CASE 1000W 50Ач - 14 599 ₴
-                            </div>        -->
-                        <!-- <div class="basket__selected-product">
-                              SUN CASE 1000W 100Ач - 17 499 ₴
-                            </div>        -->
-                        <!-- <div class="basket__selected-product">
-                              SUN CASE 1500W 100Ач - 18 499 ₴
-                            </div>        -->
                         <div class="basket__selected-product">
-                          SUN CASE 2000W 100Ач - 19 999 ₴
+                          ---
                         </div>
                         <span
                           class="basket__select-choice-icon-wrapper content-size"
@@ -728,9 +712,10 @@
                           <button
                             type="button"
                             class="basket__select-product-button"
-                            data-id="1"
+                            
                             data-name="SUNCASE-500W-50ah"
                             data-price="12199"
+                            data-product-id="sun-case-500w-50ah"
                           >
                             <div class="basket__select-product-name">
                               SUN CASE 500W 50Ач - 12 199 ₴
@@ -741,9 +726,10 @@
                           <button
                             type="button"
                             class="basket__select-product-button"
-                            data-id="2"
+                            
                             data-name="SUNCASE-1000W-50ah"
                             data-price="14599"
+                            data-product-id="sun-case-1000w-50ah"
                           >
                             <div class="basket__select-product-name">
                               SUN CASE 1000W 50Ач - 14599 ₴
@@ -754,9 +740,10 @@
                           <button
                             type="button"
                             class="basket__select-product-button"
-                            data-id="3"
+                            
                             data-name="SUNCASE-1000W-100ah"
                             data-price="17499"
+                            data-product-id="sun-case-1000w-100ah"
                           >
                             <div class="basket__select-product-name">
                               SUN CASE 1000W 100Ач - 17499 ₴
@@ -767,9 +754,10 @@
                           <button
                             type="button"
                             class="basket__select-product-button"
-                            data-id="4"
+                            
                             data-name="SUNCASE-1500W-100ah"
                             data-price="18499"
+                            data-product-id="sun-case-1500w-100ah"
                           >
                             <div class="basket__select-product-name">
                               SUN CASE 1500W 100Ач - 18 499 ₴
@@ -783,6 +771,7 @@
                             data-id="5"
                             data-name="SUNCASE-2000W-100ah"
                             data-price="19999"
+                            data-product-id="sun-case-2000w-100ah"
                           >
                             <div class="basket__select-product-name">
                               SUN CASE 2000W 100Ач - 19 999 ₴
@@ -792,6 +781,7 @@
                       </ul>
                     </details>
                   </div>
+
                 </div>
               </div>
               <ul class="basket__card-list">
@@ -885,7 +875,7 @@
                       <div class="basket-card__buttons flex-center">
                         <div class="basket-card__quantity-buttons flex-center">
                           <button
-                            class="basket-card__quantity-button"
+                            class="basket-card__quantity-button basket-card__quantity-button--substract"
                             type="button"
                           >
                             <span
@@ -908,9 +898,9 @@
                               </svg>
                             </span>
                           </button>
-                          <span class="basket-card__quantity-number">2</span>
+                          <span class="basket-card__quantity-number">1</span>
                           <button
-                            class="basket-card__quantity-button"
+                            class="basket-card__quantity-button basket-card__quantity-button--add"
                             type="button"
                           >
                             <span
@@ -1641,8 +1631,62 @@
       </div>
     </dialog>
     <script>
-      // Ждем, пока вся HTML-страница загрузится
+      // ===============================================
+      // --- БАЗА ДАННЫХ ТОВАРОВ ---
+      // ===============================================
 
+      const PRODUCTS_DATABASE = {
+        "sun-case-500w-50ah": {
+          id: "sun-case-500w-50ah",
+          name: "SUN CASE 500W 50Ач",
+          price: 12199,
+          image: "./images/catalog/500w-50ah.jpg",
+          characteristics: {
+            power: "500W",
+            capacity: "50 Ач",
+          },
+        },
+        "sun-case-1000w-50ah": {
+          id: "sun-case-1000w-50ah",
+          name: "SUN CASE 1000W 50Ач",
+          price: 14599,
+          image: "./images/catalog/500w-50ah.jpg",
+          characteristics: {
+            power: "1000W",
+            capacity: "50 Ач",
+          },
+        },
+        "sun-case-1000w-100ah": {
+          id: "sun-case-1000w-100ah",
+          name: "SUN CASE 1000W 100Ач",
+          price: 17499,
+          image: "./images/catalog/500w-50ah.jpg",
+          characteristics: {
+            power: "1000W",
+            capacity: "100 Ач",
+          },
+        },
+        "sun-case-1500w-100ah": {
+          id: "sun-case-1500w-100ah",
+          name: "SUN CASE 1500W 100Ач",
+          price: 18499,
+          image: "./images/catalog/500w-50ah.jpg",
+          characteristics: {
+            power: "2000W",
+            capacity: "100 Ач",
+          },
+        },
+        "sun-case-2000w-100ah": {
+          id: "sun-case-2000w-100ah",
+          name: "SUN CASE 2000W 100Ач",
+          price: 19999,
+          image: "./images/catalog/500w-50ah.jpg",
+          characteristics: {
+            power: "2000W",
+            capacity: "100 Ач",
+          },
+        },
+      };
       document.addEventListener("DOMContentLoaded", () => {
         // ===============================================
 
@@ -1737,7 +1781,6 @@
         // 4.1. Загрузка переводов
         async function loadTranslations() {
           try {
-            console.log("🔄 Начинаем загрузку переводов...");
             const response = await fetch("translations.json");
             if (!response.ok)
               throw new Error(`Ошибка загрузки: ${response.status}`);
@@ -1755,7 +1798,6 @@
           const allSummaries = document.querySelectorAll(
             ".header__lang-summary"
           );
-          console.log(`🔍 Найдено summary-кнопок: ${allSummaries.length}`);
 
           // Скрываем все summary-кнопки
           allSummaries.forEach((summary) => {
@@ -1831,33 +1873,28 @@
               .classList.add("header__lang-links-item--active");
           });
 
-          console.log(
-            `✅ Активированы кнопки языка в списках: ${lang} (${activeLinks.length} шт.)`
-          );
         }
 
         // 4.6. Инициализация логики
         function initializeLanguageLogic() {
-          console.log("🔧 Инициализация логики перевода...");
 
           const langButtons = document.querySelectorAll(
             ".header__lang-link[data-lang]"
           );
-          console.log(`🔍 Найдено кнопок перевода: ${langButtons.length}`);
-
+         
           // Вешаем обработчики на кнопки
           langButtons.forEach((button) => {
             button.addEventListener("click", (event) => {
               event.preventDefault();
               const lang = button.getAttribute("data-lang");
-              console.log(`🖱️ Клик по кнопке языка: ${lang}`);
+            
               setLanguage(lang);
             });
           });
 
           // Устанавливаем начальный язык
           const savedLang = localStorage.getItem("language") || "ru";
-          console.log(`📖 Сохраненный язык: ${savedLang}`);
+          
           setLanguage(savedLang);
         }
         // 5. Логика корзины - ИСПРАВЛЕННЫЙ КОД
@@ -1909,6 +1946,9 @@
 
           cart.forEach((item, index) => {
             // Суммируем цену (умножаем на количество)
+            if (!item.quantity) item.quantity = 1;
+
+            // Считаем общую сумму
             total += item.price * item.quantity;
 
             // Создаем HTML товара
@@ -2177,6 +2217,89 @@
             // Перерисовываем корзину
             renderBasket();
           }
+        });
+
+        // ===============================================
+        // --- 5.4. ОЧИСТКА ВСЕЙ КОРЗИНЫ ---
+        // ===============================================
+
+        const clearAllButton = document.querySelector(
+          ".basket__top-button--clear-all"
+        );
+
+        if (clearAllButton) {
+          clearAllButton.addEventListener("click", () => {
+            // Спрашиваем подтверждение у пользователя
+            const confirmed = confirm(
+              "Вы уверены, что хотите удалить все товары из корзины?"
+            );
+
+            if (confirmed) {
+              // 1. Очищаем массив cart (делаем его пустым)
+              cart = [];
+
+              // 2. Удаляем запись из локального хранилища
+              localStorage.removeItem("shoppingCart");
+
+              // 3. Перерисовываем корзину
+              renderBasket();
+            }
+          });
+        }
+
+        // ===============================================
+        // --- 5.5. ДОБАВЛЕНИЕ ИЗ СПИСКА ---
+        // ===============================================
+        
+        // Находим все кнопки товаров внутри выпадающего списка
+        const addFromListButtons = document.querySelectorAll(".basket__select-product-button");
+        // Находим сам элемент details, чтобы закрывать его
+        const detailsElement = document.querySelector(".basket__select-details");
+
+        addFromListButtons.forEach(button => {
+            button.addEventListener("click", (e) => {
+                // 1. Предотвращаем странное поведение браузера
+                e.preventDefault();
+                e.stopPropagation(); // Чтобы клик не "улетел" на document и не закрыл меню раньше времени
+
+                // 2. Получаем ID товара (убедись, что в HTML data-product-id совпадает с ключом в PRODUCTS_DATABASE)
+                const productId = button.getAttribute("data-product-id");
+                
+                // 3. Ищем товар в базе
+                const productInfo = PRODUCTS_DATABASE[productId];
+
+                if (!productInfo) {
+                    console.error(`Товар с ID "${productId}" не найден в базе данных! Проверьте data-product-id в HTML.`);
+                    return;
+                }
+
+                // 4. Логика добавления в массив корзины
+                const existingItem = cart.find(item => item.id === productInfo.id);
+
+                if (existingItem) {
+                    // Если товар уже есть, увеличиваем количество
+                    existingItem.quantity += 1;
+                } else {
+                    // Если нет, создаем новый (клонируем, чтобы не менять базу)
+                    const newItem = JSON.parse(JSON.stringify(productInfo));
+                    newItem.quantity = 1; 
+                    cart.push(newItem);
+                }
+
+                // 5. Сохраняем и перерисовываем
+                localStorage.setItem("shoppingCart", JSON.stringify(cart));
+                renderBasket();
+
+                // 6. ЗАКРЫТИЕ СПИСКА (Решение проблемы незакрытия)
+                // Закрываем стандартный тег details
+                if (detailsElement) {
+                    detailsElement.removeAttribute("open");
+                }
+                // На всякий случай скрываем контейнер (твоя старая логика)
+                if (basketSelect) {
+                    basketSelect.classList.add("visually-hidden");
+                }
+            });
         });
 
         // ===============================================

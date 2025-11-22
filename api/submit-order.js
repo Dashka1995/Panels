@@ -33,7 +33,7 @@ export default async function handler(req, res) {
     const productsForKeyCRM = cart.map(item => ({
       sku: item.id,            // Артикул (наш id товара)
       price: item.price,       // Цена
-      quantity: 1,             // Количество (у нас пока всегда 1)
+      quantity: item.quantity,             // Количество
       name: item.name,         // Название
       picture: item.image,     // Ссылка на картинку
       unit_type: "шт"          // Единица измерения
